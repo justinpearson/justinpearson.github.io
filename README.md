@@ -1,2 +1,2 @@
 # justinpearson.github.io
-Personal website
+Personal website - Moved to [justinppearson.com](justinppearson.com)!
