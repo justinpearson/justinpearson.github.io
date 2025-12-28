@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  Shortest-path grocery shopping
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="font-size: Floor[150. Inherited]%;">
+
+<p class="Title">
+ Shortest-path grocery shopping
+</p>
+
+
+
+<p class="Text">
+ What&rsquo;s the shortest path thru the grocery store to get my items?
+</p>
+
+
+
+<p class="Text">
+ Justin Pearson<br />Apr 19, 2020
+</p>
+
+
+
+<p class="CellLabel">
+ In[1]:=
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="399" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Title">
+ Summary
+</p>
+
+
+
+<p class="Text">
+ Given an image of the store&rsquo;s aisles, we mesh it and generate a graph from the mesh. Then we use various shortest-path algorithms on the graph to find the shortest tour that visits all the items.<br /><br />We are careful to build a graph whose edge-weights equal the euclidean distance between adjacent vertices, so that that shortest-path is shortest with respect to actual space, not just &ldquo;number of hops on the graph&rdquo;.
+</p>
+
+
+
+<p class="CellLabel">
+ In[3]:=
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="389" height="344" style="vertical-align:middle" />
+</p>
+
+<p class="CellLabel">
+ In[4]:=
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="177" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="540" height="541" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Triangularize the mesh. Pick a small &ldquo;max cell size&rdquo; to get small triangles.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="742" height="120" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="606" height="707" style="vertical-align:middle;" usemap="#map_6" />
+<map name="map_6">
+<area shape="rect" coords="579,33,597,15" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="491" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="540" height="541" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Convert the triangularized-mesh to a graph, using the degree-0 elements of the mesh -- the mesh points -- as vertices. (Degree-1 is the triangle edges, degree-2 is the triangles themselves.)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="349" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="540" height="541" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ A slick UI for showing shortest-paths between any two vertices.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="550" height="492" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="676" height="701" style="vertical-align:middle;" usemap="#map_12" />
+<map name="map_12">
+<area shape="rect" coords="649,33,667,15" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ We extend this idea to build a shortest-path thru the store that visits all your items:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="625" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="1871" height="1068" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ - This is a real map of my local Albertsons grocery store.<br />- The thin pink line is the shortest tour, ignoring occlusions like the (black) aisles.<br />- The colored paths visit the items in the order of the shortest tour. <br />- To find the shortest tour thru the items along the triangulated mesh, I first found the shortest pairwise distance between every pair of items on the triangulated-mesh graph. Then I made a new complete graph with only 40 vertices -- the items -- whose edge weights were the pairwise distances. Then I asked MMA to find the shortest tour of those 40 vertices. (It would have been simpler to ask MMA to find the shortest path on the triangulated-mesh graph from vertex 1 to vertex 40 that visits all 40 vertices, but I didn&rsquo;t know how to do that.)
+</p>
+
+
+
+<p class="Title">
+ Build graph of the grocery store
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="705" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="1684" height="947" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="1024" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="1050" height="591" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="223" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="540" height="313" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="585" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="1871" height="1083" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="489" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="331" height="66" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="431" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="1871" height="1083" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Get the graph vertices. <br />Notice that the vertices are not integers, but rather of the form {0,3}. Read this as &ldquo;Point number 3&rdquo;. (Because vertices correspond to points on the mesh, not lines or faces, and points are &ldquo;degree 0&rdquo;.)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="341" height="89" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="62" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="1106" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="318" height="89" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="62" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="1172" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here are the euclidean coordinates of each vertex.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="411" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="682" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Map vertices to their coordinates.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="647" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="1521" height="140" style="vertical-align:middle;" usemap="#map_36" />
+<map name="map_36">
+<area shape="rect" coords="19,133,104,119" title="Dynamic[FEPrivate`FrontEndResource[FEStrings, sizeExplanation]]" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ Build a new graph with the same vertices and edges, but whose edges are weighted by the euclidean distance between the vertices.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="818" height="244" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="172" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The weighted graph has edges that are weighted by the euclidean distance between the vertices.<br />This is important for distance-finding. Here are two adjacent vertices:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="327" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="227" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ In the raw mesh graph, they are only a distance &ldquo;1&rdquo; apart:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="365" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_42.gif" alt="index_42.gif" width="12" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ In the weighted graph, their graph distance is the euclidean distance:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="459" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_44.gif" alt="index_44.gif" width="70" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="204" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="388" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="244" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="70" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Title">
+ Shopping trip
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="589" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="920" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="941" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="286" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="23" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_54.gif" alt="index_54.gif" width="1351" height="182" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_55.gif" alt="index_55.gif" width="997" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_56.gif" alt="index_56.gif" width="1547" height="244" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_57.gif" alt="index_57.gif" width="828" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_58.gif" alt="index_58.gif" width="247" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_59.gif" alt="index_59.gif" width="137" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_60.gif" alt="index_60.gif" width="212" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_61.gif" alt="index_61.gif" width="149" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_62.gif" alt="index_62.gif" width="259" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_63.gif" alt="index_63.gif" width="137" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_64.gif" alt="index_64.gif" width="382" height="306" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_65.gif" alt="index_65.gif" width="427" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_66.gif" alt="index_66.gif" width="1871" height="1052" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_67.gif" alt="index_67.gif" width="431" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_68.gif" alt="index_68.gif" width="1506" height="213" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_69.gif" alt="index_69.gif" width="796" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_70.gif" alt="index_70.gif" width="1326" height="182" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Example
+</p>
+
+
+
+<p class="Text">
+ Find a path from the first item (&ldquo;entrance&rdquo;)to the last item (&ldquo;exit&rdquo;):
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_71.gif" alt="index_71.gif" width="243" height="151" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_72.gif" alt="index_72.gif" width="1457" height="120" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_73.gif" alt="index_73.gif" width="680" height="151" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_74.gif" alt="index_74.gif" width="356" height="120" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_75.gif" alt="index_75.gif" width="1871" height="1083" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Find best order to visit the items
+</p>
+
+
+
+<p class="Text">
+ Idea: make a NEW graph, (a complete graph): vertices are the items, edges are weighted by shortest-dist from the mesh graph.<br />Then find a tour of this new graph, and map it back to the mesh graph.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_76.gif" alt="index_76.gif" width="1114" height="89" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_77.gif" alt="index_77.gif" width="172" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_78.gif" alt="index_78.gif" width="539" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here&rsquo;s the shortest path thru all the items:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_79.gif" alt="index_79.gif" width="741" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_80.gif" alt="index_80.gif" width="1363" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_81.gif" alt="index_81.gif" width="211" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_82.gif" alt="index_82.gif" width="1468" height="213" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ This should be the same distance as traversing associated vertices on the weighted mesh graph:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_83.gif" alt="index_83.gif" width="485" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_84.gif" alt="index_84.gif" width="82" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_85.gif" alt="index_85.gif" width="907" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_86.gif" alt="index_86.gif" width="82" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_87.gif" alt="index_87.gif" width="432" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_88.gif" alt="index_88.gif" width="82" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_89.gif" alt="index_89.gif" width="854" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_90.gif" alt="index_90.gif" width="82" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here&rsquo;s the shortest path thru the items, if you get to move through the walls:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_91.gif" alt="index_91.gif" width="1174" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_92.gif" alt="index_92.gif" width="1363" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ However, if you account for the boundaries, then visiting the items in that order is longer than the shortest path:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_93.gif" alt="index_93.gif" width="854" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_94.gif" alt="index_94.gif" width="82" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ (The optimal one is less:)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_95.gif" alt="index_95.gif" width="35" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_96.gif" alt="index_96.gif" width="82" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Show the optimal path thru the items:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_97.gif" alt="index_97.gif" width="1315" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_98.gif" alt="index_98.gif" width="1045" height="89" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_99.gif" alt="index_99.gif" width="982" height="120" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_100.gif" alt="index_100.gif" width="713" height="182" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_101.gif" alt="index_101.gif" width="1871" height="1066" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_102.gif" alt="index_102.gif" width="513" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_103.gif" alt="index_103.gif" width="1871" height="1116" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_104.gif" alt="index_104.gif" width="533" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_105.gif" alt="index_105.gif" width="164" height="26" style="vertical-align:middle" />
+</p>
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

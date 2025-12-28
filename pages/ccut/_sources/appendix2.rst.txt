@@ -1,0 +1,40 @@
+
+A2: TA Video Consultation
+===================================
+.. _taconsultation:
+
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+
+.. image:: Appendix/banner.jpg
+
+
+.. raw: latex
+
+    \newpage
+
+    
+
+.. image:: Appendix/TA-consultation-Kim-DeBacco-Pearson_J_2014_pg1.jpg
+    :height: 9in
+
+
+
+.. raw: latex
+
+    \newpage
+
+    
+
+.. image:: Appendix/TA-consultation-Kim-DeBacco-Pearson_J_2014_pg2.jpg
+    :height: 9in
+

@@ -1,0 +1,198 @@
+
+
+Technology in Teaching
+============================================================
+
+.. _bloompic:
+
+.. figure:: 6-Requirement-3-ED253D-educational-class/blooms_new.png
+    :align: center
+
+    *Bloom's Taxonomy of Educational Objectives*
+
+
+.. raw:: latex
+
+	\newpage
+
+
+Executive Summary
+----------------------
+
+In Spring 2014 I took the course ED 253D: *Blended Learning*, taught by UCSB Instructional Developer Kim DeBacco. The course explored how to blend online learning technologies with traditional learning techniques. The main deliverable for the course was the design of my own blended course. I prepared a "flipped" course, teaching the foundations of mathematics and logic: I wrote the syllabus, outlined the course's topics, made a class website, wrote online quizzes and sample blog posts, and recorded the first few video lectures. ED 253D was extremely valuable to my future career in education because it taught me relevant pedagogical theories and provided a framework for me to practice them. In terms of my teaching philosophy, ED 253D equipped me to provide a well-structured learning path for my future students.
+
+
+
+
+
+My online course: "Skills for Thinking Technically"
+----------------------------------------------------
+
+
+For my ED 253D project, I designed a flipped
+course in foundational notation in mathematics, logic, and
+technical writing. I was motivated by my observation that engineering students often struggle with new concepts due to a poor grasp of underlying mathematical objects and notation. 
+
+This project helped me grow as an educator because it allowed me to practice several pedagogical theories and technologies. Here are some highlights of the course:
+
+
+
+
+Learning Outcomes
+^^^^^^^^^^^^^^^^^^
+
+In ED 253D we learned that a vital first step when designing a lesson or course is to identify  your desired learning outcomes for your students, e.g., "By the end of this course, my students will be able to ...". Good learning outcomes are specific and testable. Writing good learning outcomes helped me structure my ED 253D project, and it helped me organize my lessons in subsequent courses.
+
+Here are some examples of my course's learning outcomes:
+
+
+* Dissect an argument using formal logic
+
+* Recognize common logical fallacies
+
+* Manipulate common mathematical objects and notation
+
+* Recognize abuse of mathematical notation in technical writing and infer its meaning 
+
+
+
+
+"Flipped" Classroom: Synchronous and Asynchronous Activities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+With Learning Outcomes in place, I next had to decide what learning activities would support them. Moreover, each learning activity (lecture, homework, project, quiz, discussion section, etc) has its own advantages in the context of a flipped classroom. I found it very useful to classify a learning activity by two criteria: 
+
+#. *Is it synchronous or asynchronous?* Are the student and the instructor synchronized in time? (Practically speaking, synchronous means the student can ask questions of the instructor in real-time.)
+
+#. *Is it face-to-face or distant?* Are the student and the instructor co-located?
+
+
+For example, the traditional "broadcast-style" lecture would be a synchronous, face-to-face interaction, whereas a homework assignment or a pre-recorded video lecture would be asynchronous and distant. 
+
+These categories capture the trade-offs inherent in various learning activities. For example, asynchronous activities give students freedom to access the activity at will, but do not give them the opportunity to ask questions. Face-to-face interaction helps students stay focused, but requires the students and instructor both be physically present. These two dichotomies helped me weigh the relative strengths of these categories.
+
+
+
+
+.. raw:: latex
+
+    \newpage
+
+
+Learner Pathway
+^^^^^^^^^^^^^^^^^
+
+After classifying several candidate learning activities as *synchronous* vs. *asynchronous* and *face-to-face* vs. *distant*, I decided on the ones I wanted in my class. I then designed a "Learner Pathway" that describes how my students navigate through my course:
+
+
+.. only:: latex
+
+    .. image:: 6-Requirement-3-ED253D-educational-class/learner_pathway_v3.pdf
+    	:height: 6in
+    	:align: center
+
+    .. centered:: 
+    	*The "Learner Pathway" outlines how students navigate my class.*
+
+.. only:: html
+
+    .. figure:: 6-Requirement-3-ED253D-educational-class/learner_pathway_v3.jpg
+        :height: 6in
+        :align: center
+
+        *The "Learner Pathway" outlines how students navigate my class.*
+
+
+This offered me the opportunity to practice the pedagogical techniques we learned in ED 253D. 
+For example, note the red labels on the activities above. These labels indicate which steps of *Bloom's Taxonomy of Educational Objectives* :ref:`(Appendix 7) <bloomstaxonomy>` are satisfied by the activity. For example, "Video Lectures" is labeled (1) because the first level of learning in Bloom's Taxonomy is "introduce the new knowledge," and it is through the video lectures that students are introduced to the new material. The short conceptual quizzes interspersed with the video are labeled (2,3) because they help the students understand the concepts (Bloom level 2) and apply the concepts to solve simple problems (Bloom level 3). 
+
+I found Bloom's Taxonomy to be a very useful tool for structuring how students' learning develops through my course.
+
+
+
+
+.. raw:: latex
+
+    \newpage
+
+
+GauchoSpace course management system
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Guest lecturers in ED 253D warned us that students sometimes find online courses nebulous because there is no instructor to remind them what they should be doing and when they should do it. Therefore it was vital for the online portion of my flipped class to present information clearly and concisely. 
+
+I decided to use the GauchoSpace course management system (CMS) to host the online portion of my class. GauchoSpace is widely used at UCSB, and is the UCSB-tailored version of the popular Moodle CMS. Learning GauchoSpace wasn't difficult, and it was an important step for me to become a better educator.
+
+Here is a screenshot of my course's home page on GauchoSpace, including posting the syllabus and an online quiz:
+
+| 
+
+.. figure:: 6-Requirement-3-ED253D-educational-class/gauchospace.png
+	:width: 6.5in
+	:align: center
+
+	*The GauchoSpace online website for my course.*	
+
+
+
+.. raw:: latex
+
+    \newpage
+
+
+Online video lectures
+^^^^^^^^^^^^^^^^^^^^^^
+
+Using GauchoCast (a UCSB-tailored version of the Panopto screen-recording software), I recorded two lectures for the "flipped" component of the course. I enjoyed learning about GauchoCast and exploring what technologies are available for online learning.
+
+|
+
+.. figure:: 6-Requirement-3-ED253D-educational-class/gauchocast1.png
+	:width: 6.5in
+	:align: center
+
+	*The first video lecture from my course "Skills for Thinking Technically".*
+
+|
+
+
+
+
+
+.. raw:: latex
+
+    \newpage
+
+
+
+Example blog post
+^^^^^^^^^^^^^^^^^^^^
+
+Practicing good mathematical and logical notation was an important component of my course. For this reason, my hypothetical students write weekly blog posts that explain mathematical or logical concepts, and they provide feedback to each other. To test the viability of this part of the course, I made an example blog post using the Weebly blogging platform. As with GauchoSpace and GauchoCast, I found it very useful to learn Weebly and expand my toolkit of pedagogical technologies.
+
+| 
+
+.. figure:: 6-Requirement-3-ED253D-educational-class/weebly.png
+	:width: 6in
+	:align: center
+
+	*An example of the weekly blog posts my hypothetical students would write.*
+
+
+
+
+
+.. raw:: latex
+
+    \newpage
+
+
+
+Conclusion
+------------
+
+ED 253D provided me with pedagogical theory, tried-and-true teaching tools from real UCSB professors, and the opportunity to practice these theories and tools by designing my own course. For example, Bloom's Taxonomy of Learning guided the structure to my course's Learning Pathway. My course's Learning Outcomes governed appropriate learning activities. And exploring pedagogical tools like GauchoSpace, GauchoCast, and Weebly vastly expanded the types of learning activities I could create. All these experiences support the educational theme that *an instructor must provide a purpose and a path to the student*. 
+
+
+
+

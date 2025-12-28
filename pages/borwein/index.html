@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  borwein-integrals
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="font-size: Floor[150. Inherited]%;">
+
+<p class="Title">
+ Borwein Integrals
+</p>
+
+
+
+<p class="Text">
+ Sep 23, 2018<br />Justin Pearson
+</p>
+
+
+
+<p class="Text">
+ Source: https://www.futilitycloset.com/2018/02/02/breakdown-2/
+</p>
+
+
+
+<p class="Section">
+ Problem statement
+</p>
+
+
+
+<p class="Text">
+ Check out this strange behavior:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="139" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="20" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="254" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="20" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="369" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="20" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="484" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="20" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="599" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="20" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="725" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="20" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="851" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="20" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="977" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="408" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ This is quite close to &pi;/2:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="90" height="44" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="164" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The next term in the series is a little farther away from &pi;/2:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="1103" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="628" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="90" height="44" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="155" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ It only gets worse from there:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="1229" height="52" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="809" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="90" height="44" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="155" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ What&rsquo;s going on here?
+</p>
+
+
+
+<p class="Section">
+ Analysis
+</p>
+
+
+
+<p class="Text">
+ Each integral is a product of scaled sinc functions, which corresponds to a convolution of scaled rect functions in the Fourier domain. 
+</p>
+
+
+
+<p class="Text">
+ <span><span><img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="646" height="254" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Text">
+ Next we use the fact that the FT of a sinc is a rect. Specifically:
+</p>
+
+
+
+<p class="Text">
+ <span><span><img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="307" height="55" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Text">
+ Example:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="869" height="243" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="714" height="337" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ So our integral becomes
+</p>
+
+
+
+<p class="Text">
+ <span><span><img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="466" height="118" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Text">
+ We now study the series of convolutions &pi; UnitBox[&pi; x]&#9733; 3&pi; UnitBox[3&pi; x]&#9733;...
+</p>
+
+
+
+<p class="Text">
+ The UnitBoxes:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="459" height="182" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="714" height="338" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ They all have unit area:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="120" height="46" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="160" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The boxes&rsquo; widths follow a simple pattern as they get smaller:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="911" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="220" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="264" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Convolving these boxes together yields a progressively smoother function.
+</p>
+
+
+
+<p class="Text">
+ Here is the succession of convolutions
+</p>
+
+
+
+<p class="Text">
+ <span><span><img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="528" height="139" style="vertical-align:middle" /></span></span>
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="665" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="872" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_42.gif" alt="index_42.gif" width="621" height="360" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Zoom in:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="851" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_44.gif" alt="index_44.gif" width="540" height="334" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ At 0, each convolution takes the value &pi;:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="143" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="160" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ That&rsquo;s why the integrals <span><span><img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="308" height="57" style="vertical-align:middle" /></span></span> have value &pi;/2.
+</p>
+
+
+
+<p class="Text">
+ However, successive convolutions&rsquo; widths get smaller:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="220" height="58" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="321" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="558" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="714" height="120" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="893" height="366" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Does this sequence stay positive forever, or does it cross zero?
+</p>
+
+
+
+<p class="Text">
+ Brute-force find a pattern:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="314" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_54.gif" alt="index_54.gif" width="321" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_55.gif" alt="index_55.gif" width="432" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_56.gif" alt="index_56.gif" width="474" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_57.gif" alt="index_57.gif" width="398" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_58.gif" alt="index_58.gif" width="364" height="53" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_59.gif" alt="index_59.gif" width="370" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_60.gif" alt="index_60.gif" width="970" height="120" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_61.gif" alt="index_61.gif" width="894" height="350" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ So it looks like the <span><em>x</em><em>/</em>15</span> term has a &ldquo;negative&rdquo; width, indiciating the plateau has been convolved away.
+</p>
+
+
+
+<p class="Text">
+ Besides this weird formula with harmonic numbers, there is a simpler way to express the widths of the convolutions. Convolving a box with a smaller box of width <span><em>c</em></span> reduces the width of the flat center region by <span><em>c</em></span>. So the width of successive box-convolutions can be found by successively subtracting box widths from the width of the original box <span><em>1</em><em>/</em><em>&pi;</em></span>:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_62.gif" alt="index_62.gif" width="451" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_63.gif" alt="index_63.gif" width="321" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ This matches the widths we found with symbolic convolution:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_64.gif" alt="index_64.gif" width="220" height="26" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_65.gif" alt="index_65.gif" width="321" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ This is good because the closed-form expression of the <span><em>x</em><em>/</em>15</span> convolution is too big for Mathematica.
+</p>
+
+
+
+<p class="Text">
+ This matches the widths of our symbolic convolutions, as well as our werd formula with harmonic numbers:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_66.gif" alt="index_66.gif" width="617" height="151" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_67.gif" alt="index_67.gif" width="921" height="43" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_68.gif" alt="index_68.gif" width="1306" height="120" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_69.gif" alt="index_69.gif" width="894" height="350" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The curve goes negative at x=15, meaning the convolutions have eaten up the entire flat center region at the <span><em>x</em><em>/</em>15</span> convolution, so the value of the FT at 0 is less than &pi;/2. I think it would be difficult to figure out how much less that &pi;/2 it is; it&rsquo;s probably easiest to just perform the infinite integral.
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

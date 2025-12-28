@@ -1,0 +1,18 @@
+Conclusion
+==========================================
+.. _ccutconclusion:
+
+I have benefited enormously from the CCUT program, and the final step --- preparing the CCUT portfolio --- allowed me to reflect on what I've learned. Here are some of the ways that the CCUT helped me grow as an instructor, expressed in the framework of the three themes of my teaching philosophy:
+
+
+- **Purpose and path.** The CCUT helped me learn how to motivate my students and provide them with a structure to learn in. In my education class, I practiced writing Learning Outcomes and studied Bloom's Taxonomy; this greatly facilitated my design of ENGR 3. Familiarizing myself with other software tools like GauchoSpace and Panopto provided myriad ways of adapting to students' needs. And when teaching ENGR 3, I had some opportunities to redirect the flow of the course to better align its path with what motivated the students (their grades). These tools and experiences will help me motivate and guide many students to come.
+
+
+- **Struggle.** Throughout the CCUT I had multiple opportunities to practice letting my students struggle an appropriate amount. In my ENGR 3 class, I used feedback cards to design homeworks and in-class exercises of suitable difficulty. In the SST, I found that students could effectively modulate each other's struggles by working together. And as I saw when TAing the pendulum lab, the appropriate level of struggle varies from student to student, and an instructor needs empathy to strike the right balance. I feel confident in my ability to guide students toward healthy, productive learning and away from needless frustration.
+
+
+
+- **Empathy.** Working with Seniors in ECE 147C, Freshmen in ENGR 3, and high-school students in SST helped me appreciate the wide diversity of students I will encounter as an instructor. In listening to their struggles and helping them become better engineers, I became better at empathizing with many types of students. While pursuing the CCUT, I helped frustrated high-schoolers program their robots, bewildered Freshmen debug their Matlab code, and jaded Seniors right their fallen pendulums. Each case required a different form of supporting and empathizing with the student, and the variety of these interactions has improved me as an instructor.
+
+
+In conclusion, the CCUT was a highlight of my graduate career, and I am so pleased to have had the opportunity to pursue it. It focused my pedagogical philosophy and imbued me with educational skills and structure that will guide me in a lifetime of teaching.

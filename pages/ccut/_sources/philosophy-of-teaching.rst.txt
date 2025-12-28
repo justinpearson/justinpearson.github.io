@@ -1,0 +1,229 @@
+My Teaching Philosophy 
+===========================
+
+
+My teaching philosophy is encapsulated in three themes:
+
+
+*1. The instructor must provide a purpose and a path for the student.*
+
+Learning takes effort, and students need to be convinced that the effort is worth their time.
+Therefore, when designing a lesson, I first ask myself "why will my students want to listen to me?" I strive to make the material engaging and relevant for my students. For example, for an introductory programming course last Summer, I demonstrated how students could write programs to monitor online apartment listings and send notification emails when new listings appeared. This got their attention because many of them were in the midst of house-hunting for Fall quarter. In a lesson about linear algebra, I showed students how they could use nutrition data provided by Jamba Juice to reverse-engineer smoothie recipes. To introduce Graph Theory, we discussed the "6 Degrees to Kevin Bacon" project, which links actors based on which movies they've acted in together. My students engaged with the material when they could relate to their own lives and interests, and I enjoyed getting them excited about learning.
+
+Once my students are eager to learn about a topic, learning can begin. I arrange the topics like building blocks, ensuring that each new concept builds upon its predecessor without requiring outside knowledge. For example: "Last time we talked about vectors and strings," I'd say in my programming class. "We found they were useful for storing numeric data or character data. But soon we'll encounter problems where it's natural to store both types of data in a single object. Consider a bank account; it has a balance --- stored as a number --- and the owner's name --- stored as a string. It would be nice to link the number and the string together in a single datatype. Today we will learn about a new datatype called a 'struct' that does just that." In this way, the students progress through the concepts along a logical path, each step building on and reinforcing previous ones. 
+
+*2. Struggle is a vital component of learning, but must be carefully modulated.*
+
+
+
+Students learn best when they can practice new material; grappling with new skills is how we build proficiency in them. However, not all struggling results in the same quality of learning, as any attendee of a late-night cramming session will attest. Therefore I strive to present my students with many opportunities for low-stakes practice, well before any homework due-date or exam. For example, I pepper my lectures with in-class exercises and questions for the students. Sometimes the questions have short, unambiguous answers: "Okay, I've drawn a triangle for the brick's velocity, and we're interested in this side, this other side,
+and this angle. Sine, cosine, or tangent?" For more involved problems, a think-pair-share or group discussion activity may be appropriate: "Based on our discussion of function syntax, write a function to solve the quadratic equation". While the students work, I circulate around the room to check in on the students. After bringing the class back together, the students volunteer their approaches and we discuss it. I sometimes cold-call the students using a deck of cards, so that the students know they're on the hook. This also serves to get a uniform sampling of the students' status, instead of polling just the talkative ones. But if a student can't answer, I don't push it: I put their card aside for a later question. My main goal is to give my students ample opportunities to struggle with the material in a low-risk way. I believe that one of the chief roles of an educator is to foster a balance of healthy, productive struggling in students.
+
+
+*3. The instructor must be able to empathize with the student's struggle.*
+
+As educators, we must modulate our students' struggle carefully: left unchecked, struggle leads to frustration and resentment. To strike this balance, an educator needs empathy. I use a variety of methods to keep my fingers on the pulse of my students' welfare. With index cards, I solicit weekly feedback from my students --- "What's going well? What is challenging for you?" --- and adapt my class accordingly. For example, contrary to my expectations, my students reported that they wanted even more in-class exercises than we already had. I was happy to oblige, and the students felt validated and empowered. Also through feedback cards, I learned that students felt I lectured a little too slowly, so I picked up the pace. Feedback cards have been invaluable for learning what my students need. 
+
+Empathy takes many forms beyond simply asking what students need. When writing my lessons, I pretend I'm seeing the material for the first time and I ask myself, "what questions do I have at this point in the lecture?" When lecturing, I keep the tone informal and conversational, because I remember being afraid to ask dumb questions of my brilliant, formal professors. When helping a frustrated student, I take care to be sympathetic and supportive because I remember how it feels to be stumped on a problem the night before it's due. 
+
+
+A pessimistic professor once told us on the first day of class:
+"Students are the only group of people who are happiest when they aren't getting their money's worth." Who can blame them? Without a good teacher to provide motivation, guidance, and empathy, school is just one big pointless, frustrating effort --- and we are all creatures trying to minimize effort. By adhering to these educational values, I hope to help students embrace the struggle of learning instead of shying away from it.
+
+
+
+
+
+
+
+
+
+
+
+.. People who influenced my view of learning
+.. -------------------------------------------
+
+.. My view of teaching was chiefly influenced by two people: the philosopher Leonard Peikoff, and my high-school calculus teacher Nelson Fong. Peikoff's no-nonsense teaching philosophy resonates with me, and I try to emulate Mr. Fong's high-energy teaching style in my own classes.
+
+
+.. Leonard Peikoff
+.. ********************
+
+
+.. In Leonard Peikoff's 1984 lecture series "Teaching Johnny to Think",
+.. he describes three key elements to effective learning:
+.. motivation, cognitive integration, and structure.
+
+.. The first priority is *motivation*. 
+.. Learning takes effort, and students need to be convinced that the effort is worth their time.
+.. We are have finite time and memory, and unmotivated students will plod through a course and forget it as soon as they can.
+.. Therefore a teacher's first concern --- after the course's content has been decided --- 
+.. should be answering the question "why will the students want to listen to me?" Personally, I find that enthusiasm goes a long way toward motivating students. I am typically interested in my material and excited about sharing it, and my students report that this engages them.
+
+.. Once the students are interested in the material, 
+.. how will you teach it so it sticks? This is the
+.. issue of *cognitive integration*. The instructor must present material
+.. not as a hodgepodge of random facts, dates, and equations, but as a
+.. cognitive whole --- unifying concrete facts under a single
+.. abstraction or principle that the students will remember, and relating it to
+.. other principles that the students already know. 
+.. We as educators must help our students connect a dense web of concepts, all
+.. intuitively and intimately related. 
+
+.. In order to turn a pile of course material into a useful mental tool for students,
+.. the material must be presented in a logical, sensible, intuitive
+.. way --- it must be *well-structured*. Wipe your mind clear of your prior knowledge and ask:
+.. "is this lesson a logical progression of steps, each of which depends only on
+.. the ones before it?" Writing "learning outcomes" for your
+.. students is one way to begin adding structure to your courses: It provides a 
+.. goal to work toward. 
+
+
+.. Mr. Fong's hands-on teaching method
+.. *************************************************************
+
+
+.. My favorite teacher in high school (calculus & physics) engaged his
+.. students using two innovative methods.
+
+.. #. About once a minute, he would pose a question to the class and
+..    cold-call a student to answer. But he didn't randomly pick the
+..    student: he systematically worked his way down one row of students,
+..    then back up the next row, etc. This way, students had some warning
+..    and didn't feel unfairly picked on.
+
+..    * Also, the questions were very simple --- based on the previous
+..      couple minutes of material --- and had short, unambiguous
+..      answers. For example: "Okay Ann, we've drawn a triangle for the
+..      brick's velocity, we're interested in this side, this other side,
+..      and this angle. Sine, cosine, or tangent?" This kept the pace
+..      running smoothly.
+
+..    * He used the students' names when asking them questions.
+
+..    * He was careful to let a student struggle a bit with the answer,
+..      but if the student was really stumped (or answered incorrectly),
+..      he would pass the question on to the next student in the row.
+
+..    * His philosophy on this topic was: "Never say anything that I can
+..      get a student to say for me."
+
+.. #. Mr. Fong knew that it's hard for students to sit still for a
+..    90-minute class period. So he had the walls of his classroom covered
+..    in whiteboards, and would -- about 5 or 6 times per lecture -- put
+..    us in groups of 3 and give us 5-10 minutes to work out a problem on the
+..    board.
+
+..    * This gave us the opportunity to stretch our legs and process the
+..      material with our peers (like a think-pair-share exercise).
+
+..    * He would circulate around the room and visit each group. He'd ask
+..      a group to explain their solution to him.
+
+..    * After bringing the class back together, he would go through the
+..      solution with us.
+
+
+
+
+.. Bloom's Taxonomy
+.. *******************
+
+.. Peikoff emphasizes that the instructor's job is to present concepts in
+.. a sensible order, because knowledge builds on itself. A natural question arises: what level of mastery of concept *A* is required for concept *B*? To answer this, we need a model for how a student's mastery of a subject improves with practice. One such model is Bloom's *Taxonomy of Educational Objectives*.
+
+
+.. Bloom proposed that useful knowledge is obtained and synthesized in a
+.. fixed sequence of cognitive steps, from "Lower-Order Thinking Skills"
+.. (LOTS) to "Higher-Order Thinking Skills" (HOTS). A picture of Bloom's Taxonomy appears :ref:`here <bloompic>`. Here are the steps with some examples:
+
+
+.. 1. **Knowledge**. First, students must be introduced to the new knowledge. (And they must remember it!)
+
+..   * Examples:
+
+..     * Here is the mathematical recipe for how matrix multiplication works.
+
+..     * Here is the rule for computing an integral.
+    
+..     * Here is the definition of the contrapositive of a logical implication statement.
+
+..   * How to implement:
+
+..     * Teacher tells students: says in words, writes on board, etc.
+
+..     * Students read it on books / lecture slides / video.
+
+.. 2. **Comprehension**. Next, students must get a sense of the new material: Explain it plainly and relate it to other familiar concepts.
+
+..   * Examples:
+
+..     * The formula for matrix multiplication amounts to taking rows of this matrix and dotting them with columns of that matrix. It is just a way of doing arithmetic in batches.
+
+..     * You're adding up tiny rectangles under a curve. The integral is the number you approach as the rectangles' width gets smaller and smaller.
+
+..     * You're taking a logical statement and transforming it into an equivalent one. It's a tool that can simplify a complicated logical expression.
+
+..   * How to implement:
+
+..     * Teacher asks students questions about the material.
+
+..     * Teacher works through an example, asking students to fill in the blanks.
+
+..     * Say it in your own words. (Think-pair-share)
+
+
+.. 3. **Application**. Students practice the knowledge and get a feel for using it.
+
+..   * Examples:
+
+..     * Students get a couple tiny numeric matrices to try multiplying. Then they do it with symbols instead of numbers.
+
+..     * Students integrate the function f(x) := x to see that it's just a triangle.
+
+..     * Students find the contrapositive of the logical statement "if it's raining, then the streets are wet".
+
+..   * How to implement:
+
+..     * Students work through an example in groups. Could use the "Mr. Fong" method.
+
+..     * Short in-class quiz to test their understanding.
+
+..     * Homework 
+
+.. 4. **Analysis**. Now that students can "blindly" apply this new knowledge, they need to integrate it with their existing knowledge.
+
+..   * Examples:
+
+..     * Matrix multiplication is a generalization of regular multiplication of real numbers. Many of the rules for algebra on the real numbers (multiplication distributes over addition) hold for matrices as well. 
+
+..     * Integration is the limit of a sum. 
+
+..     * How does the contrapositive compare with the converse of a logical statement?
+
+..   * How to implement:
+
+..     * The students' understanding must be stretched to apply to new cases.
+
+..     * The teacher can't just tell them how to connect it to other
+..       things. I surmise that this analysis can take the form of
+..       'challenge questions' on their homework.
+
+..     * Teacher shows how the new stuff subsumes or extends old stuff they already know.
+
+.. 5. **Evaluating**. "hypothesizing, critiquing, experimenting, judging,
+.. testing". IMO, the same as analysis. You're asking the students to take
+.. the material and find extensions and shortcomings of it.
+
+.. 6. **Creating**. "designing, planning, inventing, producing". This is
+..    where the rubber meets the road: the students cook up their own way to
+..    apply this knowledge. For the material in this class, it's
+..    appropriate to combine this with step 5.
+
+..   * Would this be like a 'super challenge problem' where the students
+..     must devise their own, say, quiz question, which uses the material
+..     and then it gets disseminated to the other students?
+
+
+.. There were other influences on my philosophy of learning, but these were the main three. 
+

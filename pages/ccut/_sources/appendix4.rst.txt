@@ -1,0 +1,13 @@
+
+A4: TA Evaluations
+======================================================
+
+.. _esci:
+
+From my ESCI Teaching Evaluations when I served as a teaching assistant for ENGR 3 in Summer 2014.
+
+.. image :: Appendix/evals1.png
+
+.. image :: Appendix/evals2.png
+
+.. image :: Appendix/evals3.png

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  coins-in-the-dark2
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Title">
+ Counting Coins in the Dark
+</p>
+
+
+
+<p class="Text">
+ May 25, 2017
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="134" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ My friend Dario says this is a Google interview question.
+</p>
+
+
+
+<p class="Subsubsection">
+ Problem statement
+</p>
+
+
+
+<p class="Text">
+ You're in a dark room with <span><em>n</em></span> coins. You're told that there are <span><em>m</em></span> heads (and therefore <span><em>n</em><em>-</em><em>m</em></span> tails). You're allowed to flip coins over if you want. The goal is to partition the <span><em>n</em></span> coins into 2 piles (not nec. w/ the same number of coins) such that each pile has the same number of heads.
+</p>
+
+
+
+<p class="Subsubsection">
+ Example
+</p>
+
+
+
+<p class="Text">
+ With <span><em>n</em><em>=</em>10</span> coins, <span><em>m</em><em>=</em><em>6</em></span> of which are heads, you might simply split the pile into two equal halves and hope that you get <span><span>m/2=3</span></span> heads in each pile.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="512" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="213" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="232" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="245" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ You can see the partitions don&rsquo;t have an equal number of heads. You weren&rsquo;t feeling lucky.
+</p>
+
+
+
+<p class="Text">
+ So this scheme doesn&rsquo;t have the property that for all sets of coinflips, it partitions the set into two subsets which have the same number of heads.
+</p>
+
+
+
+<p class="Text">
+ Can we devise a better scheme?
+</p>
+
+
+
+<p class="Subsubsection">
+ Solution
+</p>
+
+
+
+<p class="Text">
+ There are 3 cases to consider:<br /><span style='font-weight: bold;'>Case 1</span>. If <span><em>m</em><em>==</em><em>0</em></span>, there are no heads, so we partition the coins into &ldquo;the empty set&rdquo; and &ldquo;all the coins&rdquo;, which each has 0 heads, and you&rsquo;re done.<br /><span style='font-weight: bold;'>Case 2</span>. If <span><span>m&gt;n/2</span></span>, flip all the coins. Now you have a situation with <span><em>n</em></span> coins and <span><span>0&lt;m&le;n/2</span></span> heads,&nbsp;&nbsp;which is Case 3.<br /><span style='font-weight: bold;'>Case 3</span>. If <span><span>0&lt;m&le;n/2</span></span>, do this:<br /><br />Partition the coins into an <span><em>m</em></span>-length list <span><span><img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="15" height="18" style="vertical-align:middle" /></span></span> and an <span><span>(n-m)</span></span>-length list <span><span><img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="15" height="18" style="vertical-align:middle" /></span></span>. Let <span><em>k</em></span> denote the number of heads in list <span><span><img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="15" height="18" style="vertical-align:middle" /></span></span>, so the number of tails in <span><span><img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="15" height="18" style="vertical-align:middle" /></span></span> is <span><span>(m-k)</span></span>. Since there are <span><em>m</em></span> heads total, if <span><span><img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="15" height="18" style="vertical-align:middle" /></span></span> has <span><em>k</em></span> heads then <span><span><img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="15" height="18" style="vertical-align:middle" /></span></span> has <span><em>m</em><em>-</em><em>k</em></span> heads. Therefore, by flipping all <span><span><img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="15" height="18" style="vertical-align:middle" /></span></span>&rsquo;s coins, <span><span><img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="15" height="18" style="vertical-align:middle" /></span></span>&rsquo;s <span><em>m</em><em>-</em><em>k</em></span> tails become <span><em>m</em><em>-</em><em>k</em></span> heads, matching <span><span><img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="15" height="18" style="vertical-align:middle" /></span></span>&rsquo;s <span><em>m</em><em>-</em><em>k</em></span> heads. So they have the same number of heads, so we are done.
+</p>
+
+
+
+<p class="Subsubsection">
+ Example
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="205" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="150" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="8" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="8" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="215" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="182" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="66" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="170" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="8" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="8" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Proof by 1 example.
+</p>
+
+
+
+<p class="Section">
+ Numerical check of <span><span>n=1,...,100</span></span>
+</p>
+
+
+
+<p class="Text">
+ First let&rsquo;s extend the definition of the Not[] function to work on the symbols H and T (heads &amp; tails):
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="111" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="47" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="8" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="47" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="8" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="153" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="108" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here is a function that runs this algorithm:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="821" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ It partitions the list into an m-length list and a <span><span>(n-m)</span></span>-length list, and flips the coins in the m-length list:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="174" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="182" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ If m==0, no heads. A boring partition will work:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="153" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="174" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ If m&gt;n/2, flip everything and run f[] again:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="174" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="182" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here is a function that checks if each set in the partition has the same number of heads:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="465" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Same number of Heads is OK:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="214" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_42.gif" alt="index_42.gif" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Different number of Heads is not OK:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="193" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_44.gif" alt="index_44.gif" width="39" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here are all the possible sets of 4 coin flips (order doesn&rsquo;t matter):
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="478" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="503" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Run f[] on all the flips and see if the resulting partition has equal numbers of heads:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="423" height="102" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>flips</span></td>
+  <td style='text-align: center;'><span>partition</span></td>
+  <td style='text-align: center;'><span>OK?</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>{T,T,T,T}</span></td>
+  <td style='text-align: center;'><span>{{},{T,T,T,T}}</span></td>
+  <td style='text-align: center;'><span>True</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>{H,T,T,T}</span></td>
+  <td style='text-align: center;'><span>{{T},{T,T,T}}</span></td>
+  <td style='text-align: center;'><span>True</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>{H,H,T,T}</span></td>
+  <td style='text-align: center;'><span>{{T,T},{T,T}}</span></td>
+  <td style='text-align: center;'><span>True</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>{H,H,H,T}</span></td>
+  <td style='text-align: center;'><span>{{H},{T,T,H}}</span></td>
+  <td style='text-align: center;'><span>True</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>{H,H,H,H}</span></td>
+  <td style='text-align: center;'><span>{{},{T,T,T,T}}</span></td>
+  <td style='text-align: center;'><span>True</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Here is a function that test whether f[] returns an OK partition for every possible set of <span><em>n</em></span> coinflips:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="509" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We already saw that our algorithm works for <span><em>n</em><em>=</em><em>4</em></span> coins:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="55" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Does it work for <span><em>n</em></span> coins, for n=1,...,100?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="202" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="122" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Nice!
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

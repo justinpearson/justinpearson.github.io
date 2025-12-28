@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  csep-art-of-science-contest-2015-v2-for-web
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Title">
+ &ldquo;Art of Science&rdquo; competition
+</p>
+
+
+
+<p class="Text">
+ Justin Pearson<br />2015-02-19
+</p>
+
+
+
+<p class="Text">
+ Competition organized through the Center for Science and Engineering Partnerships at the University of California at Santa Barbara.
+</p>
+
+
+
+<p class="Subsection">
+ Summary
+</p>
+
+
+
+<p class="Text">
+ We stream movies, send pictures to friends, and video-chat with distant loved ones, all digitally, and all without a second thought. Empowering this revolution behind the scenes is Information Theory, which provides a mathematical framework to quantify, compress, and transmit information.
+</p>
+
+
+
+<p class="Text">
+ This picture illustrates an important theorem in Information Theory: the Asymptotic Equipartition Property. It formalizes and generalizes the intuitive notion that if you flip a fair coin many times, you would expect about 50% heads. In the image, each square represents a string of coinflips (with 0=tails and 1=heads), with smaller squares representing longer strings of flips. Like a family tree, each square recursively generates 4 squares below it by appending one of 4 suffixes: 00, 01, 10, or 11. Each square is black, but is made transparent depending on how close to &ldquo;50% heads&rdquo; its corresponding string of coinflips is. We see that the vast majority of the tiny squares at the bottom are nearly 50% heads and hence transparent, allowing the underlying Swiss pasture scene to show through.
+</p>
+
+
+
+<p class="Subsection">
+ Final picture
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="294" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="800" height="600" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ How it&rsquo;s made
+</p>
+
+
+
+<p class="Subsection">
+ Basic idea
+</p>
+
+
+
+<p class="Text">
+ Each square represents a bitstring. Every &lsquo;child&rsquo; square inherits the parent&rsquo;s bitstring with +00, +01, +10, or +11 added. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="311" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="700" height="666" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Define object: &lsquo;square&rsquo;
+</p>
+
+
+
+<p class="Text">
+ We represent a bitstring as a &lsquo;square&rsquo; object <span style='font-style: italic;'>square[ bitstring, position, color ]</span>.
+</p>
+
+
+
+<p class="Text">
+ This defines a bunch of functions on a &lsquo;square&rsquo; object:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="644" height="221" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Example square:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="326" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="211" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="356" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="100" height="98" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Child squares.
+</p>
+
+
+
+<p class="Text">
+ Each bitstring can generate 4 &lsquo;child&rsquo; bitstrings by append 00, 01, 10, or 11. Each of these bitstrings&rsquo; squares has a position based on the parent&rsquo;s.
+</p>
+
+
+
+<p class="Text">
+ Here is a square for the bitstring &ldquo;000&rdquo; at position {0,0} with color Red:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="255" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="211" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The possible suffixes:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="290" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="235" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Append each suffix to form the child squares:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="386" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="487" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Child squares&rsquo; positions are based on their parent position. They&rsquo;re shifted over horizontally and then shifted around based on their suffix.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="478" height="35" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="254" height="33" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ For now, child colors are just lighter versions of the parent square:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="414" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="99" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Create the children:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="492" height="39" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="253" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="258" height="33" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="258" height="33" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="263" height="33" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ The &lsquo;graphics&rsquo; function we defined for squares is listable, so can be called on a list of children. Here is what the children look like:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="348" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="360" height="195" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Wrap into a function.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="681" height="236" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Example use:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="623" height="39" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="211" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="211" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="211" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="211" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="211" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="211" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="211" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="211" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="370" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="326" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="600" height="1557" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Set opacity as function of &ldquo;how close is 1/0 fraction to 50%?&rdquo;
+</p>
+
+
+
+<p class="Text">
+ Now we decide how opaque to make a square, as a function of its fraction of 1&rsquo;s and 0&rsquo;s. The idea is that an equal proportion of 1&rsquo;s and 0&rsquo;s should result in an clear square (Opacity 0), whereas a bitstring with all 1&rsquo;s or all 0&rsquo;s should be totally opaque (Opacity 1). This amounts to choosing a function that takes the bitstring, computes the fraction of 1&rsquo;s, and is 0 at 0.5 (50%) and 1 at 0 (0%) and 1 (100%).
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="703" height="203" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="466" height="227" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ You can see that although the functions agree at 0, 0.5, and 1.0, they vary a little in their gray-levels in between:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_42.gif" alt="index_42.gif" width="513" height="363" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>bitstring</span></td>
+  <td style='text-align: center;'><span>fabs</span></td>
+  <td style='text-align: center;'><span>fcos</span></td>
+  <td style='text-align: center;'><span>fentropy</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{0,0,0,0,0}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_44.gif" alt="index_44.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{0,0,0,0,1}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{0,0,0,1,0}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{0,0,0,1,1}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_54.gif" alt="index_54.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{0,0,1,0,0}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_55.gif" alt="index_55.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_56.gif" alt="index_56.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_57.gif" alt="index_57.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{0,0,1,0,1}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_58.gif" alt="index_58.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_59.gif" alt="index_59.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_60.gif" alt="index_60.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{0,0,1,1,0}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_61.gif" alt="index_61.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_62.gif" alt="index_62.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_63.gif" alt="index_63.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{0,0,1,1,1}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_64.gif" alt="index_64.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_65.gif" alt="index_65.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_66.gif" alt="index_66.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>...</span></td>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span></span></td>
+  <td style='text-align: center;'><span></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{1,1,0,0,0}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_67.gif" alt="index_67.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_68.gif" alt="index_68.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_69.gif" alt="index_69.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{1,1,0,0,1}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_70.gif" alt="index_70.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_71.gif" alt="index_71.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_72.gif" alt="index_72.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{1,1,0,1,0}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_73.gif" alt="index_73.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_74.gif" alt="index_74.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_75.gif" alt="index_75.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{1,1,0,1,1}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_76.gif" alt="index_76.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_77.gif" alt="index_77.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_78.gif" alt="index_78.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{1,1,1,0,0}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_79.gif" alt="index_79.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_80.gif" alt="index_80.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_81.gif" alt="index_81.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{1,1,1,0,1}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_82.gif" alt="index_82.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_83.gif" alt="index_83.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_84.gif" alt="index_84.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{1,1,1,1,0}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_85.gif" alt="index_85.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_86.gif" alt="index_86.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_87.gif" alt="index_87.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{1,1,1,1,1}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_88.gif" alt="index_88.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_89.gif" alt="index_89.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_90.gif" alt="index_90.gif" width="20" height="22" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Fabs is a little darker, which makes the final image look more dramatic. But Shannon&rsquo;s entropy is more thematically fitting.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_91.gif" alt="index_91.gif" width="284" height="38" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Override the graphics function to use opacity instead of the parent&rsquo;s color:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_92.gif" alt="index_92.gif" width="775" height="176" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_93.gif" alt="index_93.gif" width="326" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_94.gif" alt="index_94.gif" width="600" height="1557" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Use as image mask
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_95.gif" alt="index_95.gif" width="243" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_96.gif" alt="index_96.gif" width="500" height="375" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_97.gif" alt="index_97.gif" width="265" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Turn off the text of the bitstring:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_98.gif" alt="index_98.gif" width="392" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_99.gif" alt="index_99.gif" width="370" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ There are a lot of squares. Each square turns into 4 squares in the next &ldquo;generation&rdquo;, starting with 8 squares and lasting 7 generations.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_100.gif" alt="index_100.gif" width="228" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_101.gif" alt="index_101.gif" width="41" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_102.gif" alt="index_102.gif" width="146" height="110" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_103.gif" alt="index_103.gif" width="41" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_104.gif" alt="index_104.gif" width="686" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_105.gif" alt="index_105.gif" width="272" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_106.gif" alt="index_106.gif" width="324" height="432" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_107.gif" alt="index_107.gif" width="535" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_108.gif" alt="index_108.gif" width="500" height="375" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_109.gif" alt="index_109.gif" width="724" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_110.gif" alt="index_110.gif" width="398" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ (Now add the numbers manually (I did it in Mac&rsquo;s Preview.))
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

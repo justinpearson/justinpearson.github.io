@@ -1,0 +1,15 @@
+
+A3: Letter of Rec
+===================================
+
+.. image:: Appendix/me-and-jeff.jpg
+
+*Me and my co-instructor Professor Jeff Moehlis, right after submitting the ENGR 3 final grades! Sep 2015.*
+
+
+.. raw: latex
+
+    \newpage
+
+.. image:: Appendix/mentor-letter.jpg
+   :height: 9in

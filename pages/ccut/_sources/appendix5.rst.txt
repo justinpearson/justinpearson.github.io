@@ -1,0 +1,14 @@
+
+
+A5: Teaching Evaluations
+===============================================================
+
+.. _esci2:
+
+From my ESCI Teaching Evaluations when I taught ENGR 3 as Instructor of Record in Summer 2015.
+
+.. image :: Appendix/evals1_2015.png
+
+.. image :: Appendix/evals2_2015.png
+
+.. image :: Appendix/evals3_2015.png

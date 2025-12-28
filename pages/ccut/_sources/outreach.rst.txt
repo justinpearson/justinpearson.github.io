@@ -1,0 +1,160 @@
+Teaching through Outreach
+============================
+
+.. figure:: 5-Requirement-2-SST-outreach-program/sst-group-pic.jpg
+    :height: 6in
+    :align: center
+
+    *School of Scientific Thought, March 2015*
+
+.. raw:: latex
+
+    \newpage
+
+
+Executive Summary
+--------------------
+
+My colleague and I designed a course to teach robotics, control theory, and programming to high-school students, and taught it through the *School of Scientific Thought* outreach program. Over the course of five Saturdays, the students explored these concepts by programming Roomba robots. Each session involved a short lecture about a technical topic, followed by a programming session in which the students worked in teams. We experimented with several instructional techniques, including gallery walks, think-pair-shares, and feedback cards. Because of the students' wide spread of programming and mathematical abilities, we took care to establish a respectful classroom environment and to select programming activities of appropriate difficulty. Students indicated via an exit survey that they enjoyed the program.
+
+
+
+
+        
+Description of SST 
+-------------------
+
+The School of Scientific Thought (SST) is an outreach program offered twice a year by the Center for Science and Engineering Partnerships at UCSB. Over the course of 5 Saturdays, roughly 70 high-school students come to UCSB to participate in hands-on courses prepared by UCSB graduate students. Each high-school student is assigned to a course based on his or her preferences. The courses vary from year to year, depending on the available graduate students. After each 2-hour course session, the students and mentors from all the courses meet for lunch. This gives the students a chance to talk to the mentors in an informal setting, and ask them questions about college. At the end of the five week program, the students get certificates. The main goal of the SST program is to give high-school students a glimpse into what college is all about, and to get them excited about continuing their education after high-school.
+
+
+
+.. only:: latex
+
+
+    .. image:: 5-Requirement-2-SST-outreach-program/SSTCertificate-example.pdf
+        :height: 4in
+        :align: center
+
+    .. centered::
+        *Example certificate given to our SST students.*
+
+
+.. only:: html
+
+
+    .. figure:: 5-Requirement-2-SST-outreach-program/SSTCertificate-example.png
+        :height: 4in
+        :align: center
+
+        *Example certificate given to our SST students.*
+
+
+
+
+
+
+.. raw: latex
+
+    \newpage
+
+
+
+Course Design and Reflection
+----------------------------------
+
+In March 2015, my colleague David Copp and I designed the SST course "Introduction to Programming, Robotics, and Control Theory," which was advertised to the high-school students as follows:
+
+
+    Computers outnumber humans on planet Earth, and they impact almost every aspect of our lives. So it's increasingly valuable to know how they work and how to control them. In this class you will learn how to program computers in order to control robots. You'll work in teams to program a Roomba-like robot to perform exciting tasks based on the robot's locomotion and sensor capabilities. You'll write code to make the robot react to its environment, which forms the basis for the wild world of feedback control. Most importantly, you'll learn to translate high-level goals like "push this hockey puck into the goal" into a language the machine understands. These skills are fundamental to broad fields like Computer Science, Control Theory, and Mobile Robotics. This course provides a heavily hands-on and project-based learning environment, and no previous programming experience is required!
+
+
+
+.. figure:: 5-Requirement-2-SST-outreach-program/roomba-laptop-setup.jpg
+    :height: 3in
+    :align: center
+
+    *The Roomba robot and the laptop used to program it. We had 5 Roombas, with 3-4 students working on each.*    
+
+
+
+Each of our five sessions consisted of a short lecture followed by a programming segment. Based on advice from UCSB Instructional Developer Lisa Berry, we designed lesson plans to organize each day:
+
+
+.. only:: latex
+
+    .. figure:: 5-Requirement-2-SST-outreach-program/SST-slides-planning-slide.pdf
+        :width: 6in
+        :align: center
+
+        *Our lesson plan for the first SST session.*    
+
+.. only:: html
+
+    .. figure:: 5-Requirement-2-SST-outreach-program/SST-slides-planning-slide.jpg
+        :width: 6in
+        :align: center
+
+        *Our lesson plan for the first SST session.*    
+
+
+.. The lesson plans helped us structure each session: we outlined what we would talk about, what questions we would ask the students, what activities the students would do, and so on.
+
+The lectures typically revolved around some aspect of robotics or programming, preparing the students for the day's programming project. The programming projects typically involved tasks like "write a Java program to drive the robot in a square" or "send a binary command to the Roomba to flash its LED." The short lectures were interspersed with gallery walks and think-pair-shares. We kept the lectures short --- less than 30 minutes --- to maximize the time the students had with the fun, novel robots. The programming sessions were chaotic, with teams driving robots all around the room, talking with each other, and struggling through software bugs. My co-instructor and I spent this time drifting between teams, helping them debug, and offering insight.
+
+
+
+.. figure:: 5-Requirement-2-SST-outreach-program/20150207_120725.jpg
+    :height: 3in
+    :align: center
+
+    *My SST co-instructor (right) helps students debug their Roomba robot.*    
+
+
+
+Our main challenge stemmed from the students' wide range of programming and mathematical abilities. When designing our class, we knew we would be teaching Freshmen alongside Seniors, with any range of programming experience in between. In such a situation, it's natural for students to judge each other.
+In order to prevent an intellectual hierarchy from forming among the students, we took care to establish a respectful classroom environment. Specifically, on the first day, we explained that we knew that some students had taken programming classes whereas others had never programmed before. We established a "code of conduct" by outlining respectful behavior. I illustrated the importance of respect by  sharing a story from my experience at an aerospace company, where a hostile work environment played a significant role in the failure of a very expensive product. The story and the code of conduct had the desired effect: students treated each other respectfully and nobody's feelings were hurt. During one group brainstorming activity, I actually heard a student turn to a shy classmate and earnestly ask, "What do YOU think?" I was pleasantly surprised at this demonstration of empathy from a high-school student.
+
+Our students' wide range of abilities also influenced our decision to not have a programming competition. Previous robotics internship mentors in our lab have used an end-of-class programming competition to motivate the students to work. In the case of SST, the drawbacks outweighed the benefits: 
+
+- If we grouped the students by skill level, the novice student teams would be unfairly matched against the experienced student teams. 
+- On the other hand, if we grouped the students diversely, dispersing the experienced programmers among the teams, we feared each team would have their best programmer hog the laptop to maximize their chance of winning. 
+
+We let the students choose their own groups. Instead of instituting a competition, we merely presented a goal for each day, like "write a program to drive your robot in a square." It turned out that the robots were sufficiently novel that they held the students interest, so a competition wasn't needed.
+
+
+In addressing both of these potential pitfalls, the predominant pedagogical theme was *the instructor must empathize with the students' struggle*. In this case, the "struggle" pertains to the pressure students feel when comparing themselves to each other in the classroom.
+
+
+.. figure:: 5-Requirement-2-SST-outreach-program/sst_lecture.jpg
+    :height: 3.5in
+    :align: center
+
+    *Me lecturing at the beginning of an SST session.*    
+
+
+It is worth noting two more consequences of the large spread of student abilities. First, it offered us an opportunity to practice delegating some teaching to the students. Specifically, we found it helpful to encourage the students to explain concepts to each other during the programming segment of the class. Explaining a concept solidifies learning, so it is valuable to both the explainer and the explainee. 
+
+.. And with so many teams working and struggling in parallel, we found our attentions spread thin. The ability to off-load some teaching effort to students allowed us to direct our attention where it was needed most, while still enabling other students to continue learning.
+
+.. Lastly, we decided to teach to the level of the mid- to novice-level students. As a consequence, we found that we typically taught more slowly and didn't teach as much material as we expected. This wasn't a problem because we didn't have a "stake in the sand" dictating how much material we needed to cover. The aim was to enjoy learning about programming. 
+
+
+Student Feedback
+------------------
+
+The students' feedback is presented in :ref:`Appendix 6 <sstfeedback>`. The students reported that they really liked the course. They liked the programming sessions more than the lectures, although they reported that they learned a little less in the programming part of the class. 
+
+Here are some useful comments we received from the student on improving the course:
+
+- "Have longer classes: 8-10 weeks." This possibly indicates that we were too ambitious in the amount of material we tried to teach. In the future, we might provide  the students with fully-functional code that the students can change. This would be easier and more fun for them than learning to write it themselves, although slightly less educational. That would be more aligned with SST's mission, and would provide a more clear learning pathway for the students.
+
+- "Hands-on example by the teachers first." Typically in the lecture portion, we showed slides demonstrating what the students should do, and we gave the students printouts of the slides. Yet students were sometimes unsure of how to get started. They probably would have found it more helpful to follow along with a hands-on demo. However, that introduces the problem of how to proceed if a team gets stuck. Instead of forcing the students to proceed in lock-step, we opted for the more independent and flexible approach of outlining the approach and helping them as needed.
+
+- "Use a programming language other than Java." The Java programming language is a little hard to learn because it is "strongly-typed," meaning that the programmer must declare the type of every variable (string, number, array, etc). Python would be a more attractive alternative, but we have a significant Java infrastructure written already. We are considering non-Java alternatives.
+
+
+
+Conclusion
+------------
+
+The SST let me practice teaching high-school students in a low-risk way: They were there to have fun, and I enjoyed thinking of activities they would enjoy. I learned techniques for managing large numbers of students from different backgrounds. I found that establishing a respectful and fair learning environment avoided conflict and promoted an empathetic working environment.  In keeping with the importance of struggle in a student's learning, I designed our SST course to encourage our students to struggle a little bit, without overwhelming them. I learned to appreciate the power of having students work in groups as a way to reinforce their learning. I used many of these techniques six months later, when teaching ENGR 3 as Instructor of Record.

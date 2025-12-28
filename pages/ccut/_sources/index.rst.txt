@@ -1,0 +1,57 @@
+.. Justin Pearson CCUT Portfolio documentation master file, created by
+.. sphinx-quickstart on Wed Aug 26 05:08:03 2015.
+.. You can adapt this file completely to your liking, but it should at least
+.. contain the root `toctree` directive.
+.. note to self - for latex toc depth,  conf.py latex_preamble, see http://sphinx-doc.org/markup/toctree.html#id1
+
+
+Justin Pearson's CCUT Portfolio
+======================================================
+
+.. only:: html
+
+    .. image:: ccut-title-pic.001.jpg
+        :height: 5in
+        :align: left
+
+
+Table of Contents
+-------------------
+ 
+.. toctree::
+  :maxdepth: 1
+
+  signatures.rst
+  philosophy-of-teaching.rst
+  TA-twice.rst
+  outreach.rst
+  pedagogy.rst
+  instructor-of-record.rst
+  conclusion.rst
+
+Appendices
+------------
+
+.. toctree::
+  :maxdepth: 1
+
+  appendix1.rst
+  appendix2.rst
+  appendix3.rst
+  appendix4.rst
+  appendix5.rst
+  appendix6.rst
+  appendix7.rst   
+  appendix8.rst   
+
+
+..   8-Whats-next/reflection.rst
+
+
+.. Indices and tables
+.. ==================
+
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
+

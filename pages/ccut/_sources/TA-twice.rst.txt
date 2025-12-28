@@ -1,0 +1,218 @@
+
+Serve as a Teaching Assistant
+===============================================================
+
+.. figure:: 4-Requirement-1-TA-twice/hw-pic.JPG
+	:height: 5in
+
+	*ENGR 3 (Intro to Programming) midterm, Summer 2014*
+
+.. raw:: latex
+
+	\newpage
+
+
+Executive Summary
+------------------
+
+I served as a Teaching Assistant for ENGR 3: *Introduction to Programming* and ECE 147C: *Control Systems Design Project*. The former introduces Freshmen engineers to the Matlab programming software that they will use throughout their college careers, whereas the latter is a lab-based upper-division course that teaches sophisticated engineering design methods to juniors and seniors. The student populations between these two courses are on opposite ends of the undergraduate engineering spectrum, and  require different kinds of TA support. The TA Training event provided valuable general-purpose teaching tips, and the one-on-one TA Video Consultation offered me personalized feedback: talk slower and increase student participation. I took this feedback to heart and received very favorable ESCI teaching evaluations. The students appreciate my energy, enthusiasm, and empathy. 
+
+
+
+TA Training and Consultation
+-------------------------------
+
+The UCSB-wide TA Orientation and one-on-one TA Consultation provided some very useful teaching tips. I worked hard as a TA and Instructor of Record to integrate them into my teaching. For example:
+
+- I tried hard to **learn the students' names**, as a show of respect and validation. My students indicated on open-ended feedback cards that they appreciated this gesture.
+
+- I peppered my lectures with short in-class **think-pair-share exercises** for the students. Initially I thought students would find them cumbersome, but students reported via feedback cards that they wanted even more in-class exercises. I was pleased to find that students liked the practice and ensuing discussion.
+
+- I was careful to use **non-judgmental language** when responding to a students' question or incorrect answer. A student called me "patient and kind" in his open-ended feedback.
+
+- I tried to **face the audience** when writing on the board and writing code at my computer. I think that making eye-contact encouraged students to participate.
+
+- My in-class exercises had **clear start/stop signals**: "Okay, so take 3 minutes to try this out, and I'll call out when we're done. Go for it!"
+
+- I tried to **ask clear questions**, e.g., instead of "what should I do next?", I would ask "what is the first line of a function declaration?" 
+
+- I was careful to **not answer my own questions**. Sometimes this required waiting several uncomfortable seconds for students to volunteer an answer, but as TA Orientation speaker Scott Dirkse says, "That is the sound of them learning."
+
+- I was careful to **ask the question, then call on the student**. Otherwise students might zone out once they know they're off the hook. 
+
+- I wrote their names on cards in order to randomly choose students. I was afraid that only the hotshot students were answering my questions, and I wanted a way to **uniformly sample the students' understanding**.
+
+- I took care to **not block the board**.
+
+- I distributed **feedback cards** to the students to get their input on how the course was going.
+
+
+I found it natural to employ many of these tips, since many of them reflect the themes in my teaching philosophy. For example, learning a student's name and using non-judgmental language are examples of an *empathetic teacher*. Conducting appropriate in-class exercises and soliciting questions from students fall in the category of *make the students struggle a little*. And simple things like using clear start/stop signals and not blocking the board exemplify a *well-structured lesson*. 
+
+While the TA Orientation provided general-purpose teaching advice, my one-on-one TA Video Consultation offered concrete, personalized feedback. For example, UCSB Instructional Developer Kim DeBacco pointed out that my teaching style was pretty fast and a little frenetic; my
+enthusiasm came across as nervous energy. This was transformative because it highlighted how my teaching style was at odds with my teaching philosophy's emphasis on *struggle* and *structure*: enthusiastic lecturing has its place, but in excess it detracts from the structure of the lesson and it deprives the students of their own opportunity to struggle. 
+
+As a result of the TA Video Consultation, I tweaked my teaching style to incorporate more student participation.
+Kim taught me some techniques for slowing down,
+breathing, and positioning myself with respect to the board, and she suggested preparing more questions to ask my students. I employed those techniques a few months later, when TAing ENGR 3
+in Summer 2014, and a year later, when teaching ENGR 3 as Instructor of Record. Instead of charging along for 90 minutes, excitedly talking and gesturing, I would instead ask a question or assign a short in-class exercise for the students. This increased student participation and interest, and students responded well to it in their weekly feedback cards. Moreover, I still retained my enthusiasm, and students remarked in their feedback cards that they appreciated my passion and energy. 
+
+Kim DeBacco's writeup from my video consultation appears in :ref:`Appendix 2 <taconsultation>`. 
+
+|
+
+
+.. figure:: 4-Requirement-1-TA-twice/dont-turn-your-back.png
+	:align: center
+
+	*Frames from my guest-lecture of ECE 147C --- it's better to face your audience!*
+
+
+.. raw:: latex
+
+	\newpage
+
+
+
+Course Descriptions
+-----------------------
+
+ECE 147C: Control Systems Design Project
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+================  =================================================================================
+Date:              Spring 2014
+Course:            ECE147C / ME106A
+Description:       Control Systems Design Project / Advanced Mechanical Engineering Laboratory
+Enrollment:        9 ECE, 1 ME, 3 UCSB Extension (Foreign Exchange students) 
+================  =================================================================================
+
+ECE 147C is a lab-based class where junior- and senior-level engineering students apply the principles of *System Identification* and *Control Theory* to write a computer program to balance an inverted pendulum:
+
+.. figure:: 4-Requirement-1-TA-twice/vlcsnap-269026-annotated.png
+	:width: 5in
+	:align: center
+
+	*The cart and pendulum setup used in ECE 147C.* `(video) <https://youtu.be/N_AFoKbbtLc?t=12m51s>`_
+
+For most students, ECE 147C offers their first chance to apply control theory to real hardware. This is exciting, but there are ample opportunities for frustration: faulty lab equipment; friction in the track; nonlinearities in the cart model; software bugs. Empathy --- one of the themes in my teaching philosophy ---  was my key asset to aid the students' learning in this environment. Often, the students' code wouldn't work and the pendulum would tip over and slam into the desk. Frustrated, the students would call for help, and I found that having an open, inquisitive, non-judgmental attitude helped set the stage for a fruitful debugging environment. It also helped that I had taken ECE 147C as a Mechanical Engineering undergraduate at UCSB in 2006, so I had suffered through the class and I knew how frustrating it could be.
+
+
+
+
+.. raw:: latex
+
+	\newpage
+
+
+
+
+ENGR 3: Introduction to Programming
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _taengr3:
+
+================  =================================================================================
+Date:              Summer 2014
+Course:            ENGR 3
+Description:       Introduction to Programming
+Enrollment:        44 
+================  =================================================================================
+
+ENGR 3 is an introductory programming course for Freshmen engineers. Using the Matlab programming environment, students learn the basic datatypes and control structures that underlie any program. About halfway through the course, students are introduced to more sophisticated mathematical objects like differential equations, and the students learn to solve them using built-in Matlab routines. Summer Sessions instructor Dr. Lina Kim taught ENGR 3, and I TA'd it with another TA, Michael Nip. Lina wrote the lectures and exams, and Mike and I wrote and graded the homework assignments, and ran the discussion sections.
+
+One challenge with ENGR 3 was the students' wide spread in programming experience. Some students were in the Freshman Summer Start Program (FSSP), meaning that they had started college a quarter early in order to get a jump-start on classes. Other students were retaking ENGR 3 because they failed it the first time. And still other students were not engineering students at all, but needed ENGR 3 to satisfy their department's programming requirement. Moreover, some FSSP students took programming classes in high school, whereas others had never programmed at all. How can a teacher engage and guide students with such varied backgrounds? How should an instructor create different "learning pathways" for these different groups? As Jaime Escalante from "Stand and Deliver" says, "how can I reach these kids?"
+
+.. figure:: 4-Requirement-1-TA-twice/M14crop.png
+	:align: center
+	:width: 4.5in
+
+	*Enrollment data for ENGR 3, Summer 2014. Students are spread across many years and many majors.*	
+
+We approached this challenge in several ways. First, we let students choose which discussion sections to attend, regardless of which one they were enrolled in. Mike's discussion section was more advanced and theoretical, and mine focused on emphasizing the core class concepts. This allowed experienced students to explore extensions to the material with Mike, while novice programmers could reinforce their understanding in my section. It turned out that most students opted to attend my discussion section.
+
+Next, I learned my students' names and asked them many questions. This kept my discussion section informal and increased participation, so I was able to ascertain my students' well-being and focus the discussion where it was needed.
+
+Also, Lina, Mike, and I used feedback cards judiciously throughout the course: Every Wednesday, Lina would distribute index cards and ask students to write what was going well and what needed improvement. We scheduled my office hours immediately after Lina's lecture, so after class she would deliver the cards to me and I could react immediately to student concerns. Feedback cards provided a key mechanism to stay in touch with the students' welfare and tune our office hours and discussion sections to suit the students' needs. From a thematic standpoint, feedback cards helped me empathize with my students. For example, motivated by student feedback, I tweaked my discussion sections to involve problems more closely related to the homework. This was the first of many lessons in empathy: from the students' perspective it's natural that grades are the highest priority. 
+
+I took this feedback to heart. Instead of highlighting interesting applications in discussion section, I folded those applications into the homework assignments. The students seemed to enjoy them; one student even wrote a comment in his code thanking me for devising such fun homework problems!
+
+I was interested to observe that different types of help and empathy were needed between ECE 147C and in ENGR 3. Seniors in ECE 147C were in the home stretch of their college careers and had somewhat "checked out". They felt more aloof and would only ask for help as a last resort. I found it fruitful to have them explain their code to me as a peer, rather than have me dictate the correct code to them. For them, I played the role of a fellow engineer, helping them debug a common problem. On the other hand, my ENGR 3 students needed much more hand-holding. Taking their first tentative steps in college, they needed more guidance and reassurance. For the ENGR 3 students, I played the role of a mentor and guide. 
+
+
+
+ESCI Teaching Evaluations 
+-------------------------
+
+
+ECE 147C
+^^^^^^^^^^
+
+The ECE course evaluations are much shorter than the ENGR ones, so I received less feedback from ECE 147C. Five of my 11 students filled out ESCI evaluations for ECE 147C. This low turn-out was a bit disappointing but not unexpected since most of the class was seniors who were struggling to finish their senior projects at the time. My ESCI evaluations from ECE 147C were very positive:
+
+
+**Please rate your TA on the following scale.**
+
++-----------------------+--------+
+| Poor TA               |   0%   |
++-----------------------+--------+
+| Marginal TA           |   0%   |
++-----------------------+--------+
+| Adequate TA           |   0%   |
++-----------------------+--------+
+| Good TA               |   0%   |
++-----------------------+--------+
+| Best TA this quarter  |  40%   |
++-----------------------+--------+
+| Best TA ever          |  60%   |
++-----------------------+--------+
+
+
+In their open-ended feedback, the students considered me helpful and a fair grader, and they appreciated the extra lab time. Their ESCI open-ended feedback was sparse, but they posted two reviews on www.ratemyprofessor.com:
+
+
+- Justin is a great TA! He was very enthusiastic about the class, and seems truly interested in the material. He gave me some really good explanations, that was helpful in understanding the material. I have no doubt that he will make a great teacher/employee in the future.
+
+- Justin was very helpful and I think that he actually cared about helping us on the material. He is knowledgeable about the subject matter and very punctual and lab session in office hours. He consistently emailed us to keep us updated and gives us tips on the homework or lab reports. He is the ideal TA.
+
+
+I felt encouraged by this feedback. It seems I was able to provide a good learning path for my students and empathize with their struggle. 
+
+
+ENGR 3
+^^^^^^^^
+
+Twenty of the 24 students in my discussion section submitted ESCI reviews. For ENGR 3, the ESCI reviews contained 20 questions and an open-ended response question. Histograms of my performance appear in :ref:`Appendix 4 <esci>`. From these data I observe:
+
+**What's going well** 
+
+- The students found me enthusiastic, clear, knowledgeable, and approachable.
+- They liked my lecture slides.
+
+**What needs improvement**
+
+- Some students felt I moved too fast, while others felt I was a bit repetitive. This could be due to the large spread in abilities in ENGR 3, but it's certainly possible I sped through some parts and harped on others. I probably should have asked for more in-class feedback of the form "thumbs up if you'd like me to go faster, down if you want slower." I employed this technique frequently a year later, when I taught ENGR 3 as Instructor of Record.
+
+- Some students felt that discussion section only contributed moderately to the course. I imagine that those students wished my discussion sections had been more directly applicable to the homework; I took care to not give homework answers in section, opting instead for developing the week's concepts with my own examples. In hindsight, I realize that students care primarily about their grades, so if a discussion section doesn't clearly relate to improving their grade, they may tune out. In the future, I will try to find a suitable balance between giving away answers and holding their attention. 
+
+- Some students felt I only somewhat conveyed the usefulness of the subject matter. In an introductory class, it is sometimes difficult to motivate the very basic material with cool examples. But it is important to try to make the material as interesting as possible. After all, one of my teaching themes is: *The instructor must provide a purpose and a path.* So I will try to find more stimulating examples. (Note: A year later, when I taught ENGR 3 as instructor of record, this backfired because I made the homework problems too stimulating (too hard)! So there is a balance.)
+
+There were five open-ended responses in the ESCI surveys:
+
+- Best TA I ever had. Very helpful and makes you want to learn the material. Hire him as a professor.
+- Justin is a great TA. Very easy to talk to you. Very friendly and enthusiastic.
+- Enthusiastic and really helpful. Thoroughly explains material when asked.
+- Sometimes he takes a while to explain something but I always understand by the end which is more important so I didn't bother me too terribly.
+- Amazing TA. Always make sure his students understand the material. Also learned everybody's names.
+
+
+I appreciate this feedback. It identified ways I can be more empathetic --- e.g., by focusing my teaching on what the students care about --- and indicated that I succeeded in my efforts to connect with the students --- e.g., by learning their names and offering friendly explanations. 
+
+
+Conclusion
+-----------
+
+I really enjoyed the variety of TAing a lower-division course and an upper-division one.  I was interested to explore how my two different sets of students required different kinds of empathy. As discussed, I adopted different teaching roles --- peer, mentor, guide --- to best suit my students. This helped me grow as an educator: to be flexible and adaptable for my students' needs. I leveraged these lessons when teaching my own course in Summer 2015, ENGR 3: *Introduction to Programming*.
+
+

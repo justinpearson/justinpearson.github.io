@@ -1,0 +1,46 @@
+
+
+A1: Annotated Syllabus
+===============================
+.. _syllabus:
+
+|
+|
+|
+|
+|
+
+.. image:: Appendix/phd051013s.png
+
+*PhD Comics,* `#1583 <http://www.phdcomics.com/comics.php?f=1583>`_ 
+
+
+.. raw: latex
+
+    \newpage
+    
+
+.. image:: Appendix/engr3_summer2015_syllabus_annotated_pg1.jpg
+    :height: 9in
+
+
+.. raw: latex
+
+    \newpage
+
+    
+.. image:: Appendix/engr3_summer2015_syllabus_annotated_pg2.jpg
+    :height: 9in
+
+
+.. raw: latex
+
+    \newpage
+
+    
+.. image:: Appendix/engr3_summer2015_syllabus_annotated_pg3.jpg
+    :height: 9in
+
+
+
+

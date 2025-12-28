@@ -1,0 +1,43 @@
+
+
+A7: Bloom's Taxomony of Educational Objectives
+=======================================================
+.. _bloomstaxonomy:
+
+
+ED 253D introduced me to a theory that strongly resonates with my view of learning: 
+*Bloom's Taxonomy of Educational Objectives*. Depicted :ref:`here <bloompic>`, it is a model for how a student's mastery of a subject improves with practice. Bloom proposed that a student's proficiency develops in a
+fixed sequence of cognitive stages --- from "Lower-Order Thinking Skills" to "Higher-Order Thinking Skills" --- as follows:
+
+
+1. **Remembering**. First, students must be introduced to the new knowledge, and they must remember it.
+
+    * Here is the mathematical recipe for how matrix multiplication works.
+
+2. **Understanding**. Next, students must get a sense of the new material: Explain it plainly and relate it to other familiar concepts.
+
+    * The formula for matrix multiplication amounts to taking rows of this matrix and dotting them with columns of that matrix. It is just a way of doing arithmetic in batches. Here are some examples of matrix multiplication...
+
+
+3. **Applying**. Students practice the knowledge and get a feel for using it.
+
+    * Now you try. Multiply these two numeric matrices. Next, try multiplying these symbolic matrices. 
+
+4. **Analyzing**. Now that students can "blindly" apply this new knowledge, they need to integrate it with their existing knowledge.
+
+    * Matrix multiplication is a generalization of normal multiplication of real numbers. Many of the rules for algebra on the real numbers work for matrices as well. For example, multiplication distributes over addition.
+
+    * You can use matrix multiplication to do certain types of transformations on vectors --- rotate them and flip them. 
+
+5. **Evaluating**. Students explore the material more deeply, finding extensions and shortcomings of it.
+
+    * Unlike a real number, a matrix is not always have a multiplicative inverse. What properties does a matrix need to have in order to have an inverse?
+
+    * A matrix can rotate a vector, but not translate it. How would I have to augment a matrix if I wanted to rotate *and* translate it?
+
+6. **Creating**. Students invent their own way to apply this knowledge. 
+
+    * Here are some example areas where matrices arise: ... Now, invent of a real-world math problem that can be solved using matrices and matrix inversion. 
+
+
+

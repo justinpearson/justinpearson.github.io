@@ -1,0 +1,76 @@
+Signature Page
+===========================================
+
+.. raw:: latex
+
+    \vfill
+
+
+.. only:: latex
+
+    .. image:: 1-Signature-page/CCUTbanner3.jpg
+
+
+.. raw:: html
+
+    <br />
+
+
+.. only:: latex
+
+    .. image:: 1-Signature-page/signature-pen.jpg
+
+
+.. raw:: latex
+
+    \vfill
+
+
+.. raw:: html
+
+    <br />
+
+
+.. raw:: latex
+
+    \newpage
+
+
+.. only:: latex
+
+    .. image:: 1-Signature-page/ccut-sig-page-1.pdf
+    	:height: 9in
+	
+.. only:: html
+
+    .. image:: 1-Signature-page/ccut-sig-page-1.JPG
+        :height: 9in
+
+
+
+
+
+.. raw:: latex
+
+    \newpage
+
+
+.. raw:: html
+
+    <br />
+
+
+
+.. only:: latex
+
+    .. image::  1-Signature-page/ccut-sig-page-2.pdf
+        :height: 9in
+    
+.. only:: html
+
+    .. image::  1-Signature-page/ccut-sig-page-2-2.jpg
+        :height: 9in
+
+
+
+
