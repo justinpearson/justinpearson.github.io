@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <title>
+            Research
+            &middot;
+            Justin Pearson
+        </title>
+    
+
+
+    <!-- Otherwise quotes don't come out right when uploaded: -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Not sure why needed; saw on Lynda.com: -->
+    <meta charset="utf-8"> 
+    <!-- For mobile; don't let mobile devs lie about their width -->
+    <!-- src: https://www.thesitewizard.com/css/mobile-friendly-responsive-design.shtml -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Main css file. -->
+    <link rel="stylesheet" type="text/css" href="/css/BASE-LAYOUT.css">
+
+    <!-- Each page's yaml front-matter may declare addnl css, eg, code syntax-highlighting. -->
+    
+        <link rel="stylesheet" type="text/css" href="/css/episode.css">
+    
+</head>
+
+<body>
+    
+<!-- Hamburger menu -->
+<div class=hamburger-menu>
+    <a id="menu-button" href="#nav">
+        <svg width="50" height="40" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg"><title>three-bars</title><desc>Created with Sketch.</desc><path d="M11.41 9h-10.82c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4h-10.82c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm-10.82 6h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h-10.81c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1z" fill="#000"></path></svg>
+    </a>
+</div>
+
+<header>
+    <div id="header-info">
+        <p id="header-info-name">Justin Pearson</p>
+        <ul id="header-info-list">
+            <li>Senior Software Engineer</li>
+            <li>AppFolio Inc</li>
+            <li>California, USA</li>
+            <li>justin.pearson<span style="display:none">foo</span>@gmail.com</li>
+        </ul>     
+        <span style="flex; align-items: center; margin: 10px;">
+                <a href="https://www.youtube.com/channel/UCR0w3EPVTsRJjCJVgwGXsaA">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/youtube.png"
+                    ></a>
+                <a href="https://github.com/justinpearson/">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/github.png"
+                    ></a>
+                <a href="https://stackexchange.com/users/3565268/convexmartian">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/stack-exchange.png"
+                    ></a>
+                <a href="https://www.linkedin.com/in/justin-pearson-1a5b48a/">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/linkedin.png"
+                    ></a>
+        </span>
+    </div>
+    <div id="header-pic">
+        <img src="/assets/header/my-face.png" alt="My face" >
+    </div>
+</header>
+
+
+    <nav id="nav">
+    
+        <a class="nav-link" href="/index.html">
+        <span class="nav-button ">About me</span>
+        </a>
+    
+        <a class="nav-link" href="/resume.html">
+        <span class="nav-button ">Résumé</span>
+        </a>
+    
+        <a class="nav-link" href="/teaching.html">
+        <span class="nav-button ">Teaching</span>
+        </a>
+    
+        <a class="nav-link" href="/research.html">
+        <span class="nav-button nav-hilited">Research</span>
+        </a>
+    
+        <a class="nav-link" href="/industry.html">
+        <span class="nav-button ">Industry</span>
+        </a>
+    
+        <a class="nav-link" href="/projects.html">
+        <span class="nav-button ">Projects</span>
+        </a>
+    
+        <a class="nav-link" href="/tips.html">
+        <span class="nav-button ">Tips</span>
+        </a>
+    
+        <a class="nav-link" href="/talks.html">
+        <span class="nav-button ">Talks</span>
+        </a>
+    
+        <a class="nav-link" href="/fun-videos.html">
+        <span class="nav-button ">Fun videos</span>
+        </a>
+    
+</nav>
+
+
+    <main>
+        <h1 class="article-title" id="research">Research</h1>
+
+<div class="episode-list"> 
+     
+        <div class="episode" id="an-architecture-for-preemption-resistant-control-ph-d-defense-part-2"> 
+
+    <!-- Everything but pic  -->
+    <div class="ent-text-container">
+
+        <p class="ent-title">
+            An architecture for preemption-resistant control (Ph.D. Defense, Part 2) 
+            <a class="headerlink ent-title-link" href="/research.html#an-architecture-for-preemption-resistant-control-ph-d-defense-part-2" title="Permalink to this episode">¶</a>
+        </p>
+
+        <div class="ent-summary">
+        <p>We present a control architecture that allows a controller running on a non-real-time operating system to run with a high degree of determinacy, even in the presence of OS preemption. The main idea is to buffer the sensor measurements and actuator commands on an auxiliary microprocessor called a Real-Time Unit (RTU). The RTU runs independently from the main CPU and so can function even if the main control task is preempted. We implement this on a 1 GHz Beaglebone Black single-board computer using its 200 MHz Programmable Real-time Unit (PRU) as an RTU.  We observe that this architecture greatly improves the performance of a simple PID controller  in the presence of OS preemption.
+We presented these results at my Ph.D. defense in January 2018.</p>
+
+        </div>
+
+        
+
+        
+
+        <ul class="ent-badge-list">
+            
+                <li>
+                <a style="text-decoration: none;" href="https://youtu.be/vWMsGxmyK_8">
+                <span class="ent-badge">&#x25ba; PHD DEFENSE VIDEO PT 2</span>
+                </a>    
+                </li>
+            
+                <li>
+                <a style="text-decoration: none;" href="/assets/research/publications/Pearson_UCSB_thesis.pdf">
+                <span class="ent-badge">&#x25ba; PHD THESIS</span>
+                </a>    
+                </li>
+            
+                <li>
+                <a style="text-decoration: none;" href="/assets/research/publications/preemption-resistant-control-on-non-rtos.pdf">
+                <span class="ent-badge">&#x25ba; PAPER</span>
+                </a>    
+                </li>
+            
+        </ul>    
+    </div>
+
+    <!-- Pic -->
+    <div class="ent-img-container">
+        
+            
+                
+                <a href="https://youtu.be/vWMsGxmyK_8">
+            
+                
+                <img src="/assets/research/preemption-resistant-control-phd-defense.jpg" />
+            
+                </a>
+            
+        
+    </div>
+</div>
+
+     
+        <div class="episode" id="control-with-minimum-energy-per-symbol-and-the-optimality-of-event-based-control-ph-d-defense-part-1"> 
+
+    <!-- Everything but pic  -->
+    <div class="ent-text-container">
+
+        <p class="ent-title">
+            Control with minimum energy-per-symbol, and the optimality of event-based control (Ph.D. Defense, Part 1)
+ 
+            <a class="headerlink ent-title-link" href="/research.html#control-with-minimum-energy-per-symbol-and-the-optimality-of-event-based-control-ph-d-defense-part-1" title="Permalink to this episode">¶</a>
+        </p>
+
+        <div class="ent-summary">
+        <p>The performance of a control system is often limited by constraints on timing, bandwidth, and energy.  This work explores the trade-offs between constraints on these resources, the control system performance,  and the system to be controlled. We begin by considering a networked control system in which the sensor sends its measurements to the controller over a limited-bandwidth communications channel.  We explore the observation that the absence of communication nevertheless conveys  information — i.e., nothing communication-worthy occurred.  This suggests that energy (or other resources consumed by communication) could be saved using  the <em>timing</em> of messages to transmit information, rather than the normal practice  of transmitting data in the messages themselves. We develop a framework to explore this idea and  derive a condition for the existence of a stabilizing controller that captures the trade-off  between bandwidth, resource consumption, and the unstable eigenvalues of the linear system  to be controlled. Next, we use the framework to analyze a family of event-based controllers.  We show that these controllers can stabilize a system while consuming resources at a rate  that is within 2.5 times the theoretically-minimum rate. 
+We presented these results at the 2015 and 2016 IEEE Conference on Decision and Control, in the May 2017 issue of the IEEE journal <em>Transactions on Automatic Control</em>, and at my Ph.D. defense in Jan 2018.</p>
+
+        </div>
+
+        
+
+        
+
+        <ul class="ent-badge-list">
+            
+                <li>
+                <a style="text-decoration: none;" href="https://youtu.be/NvPtkL1JVlk">
+                <span class="ent-badge">&#x25ba; PHD DEFENSE VIDEO PT 1</span>
+                </a>    
+                </li>
+            
+                <li>
+                <a style="text-decoration: none;" href="/assets/research/publications/Pearson_UCSB_thesis.pdf">
+                <span class="ent-badge">&#x25ba; PHD THESIS</span>
+                </a>    
+                </li>
+            
+                <li>
+                <a style="text-decoration: none;" href="/assets/research/publications/min_energy.pdf">
+                <span class="ent-badge">&#x25ba; JOURNAL PAPER</span>
+                </a>    
+                </li>
+            
+        </ul>    
+    </div>
+
+    <!-- Pic -->
+    <div class="ent-img-container">
+        
+            <video src="/assets/research/mineng-animation.mp4" type="video/mp4" autoplay="" controls="" loop="">
+                vid no work!!
+            </video>
+        
+    </div>
+</div>
+
+     
+        <div class="episode" id="minimum-energy-encoding-for-networked-control-systems"> 
+
+    <!-- Everything but pic  -->
+    <div class="ent-text-container">
+
+        <p class="ent-title">
+            Minimum-Energy Encoding for Networked Control Systems 
+            <a class="headerlink ent-title-link" href="/research.html#minimum-energy-encoding-for-networked-control-systems" title="Permalink to this episode">¶</a>
+        </p>
+
+        <div class="ent-summary">
+        <p>Some preliminary results from our work on limited-communication control theory,  presented at the 25th Southern California Control Workshop at UC Irvine in Oct 2013.</p>
+
+        </div>
+
+        
+
+        
+
+        <ul class="ent-badge-list">
+            
+                <li>
+                <a style="text-decoration: none;" href="https://youtu.be/PazXINGj01k">
+                <span class="ent-badge">&#x25ba; VIDEO</span>
+                </a>    
+                </li>
+            
+                <li>
+                <a style="text-decoration: none;" href="/assets/research/talks/minenergy_socal_oct2013_v3.pdf">
+                <span class="ent-badge">&#x25ba; SLIDES</span>
+                </a>    
+                </li>
+            
+        </ul>    
+    </div>
+
+    <!-- Pic -->
+    <div class="ent-img-container">
+        
+            
+                
+                <a href="https://youtu.be/PazXINGj01k">
+            
+                
+                <img src="/assets/research/socal-workshop.jpg" />
+            
+                </a>
+            
+        
+    </div>
+</div>
+
+     
+        <div class="episode" id="introduction-to-control-theory-the-beaglebone"> 
+
+    <!-- Everything but pic  -->
+    <div class="ent-text-container">
+
+        <p class="ent-title">
+            Introduction to Control Theory &amp; the Beaglebone 
+            <a class="headerlink ent-title-link" href="/research.html#introduction-to-control-theory-the-beaglebone" title="Permalink to this episode">¶</a>
+        </p>
+
+        <div class="ent-summary">
+        <p>To explore the importance of timing in control systems, we implement a pendulum controller on a Beaglebone single-board computer.
+This video is an overview of the hardware and an introduction to state-feedback controllers.
+Presented to engineering undergraduates at the IEEE Club at the University of California, Santa Barbara.</p>
+
+        </div>
+
+        
+
+        
+
+        <ul class="ent-badge-list">
+            
+                <li>
+                <a style="text-decoration: none;" href="https://youtu.be/_IEzcxh3kvQ">
+                <span class="ent-badge">&#x25ba; VIDEO</span>
+                </a>    
+                </li>
+            
+                <li>
+                <a style="text-decoration: none;" href="/assets/research/talks/bb-pendulum.pdf">
+                <span class="ent-badge">&#x25ba; SLIDES</span>
+                </a>    
+                </li>
+            
+        </ul>    
+    </div>
+
+    <!-- Pic -->
+    <div class="ent-img-container">
+        
+            
+                
+                <a href="https://youtu.be/_IEzcxh3kvQ">
+            
+                
+                <img src="/assets/research/bb-pendulum.jpg" />
+            
+                </a>
+            
+        
+    </div>
+</div>
+
+     
+        <div class="episode" id="how-regenerative-braking-works"> 
+
+    <!-- Everything but pic  -->
+    <div class="ent-text-container">
+
+        <p class="ent-title">
+            How regenerative braking works 
+            <a class="headerlink ent-title-link" href="/research.html#how-regenerative-braking-works" title="Permalink to this episode">¶</a>
+        </p>
+
+        <div class="ent-summary">
+        <p>Using a simple model for a DC motor, let’s figure out how to use its momentum to recharge a battery.
+This repo contains the code from the video “How regenerative braking works”.</p>
+
+        </div>
+
+        
+
+        
+
+        <ul class="ent-badge-list">
+            
+                <li>
+                <a style="text-decoration: none;" href="https://youtu.be/QW3PmRp7EK8">
+                <span class="ent-badge">&#x25ba; VIDEO</span>
+                </a>    
+                </li>
+            
+                <li>
+                <a style="text-decoration: none;" href="https://github.com/justinpearson/How-regenerative-braking-works">
+                <span class="ent-badge">&#x25ba; MATLAB CODE</span>
+                </a>    
+                </li>
+            
+        </ul>    
+    </div>
+
+    <!-- Pic -->
+    <div class="ent-img-container">
+        
+            
+                
+                <a href="https://youtu.be/QW3PmRp7EK8">
+            
+                
+                <img src="/assets/research/regen.jpg" />
+            
+                </a>
+            
+        
+    </div>
+</div>
+
+     
+        <div class="episode" id="paxos-in-pictures-lamport-s-distributed-consensus-algorithm"> 
+
+    <!-- Everything but pic  -->
+    <div class="ent-text-container">
+
+        <p class="ent-title">
+            Paxos in Pictures: Lamport's Distributed Consensus Algorithm 
+            <a class="headerlink ent-title-link" href="/research.html#paxos-in-pictures-lamport-s-distributed-consensus-algorithm" title="Permalink to this episode">¶</a>
+        </p>
+
+        <div class="ent-summary">
+        <p>Paxos is a computer algorithm to help a network of computers agree on a proposed value. It is hard to understand at first. This video attempts to explain Paxos intuitively yet rigorously. The content comes from Lamport’s 2001 paper “Paxos Made Simple”.</p>
+
+        </div>
+
+        
+
+        
+
+        <ul class="ent-badge-list">
+            
+                <li>
+                <a style="text-decoration: none;" href="https://youtu.be/UUQ8xYWR4do">
+                <span class="ent-badge">&#x25ba; VIDEO</span>
+                </a>    
+                </li>
+            
+                <li>
+                <a style="text-decoration: none;" href="/assets/research/talks/paxos-in-pictures-with-slidebuilds.pdf">
+                <span class="ent-badge">&#x25ba; SLIDES</span>
+                </a>    
+                </li>
+            
+        </ul>    
+    </div>
+
+    <!-- Pic -->
+    <div class="ent-img-container">
+        
+            
+                
+                <a href="https://youtu.be/UUQ8xYWR4do">
+            
+                
+                <img src="/assets/research/paxos.jpg" />
+            
+                </a>
+            
+        
+    </div>
+</div>
+
+    
+</div>
+
+<h2 id="publications">Publications</h2>
+
+<ul>
+  <li>
+    <p>Justin Payne Pearson.
+Control under energy and time constraints.
+PhD Thesis,
+University of California, Santa Barbara, CA, USA,
+Jan. 2018.
+[<a href="/assets/research/bibtex/thesis_BIB.txt">bibtex</a>]
+[<a href="/assets/research/papers/Pearson_UCSB_thesis.pdf">pdf</a>]</p>
+  </li>
+  <li>
+    <p>J. Pearson,
+J. Hespanha,
+D. Liberzon.
+Control with minimal cost-per-symbol encoding and quasi-optimality of event-based
+encoders.
+<em>IEEE Transactions on Automatic Control</em>,
+62(5):2286—2301,
+May 2017.
+[<a href="/assets/research/bibtex/mineng_BIB.txt">bibtex</a>]
+[<a href="/assets/research/papers/min_energy.pdf">pdf</a>]</p>
+  </li>
+  <li>
+    <p>J. Pearson,
+D. Copp,
+J. Hespanha.
+Preemption-robust control on a non-real-time operating system.
+Mar. 2017.
+Submitted to conference publications.
+[<a href="/assets/research/papers/preemption-resistant-control-on-non-rtos.pdf">pdf</a>]</p>
+  </li>
+  <li>
+    <p>J. Pearson,
+J. Hespanha,
+D. Liberzon.
+Quasi-optimality of event-based encoders.
+In <em>Proceedings of the 54th Conference on Decision and Control</em>,
+Dec. 2015.
+[<a href="/assets/research/bibtex/event_BIB.txt">bibtex</a>]
+[<a href="/assets/research/papers/mineng_cdc2015.pdf">pdf</a>]</p>
+  </li>
+  <li>
+    <p>J. Pearson,
+J. Hespanha,
+D. Liberzon.
+Control with Minimum Communication Cost per Symbol.
+In <em>Proceedings of the 53nd Conference on Decision and Control</em>,
+Dec. 2014.
+[<a href="/assets/research/bibtex/mineng_conf_BIB.txt">bibtex</a>]
+[<a href="/assets/research/papers/minenergy_CDC_2014.pdf">pdf</a>]</p>
+  </li>
+  <li>
+    <p>A. Alanwar, 
+F. M. Anwar, 
+Y. Zhang, 
+J. Pearson, 
+J. Hespanha, 
+M. B. Srivastava.
+Cyclops: PRU Programming Framework for Precise Timing Applications.
+In <em>Proc. of the 2017 IEEE Int. Symp. on Precision Clock Synchronization for Measurement, Control, and Communication (ISPCS)</em>,
+Aug. 2017. 
+[<a href="/assets/research/bibtex/cyclops_BIB.txt">bibtex</a>]
+[<a href="/assets/research/papers/Cyclops.pdf">pdf</a>]</p>
+  </li>
+</ul>
+
+    </main>
+
+    <footer>
+    <p class="footer">&copy; 2017–2025 Justin P. Pearson. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

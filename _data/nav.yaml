@@ -21,8 +21,12 @@
   button_text: Industry
 
 - href: projects.html
-  nav_name: projects 
+  nav_name: projects
   button_text: Projects
+
+- href: tips.html
+  nav_name: tips
+  button_text: Tips
 
 - href: talks.html
   nav_name: talks

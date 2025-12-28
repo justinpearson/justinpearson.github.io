@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  counting_crows_final-WEB
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Title">
+ Enumerating birds in a video 
+</p>
+
+
+
+<p class="Text">
+ Justin Pearson<br />2014-10-25
+</p>
+
+
+
+<p class="Section">
+ Abstract
+</p>
+
+
+
+<p class="Text">
+ We explore computational techniques for enumerating birds in a video file. The video was filmed in November 2011 in Simi Valley, California, and features thousands of crows on their daily evening commute from the city to a large green open space. We determine that the 8-minute video captures roughly 1200 crows.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="267" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="285" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="576" height="324" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Since the crows are exiting the frame through the top and left sides, the main idea is to count the crows by counting when they leave the top or left side of the frame. 
+</p>
+
+
+
+<p class="Section">
+ Footage
+</p>
+
+
+
+<p class="Text">
+ Here&rsquo;s our footage:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="188" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="949" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="86" height="17" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>File name</span></td>
+  <td style='text-align: center;'><span>short_clip.avi</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>File Size (bytes)</span></td>
+  <td style='text-align: center;'><span>12939120</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>BitDepth</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>ColorSpace</span></td>
+  <td style='text-align: center;'><span>RGB</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Duration</span></td>
+  <td style='text-align: center;'><span>3.46667</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>FrameCount</span></td>
+  <td style='text-align: center;'><span>104</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>FrameRate</span></td>
+  <td style='text-align: center;'><span>30.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>ImageSize</span></td>
+  <td style='text-align: center;'><span>{720,480}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>VideoEncoding</span></td>
+  <td style='text-align: center;'><span>DV/DVCPRO - NTSC</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{ImageList,100}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="720" height="480" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="459" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="55" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="639" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="765" height="600" style="vertical-align:middle;" usemap="#map_11" />
+<map name="map_11">
+<area shape="rect" coords="749,21,759,11" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Section">
+ Idea 1: View video as 3D Image
+</p>
+
+
+
+<p class="Text">
+ If we mask out the crows and stack the frames up to form a 3D image, each crow will trace out a long tube-like shape. Counting the tubes tells us the number of crows in the whole video.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="592" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="150" height="100" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="511" height="270" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="845" height="782" style="vertical-align:middle;" usemap="#map_15" />
+<map name="map_15">
+<area shape="rect" coords="829,21,839,11" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ Here&rsquo;s a good threshold value:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="117" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Make &amp; Export 3D image
+</p>
+
+
+
+<p class="Text">
+ This takes a long time, so I locked these cells.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="770" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="242" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="315" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="1266" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Show 3D image
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="228" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="545" height="650" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Idea 2: Count when crows leave the frame
+</p>
+
+
+
+<p class="Text">
+ Import the frames as raw pixel values instead of Image[] objects.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="491" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="100" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="121" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="132" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="141" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="56" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="448" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="720" height="480" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The fact that the lefthand side has some dark trees will make things difficult; let&rsquo;s just crop them out.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="121" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="132" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="285" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="448" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="601" height="431" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Take vertical column of pixels from each frame
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="234" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="96" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="411" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="104" height="431" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Take horizontal slice of pixels from each frame
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="242" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="96" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_42.gif" alt="index_42.gif" width="168" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="601" height="104" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Quick check: Show a video of crows leaving the frame
+</p>
+
+
+
+<p class="Text">
+ You can see the crows getting &ldquo;stuck&rdquo; when they hit the upper and left edges. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_44.gif" alt="index_44.gif" width="433" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="557" height="270" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="750" height="656" style="vertical-align:middle;" usemap="#map_46" />
+<map name="map_46">
+<area shape="rect" coords="734,21,744,11" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ Looks like ~15 leave the RHS and 6 leave the top.
+</p>
+
+
+
+<p class="Text">
+ The idea will be to have MMA count the number of crows that leave the left &amp; top sides.
+</p>
+
+
+
+<p class="Section">
+ Crows exiting top of frame
+</p>
+
+
+
+<p class="Text">
+ Here&rsquo;s the top few rows of a 15-minute video of crows. The whole file was too big to import.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="407" height="60" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>File name</span></td>
+  <td style='text-align: center;'><span>horiz_720x24_quicktime_h264.mov</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>File Size (bytes)</span></td>
+  <td style='text-align: center;'><span>29436035</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>BitDepth</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>ColorSpace</span></td>
+  <td style='text-align: center;'><span>RGB</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Duration</span></td>
+  <td style='text-align: center;'><span>479.479</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>FrameCount</span></td>
+  <td style='text-align: center;'><span>14370</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>FrameRate</span></td>
+  <td style='text-align: center;'><span>29.97</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>ImageSize</span></td>
+  <td style='text-align: center;'><span>{720,24}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>VideoEncoding</span></td>
+  <td style='text-align: center;'><span>H.264</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{ImageList,100}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="720" height="24" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="591" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="765" height="144" style="vertical-align:middle;" usemap="#map_50" />
+<map name="map_50">
+<area shape="rect" coords="749,21,759,11" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Subsection">
+ Import video in chunks of 300 frames; extract the top row of pixels from each frame; parallelize this for speed.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="283" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="41" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="516" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_54.gif" alt="index_54.gif" width="186" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_55.gif" alt="index_55.gif" width="704" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_56.gif" alt="index_56.gif" width="117" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_57.gif" alt="index_57.gif" width="369" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_58.gif" alt="index_58.gif" width="139" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_59.gif" alt="index_59.gif" width="1731" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_60.gif" alt="index_60.gif" width="129" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_61.gif" alt="index_61.gif" width="16" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_62.gif" alt="index_62.gif" width="932" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_63.gif" alt="index_63.gif" width="773" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_64.gif" alt="index_64.gif" width="55" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_65.gif" alt="index_65.gif" width="98" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_66.gif" alt="index_66.gif" width="114" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_67.gif" alt="index_67.gif" width="264" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_68.gif" alt="index_68.gif" width="145" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_69.gif" alt="index_69.gif" width="600" height="324" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_70.gif" alt="index_70.gif" width="236" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Detection via GradientFilter
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_71.gif" alt="index_71.gif" width="391" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_72.gif" alt="index_72.gif" width="180" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_73.gif" alt="index_73.gif" width="93" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_74.gif" alt="index_74.gif" width="169" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_75.gif" alt="index_75.gif" width="600" height="324" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ It&rsquo;s hard to see in this pic, but if you zoom in, black is background and white is crows.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_76.gif" alt="index_76.gif" width="299" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Find a good threshold pixel value to differentiate between &ldquo;crow&rdquo; and &ldquo;background&rdquo;.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_77.gif" alt="index_77.gif" width="271" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_78.gif" alt="index_78.gif" width="1081" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_79.gif" alt="index_79.gif" width="400" height="244" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ So it looks like a good dividing line between black background and white crows is around 0.07.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_80.gif" alt="index_80.gif" width="518" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_81.gif" alt="index_81.gif" width="354" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Looks pretty good. Let&rsquo;s highlight them:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_82.gif" alt="index_82.gif" width="631" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_83.gif" alt="index_83.gif" width="169" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_84.gif" alt="index_84.gif" width="500" height="270" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here&rsquo;s a zoom-in of the left side of the image:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_85.gif" alt="index_85.gif" width="242" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_86.gif" alt="index_86.gif" width="500" height="720" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Hard to see, but the crows are highlighted slightly.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_87.gif" alt="index_87.gif" width="424" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ So, how many crows left the top of the frame during this 8-minute video?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_88.gif" alt="index_88.gif" width="482" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_89.gif" alt="index_89.gif" width="23" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Crows exiting left side of frame 
+</p>
+
+
+
+<p class="Text">
+ Do essentially the same thing, but for the video that&rsquo;s the left side of the frame.
+</p>
+
+
+
+<p class="Text">
+ A long file. Import in pieces.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_90.gif" alt="index_90.gif" width="313" height="39" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>File name</span></td>
+  <td style='text-align: center;'><span>vert_24x350_quicktime_h264.mov</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>File Size (bytes)</span></td>
+  <td style='text-align: center;'><span>18630731</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>BitDepth</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>ColorSpace</span></td>
+  <td style='text-align: center;'><span>RGB</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Duration</span></td>
+  <td style='text-align: center;'><span>479.479</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>FrameCount</span></td>
+  <td style='text-align: center;'><span>14370</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>FrameRate</span></td>
+  <td style='text-align: center;'><span>29.97</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>ImageSize</span></td>
+  <td style='text-align: center;'><span>{24,350}</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>VideoEncoding</span></td>
+  <td style='text-align: center;'><span>H.264</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>{ImageList,100}</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_91.gif" alt="index_91.gif" width="24" height="350" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Subsection">
+ Preview
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_92.gif" alt="index_92.gif" width="415" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_93.gif" alt="index_93.gif" width="539" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_94.gif" alt="index_94.gif" width="245" height="470" style="vertical-align:middle;" usemap="#map_94" />
+<map name="map_94">
+<area shape="rect" coords="229,21,239,11" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Subsubsection">
+ Aside: Consider just assembling these skinny frames instead of only their leftmost cols.
+</p>
+
+
+
+<p class="Text">
+ The easiest thing to do would be to just squish all the frames together. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_95.gif" alt="index_95.gif" width="242" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_96.gif" alt="index_96.gif" width="3686" height="88" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Too dotty.
+</p>
+
+
+
+<p class="Subsection">
+ Import in pieces.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_97.gif" alt="index_97.gif" width="283" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_98.gif" alt="index_98.gif" width="41" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_99.gif" alt="index_99.gif" width="516" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_100.gif" alt="index_100.gif" width="186" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_101.gif" alt="index_101.gif" width="704" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_102.gif" alt="index_102.gif" width="117" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_103.gif" alt="index_103.gif" width="369" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_104.gif" alt="index_104.gif" width="139" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_105.gif" alt="index_105.gif" width="1731" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_106.gif" alt="index_106.gif" width="129" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_107.gif" alt="index_107.gif" width="16" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_108.gif" alt="index_108.gif" width="932" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_109.gif" alt="index_109.gif" width="592" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_110.gif" alt="index_110.gif" width="98" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_111.gif" alt="index_111.gif" width="114" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_112.gif" alt="index_112.gif" width="264" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ A very long image:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_113.gif" alt="index_113.gif" width="156" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_114.gif" alt="index_114.gif" width="93" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_115.gif" alt="index_115.gif" width="145" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_116.gif" alt="index_116.gif" width="500" height="270" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Left side of the image:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_117.gif" alt="index_117.gif" width="218" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_118.gif" alt="index_118.gif" width="600" height="350" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_119.gif" alt="index_119.gif" width="236" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Detection via GradientFilter
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_120.gif" alt="index_120.gif" width="391" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_121.gif" alt="index_121.gif" width="242" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_122.gif" alt="index_122.gif" width="600" height="350" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Black is background and white is crows.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_123.gif" alt="index_123.gif" width="299" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_124.gif" alt="index_124.gif" width="271" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_125.gif" alt="index_125.gif" width="1081" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_126.gif" alt="index_126.gif" width="360" height="220" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ So it looks like a good dividing line between black background and white crows is around 0.07.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_127.gif" alt="index_127.gif" width="518" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_128.gif" alt="index_128.gif" width="354" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Looks pretty good. Let&rsquo;s highlight them:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_129.gif" alt="index_129.gif" width="631" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_130.gif" alt="index_130.gif" width="242" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_131.gif" alt="index_131.gif" width="600" height="350" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_132.gif" alt="index_132.gif" width="424" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ So, how many crows departed out the left side of the frame during the 8-minute video?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_133.gif" alt="index_133.gif" width="490" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_134.gif" alt="index_134.gif" width="23" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Conclusion
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_135.gif" alt="index_135.gif" width="116" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_136.gif" alt="index_136.gif" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ About 1400 crows flew through the video over the course of 8 minutes: about 3 crows a second. Wow!
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <title>
+            Projects
+            &middot;
+            Justin Pearson
+        </title>
+    
+
+
+    <!-- Otherwise quotes don't come out right when uploaded: -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Not sure why needed; saw on Lynda.com: -->
+    <meta charset="utf-8"> 
+    <!-- For mobile; don't let mobile devs lie about their width -->
+    <!-- src: https://www.thesitewizard.com/css/mobile-friendly-responsive-design.shtml -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Main css file. -->
+    <link rel="stylesheet" type="text/css" href="/css/BASE-LAYOUT.css">
+
+    <!-- Each page's yaml front-matter may declare addnl css, eg, code syntax-highlighting. -->
+    
+        <link rel="stylesheet" type="text/css" href="/css/code-syntax-highlight.css">
+    
+</head>
+
+<body>
+    
+<!-- Hamburger menu -->
+<div class=hamburger-menu>
+    <a id="menu-button" href="#nav">
+        <svg width="50" height="40" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg"><title>three-bars</title><desc>Created with Sketch.</desc><path d="M11.41 9h-10.82c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4h-10.82c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm-10.82 6h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h-10.81c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1z" fill="#000"></path></svg>
+    </a>
+</div>
+
+<header>
+    <div id="header-info">
+        <p id="header-info-name">Justin Pearson</p>
+        <ul id="header-info-list">
+            <li>Senior Software Engineer</li>
+            <li>AppFolio Inc</li>
+            <li>California, USA</li>
+            <li>justin.pearson<span style="display:none">foo</span>@gmail.com</li>
+        </ul>     
+        <span style="flex; align-items: center; margin: 10px;">
+                <a href="https://www.youtube.com/channel/UCR0w3EPVTsRJjCJVgwGXsaA">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/youtube.png"
+                    ></a>
+                <a href="https://github.com/justinpearson/">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/github.png"
+                    ></a>
+                <a href="https://stackexchange.com/users/3565268/convexmartian">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/stack-exchange.png"
+                    ></a>
+                <a href="https://www.linkedin.com/in/justin-pearson-1a5b48a/">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/linkedin.png"
+                    ></a>
+        </span>
+    </div>
+    <div id="header-pic">
+        <img src="/assets/header/my-face.png" alt="My face" >
+    </div>
+</header>
+
+
+    <nav id="nav">
+    
+        <a class="nav-link" href="/index.html">
+        <span class="nav-button ">About me</span>
+        </a>
+    
+        <a class="nav-link" href="/resume.html">
+        <span class="nav-button ">Résumé</span>
+        </a>
+    
+        <a class="nav-link" href="/teaching.html">
+        <span class="nav-button ">Teaching</span>
+        </a>
+    
+        <a class="nav-link" href="/research.html">
+        <span class="nav-button ">Research</span>
+        </a>
+    
+        <a class="nav-link" href="/industry.html">
+        <span class="nav-button ">Industry</span>
+        </a>
+    
+        <a class="nav-link" href="/projects.html">
+        <span class="nav-button nav-hilited">Projects</span>
+        </a>
+    
+        <a class="nav-link" href="/tips.html">
+        <span class="nav-button ">Tips</span>
+        </a>
+    
+        <a class="nav-link" href="/talks.html">
+        <span class="nav-button ">Talks</span>
+        </a>
+    
+        <a class="nav-link" href="/fun-videos.html">
+        <span class="nav-button ">Fun videos</span>
+        </a>
+    
+</nav>
+
+
+    <main>
+        <h1 class="no_toc" id="grumpy-justins-ruby-tutorial">Grumpy Justin’s Ruby Tutorial</h1>
+
+<p>The Ruby programming language has some weird quirks.</p>
+
+<p>I wrote this for experienced programmers who are new to Ruby, who just need to know the “diff” between, say, Python and Ruby — the syntax, idioms, and pitfalls. Most Ruby tutorials annoyingly and pedantically assume the reader has no knowledge of programming. (In my opinion, if you have no knowledge of programming, learn Python first: there are fewer oddities and pitfalls.)</p>
+
+<p>Lastly, this is NOT a Ruby On Rails tutorial. In my line of work, many folks come to Ruby because they need to learn Ruby On Rails. It is immensely frustrating trying to learn <strong>both</strong> the Ruby language and also the Rails framework at the same time. Rails is overflowing with strange conventions you must follow, and under the hood, it uses Ruby’s weirdest aspects to full advantage. Consequently, newcomers are assaulted with an endless onslaught of baffling error messages because some innocent unwitting typo in Ruby’s strange syntax disrupted some subtle machination in Rails. Therefore it is worthwhile to study Ruby in isolation.</p>
+
+<h2 class="no_toc" id="contents">Contents</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#general-tips" id="markdown-toc-general-tips">General tips</a>    <ul>
+      <li><a href="#whitespace-doesnt-matter" id="markdown-toc-whitespace-doesnt-matter">Whitespace doesn’t matter</a></li>
+      <li><a href="#printing" id="markdown-toc-printing">Printing</a></li>
+      <li><a href="#help-docs" id="markdown-toc-help-docs">Help docs</a></li>
+      <li><a href="#debug-via-breakpoints" id="markdown-toc-debug-via-breakpoints">Debug via breakpoints</a></li>
+      <li><a href="#debug-via-introspection" id="markdown-toc-debug-via-introspection">Debug via introspection</a></li>
+    </ul>
+  </li>
+  <li><a href="#datatypes-and-control-flow" id="markdown-toc-datatypes-and-control-flow">Datatypes and Control Flow</a>    <ul>
+      <li><a href="#nil" id="markdown-toc-nil">nil</a></li>
+      <li><a href="#only-nil-and-false-are-falsey" id="markdown-toc-only-nil-and-false-are-falsey">Only nil and false are falsey</a></li>
+      <li><a href="#string-interpolation-syntax" id="markdown-toc-string-interpolation-syntax">String interpolation syntax</a></li>
+      <li><a href="#symbols" id="markdown-toc-symbols">Symbols</a></li>
+      <li><a href="#hash" id="markdown-toc-hash">Hash</a></li>
+      <li><a href="#if--while--case-returns-the-last-thing-executed" id="markdown-toc-if--while--case-returns-the-last-thing-executed">if / while / case returns the last thing executed</a></li>
+      <li><a href="#regex" id="markdown-toc-regex">Regex</a></li>
+    </ul>
+  </li>
+  <li><a href="#functions" id="markdown-toc-functions">Functions</a>    <ul>
+      <li><a href="#functions-return-the-last-thing-executed" id="markdown-toc-functions-return-the-last-thing-executed">Functions return the last thing executed</a></li>
+      <li><a href="#parens-are-optional-in-a-function-call" id="markdown-toc-parens-are-optional-in-a-function-call">Parens are optional in a function call</a></li>
+      <li><a href="#positional-args-keyword-args-default-values" id="markdown-toc-positional-args-keyword-args-default-values">Positional args, Keyword args, default values</a></li>
+      <li><a href="#automatic-conversion-btwn-hash-and-keyword-args" id="markdown-toc-automatic-conversion-btwn-hash-and-keyword-args">Automatic conversion btwn hash and keyword args</a></li>
+      <li><a href="#methods-ending-in--or-" id="markdown-toc-methods-ending-in--or-">Methods ending in ? or !</a></li>
+      <li><a href="#weird-ways-to-call-methods" id="markdown-toc-weird-ways-to-call-methods">Weird ways to call methods</a></li>
+    </ul>
+  </li>
+  <li><a href="#code-blocks" id="markdown-toc-code-blocks">Code blocks</a>    <ul>
+      <li><a href="#lambda-functions" id="markdown-toc-lambda-functions">Lambda functions.</a></li>
+      <li><a href="#with-lambdas-why-need-code-blocks" id="markdown-toc-with-lambdas-why-need-code-blocks">With lambdas, why need Code Blocks?</a></li>
+      <li><a href="#passing-a-proc-as-a-code-block" id="markdown-toc-passing-a-proc-as-a-code-block">Passing a Proc as a code block</a></li>
+      <li><a href="#defining-a-method-that-expects-a-code-block" id="markdown-toc-defining-a-method-that-expects-a-code-block">Defining a method that expects a code block</a></li>
+      <li><a href="#code-blocks-are-over-used" id="markdown-toc-code-blocks-are-over-used">Code blocks are over-used</a></li>
+      <li><a href="#implementing-pythons-with-as-a-code-block" id="markdown-toc-implementing-pythons-with-as-a-code-block">Implementing Python’s “with” as a code block</a></li>
+      <li><a href="#break-vs-return" id="markdown-toc-break-vs-return">Break vs Return</a></li>
+      <li><a href="#passing-symbol-instead-of-code-block" id="markdown-toc-passing-symbol-instead-of-code-block">Passing Symbol instead of Code Block</a></li>
+    </ul>
+  </li>
+  <li><a href="#classes-and-modules" id="markdown-toc-classes-and-modules">Classes and Modules</a>    <ul>
+      <li><a href="#classes-can-be-nested" id="markdown-toc-classes-can-be-nested">Classes can be nested</a></li>
+      <li><a href="#instance-vars-are-inaccessible-outside-the-class" id="markdown-toc-instance-vars-are-inaccessible-outside-the-class">Instance vars are inaccessible outside the class</a></li>
+      <li><a href="#can-modify-existing-classes-at-runtime" id="markdown-toc-can-modify-existing-classes-at-runtime">Can modify existing classes at runtime</a></li>
+      <li><a href="#can-add-methods-to-individual-objects" id="markdown-toc-can-add-methods-to-individual-objects">Can add methods to individual objects</a></li>
+      <li><a href="#modules" id="markdown-toc-modules">Modules</a></li>
+    </ul>
+  </li>
+  <li><a href="#closing-thoughts" id="markdown-toc-closing-thoughts">Closing Thoughts</a></li>
+</ul>
+
+<h2 id="general-tips">General tips</h2>
+
+<h3 id="whitespace-doesnt-matter">Whitespace doesn’t matter</h3>
+
+<p>Unlike Python, Ruby doesn’t care about whitespace:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+        <span class="k">return</span> <span class="n">s</span>
+            <span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  <span class="c1">#  =&gt; 3</span>
+</code></pre></div></div>
+
+<h3 id="printing">Printing</h3>
+
+<ul>
+  <li>Ruby’s <code class="language-plaintext highlighter-rouge">print</code> is like Python’s <code class="language-plaintext highlighter-rouge">print</code>, except that it doesn’t print a trailing newline.</li>
+  <li>Ruby’s <code class="language-plaintext highlighter-rouge">puts</code> is bad, because it prints the value <code class="language-plaintext highlighter-rouge">nil</code> (like Python’s <code class="language-plaintext highlighter-rouge">None</code>) as empty-string, which is confusing when debugging.</li>
+  <li>Ruby’s <code class="language-plaintext highlighter-rouge">pp</code> is like Python’s <code class="language-plaintext highlighter-rouge">pprint</code> (“pretty-print”), but requires <code class="language-plaintext highlighter-rouge">require 'pp'</code> before Ruby 2.5.</li>
+  <li>Ruby’s <code class="language-plaintext highlighter-rouge">p</code> is best for debugging: it prints its argument <strong>and returns it</strong>, thus facilitating debugging because you can simply jam <code class="language-plaintext highlighter-rouge">p</code> before an expression to print it without changing the value of the expression:</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">p</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>   <span class="c1"># print x+y, and set s to x+y</span>
+    <span class="k">return</span> <span class="n">s</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># prints 3, in addition to f returning 3</span>
+</code></pre></div></div>
+
+<p>This leverages the surprising fact that function calls do not require parentheses to delimit their arguments, as discussed in <a href="#parens-are-optional-in-a-function-call">this section</a>. That is, <code class="language-plaintext highlighter-rouge">p x+y</code> is parsed as <code class="language-plaintext highlighter-rouge">p(x+y)</code>, but <code class="language-plaintext highlighter-rouge">p x+y</code> is faster for quick debugging because you don’t have to write the close-paren.</p>
+
+<h3 id="help-docs">Help docs</h3>
+
+<p>You will often have an object and want to know something about it.</p>
+
+<p>In Python, at the interpreter, you can say <code class="language-plaintext highlighter-rouge">dir(x)</code> to list the methods, then use <code class="language-plaintext highlighter-rouge">help(x.f)</code> to see the docs for method <code class="language-plaintext highlighter-rouge">f</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; x = [1,2,3]
+
+&gt;&gt;&gt; dir(x)
+[ '__add__', '__class__', '__contains__', '__delattr__', '__delitem__', 
+  ... ignore double-underscore methods ...
+ 'append', 'clear', 'copy', 'count', 'extend', 'index', 
+ 'insert', 'pop', 'remove', 'reverse', 'sort' ]
+
+&gt;&gt;&gt; help(x.append)
+
+# append(object, /) method of builtins.list instance
+#    Append object to the end of the list.
+</code></pre></div></div>
+
+<p>In Ruby, sadly, it is not that simple.</p>
+
+<p>The first stumbling block is that you cannot assume your version of Ruby has the docs installed, so you might have to install them yourself, see <a href="https://stackoverflow.com/questions/3178900/how-do-i-install-the-ruby-ri-documentation/13886612#13886612">here</a>.</p>
+
+<p>The next stumbling block is that there are two versions of Ruby documentation: the command-line utility <code class="language-plaintext highlighter-rouge">ri</code> (“ruby info”), and the function <code class="language-plaintext highlighter-rouge">help</code> inside IRB, and you will get errors if you use one in the wrong environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WRONG:
+
+$ help('Array.min')     # bash: syntax error near unexpected token `'Array.min''
+$ irb
+irb&gt; ri 'Array.min'     # undefined method `ri'
+
+
+RIGHT:
+
+$ ri 'Array.min'         #  "Returns the object in ary with the minimum value. ..."
+$ irb
+irb&gt; help('Array.min')   #  "Returns the object in ary with the minimum value. ..."
+</code></pre></div></div>
+
+<p>The next stumbling block is that the Rails framework is often installed without the documentation, so even if you have the Ruby docs installed, it won’t be able to find docs for Rails functions.</p>
+
+<p>The <em>next</em> stumbling block is that it’s hard to find the relevant methods of an object, because unfortunately, <code class="language-plaintext highlighter-rouge">x.methods()</code> lists ALL methods, including weird ones inherited from <code class="language-plaintext highlighter-rouge">Object</code>. It’s hopeless to try to deduce what a <code class="language-plaintext highlighter-rouge">String</code> can do when you’re faced with literally 183 methods, most of which are unrelated to strings:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'asdf'</span><span class="p">.</span><span class="nf">methods</span><span class="p">()</span>  <span class="c1">#  =&gt; [ :encode, :include?, :%, :*, :+, ...</span>
+                  <span class="c1">#        ... 183 methods ...</span>
+                  <span class="c1">#       :singleton_methods, :protected_methods, :private_methods, :!, :equal?,</span>
+                  <span class="c1">#       :instance_eval, :instance_exec, :!=, :__id__, :__send__ ]</span>
+</code></pre></div></div>
+
+<p>(In Ruby’s defense, the methods are listed in the order in which they’re inherited, so the string-related ones are typically listed first. But they are not alphabetical (unlike Python), so you can’t quickly find a method by name.)</p>
+
+<p>Also, and this is a minor point, but the methods are presented as a list of symbols: the leading colon in <code class="language-plaintext highlighter-rouge">:encode</code> indicates that it’s a symbol literal. Symbols are an important part of Ruby, and we discuss them in <a href="#symbols">this section</a>. But they are very foreign to newcomers. It is unfortunate that a newcomer can’t even find the methods of an object without having to confront this strange new datatype.</p>
+
+<p>But, back to the problem of finding the relevant methods for an object.</p>
+
+<p>There are two workarounds to remove the irrelevant methods from the list. The easiest and hackiest way is simply to “subtract” away the methods added by <code class="language-plaintext highlighter-rouge">Object</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'asdf'</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">methods</span> <span class="o">-</span> <span class="no">Object</span><span class="p">.</span><span class="nf">methods</span>   <span class="c1"># Lists 119 methods, instead of 183.</span>
+</code></pre></div></div>
+
+<p>The fancier way (but harder to remember) is to ask the object’s class what its instance methods are, passing the enigmatic argument <code class="language-plaintext highlighter-rouge">false</code> to specify that superclass methods shouldn’t be listed:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'asdf'</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">methods</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">class</span>     <span class="c1"># String</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">instance_methods</span>    <span class="c1"># same as x.methods</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">instance_methods</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>   <span class="c1"># Good: [:encode, :include?, </span>
+                                  <span class="c1">#          ... 128 methods ...</span>
+                                  <span class="c1">#        :unicode_normalize, :encode!, :unpack, :unpack1]</span>
+</code></pre></div></div>
+
+<p>Once you find the method of interest <code class="language-plaintext highlighter-rouge">x.foo</code>, you are ready to encounter the <strong>next</strong> stumbling block when you type <code class="language-plaintext highlighter-rouge">help(x.foo)</code> (like Python). This doesn’t work because <code class="language-plaintext highlighter-rouge">x.foo</code> actually <strong>calls</strong> the <code class="language-plaintext highlighter-rouge">foo</code> method because, incredibly, parens are optional in function calls (discussed in <a href="#parens-are-optional-in-a-function-call">this section</a>). The result is that <code class="language-plaintext highlighter-rouge">help</code> shows NOT the docs for the <code class="language-plaintext highlighter-rouge">foo</code> method, but the docs for whatever <code class="language-plaintext highlighter-rouge">x.foo</code> returns! (Very confusing!)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'asdf'</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">encode</span>               <span class="c1">#  =&gt; 'asdf'</span>
+<span class="n">help</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="nf">encode</span><span class="p">)</span>         <span class="c1"># NO: calls x.encode, and therefore runs help('asdf') :(</span>
+</code></pre></div></div>
+
+<p>So you have to call <code class="language-plaintext highlighter-rouge">help</code> with the class and method <em>as a string</em>, in a special format, like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'asdf'</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">class</span>                <span class="c1"># String</span>
+<span class="n">help</span><span class="p">(</span><span class="s1">'String#encode'</span><span class="p">)</span>  <span class="c1"># YES: "The first form returns a copy of str transcoded to ..."</span>
+</code></pre></div></div>
+
+<h3 id="debug-via-breakpoints">Debug via breakpoints</h3>
+
+<p>It is insanely useful to set breakpoints in your code.</p>
+
+<p>Unfortunately, Ruby’s debugging-breakpoint support is not as clean as Python’s <a href="https://docs.python.org/3/library/pdb.html">pdb</a>: Ruby has multiple debugging libraries, and the most official one, <code class="language-plaintext highlighter-rouge">pry</code>, doesn’t support single-line stepping — only breaking and examining variables. To get feature-parity with Python’s <code class="language-plaintext highlighter-rouge">pdb</code>, use Deivid Rodriguez’s <a href="https://github.com/deivid-rodriguez/pry-byebug"><code class="language-plaintext highlighter-rouge">pry-byebug</code></a>, which combines the two debugging utilities <code class="language-plaintext highlighter-rouge">pry</code> and <code class="language-plaintext highlighter-rouge">byebug</code>. And even then, you don’t get the shortcuts <code class="language-plaintext highlighter-rouge">n</code>, <code class="language-plaintext highlighter-rouge">s</code>, <code class="language-plaintext highlighter-rouge">c</code>, <code class="language-plaintext highlighter-rouge">f</code> for <code class="language-plaintext highlighter-rouge">next</code>, <code class="language-plaintext highlighter-rouge">step</code>, <code class="language-plaintext highlighter-rouge">continue</code>, and <code class="language-plaintext highlighter-rouge">finish</code>; for those, you need to create a <code class="language-plaintext highlighter-rouge">~/.pryrc</code> file and dump some special Ruby code in it (see his Readme for details).</p>
+
+<p>For simplicity, here’s how to use the basic <code class="language-plaintext highlighter-rouge">pry</code> gem (<a href="https://github.com/pry/pry">Github link</a>).</p>
+
+<p>Install globally:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install pry
+</code></pre></div></div>
+
+<p>… or install in your project (if using Bundler):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Your project's Gemfile
+
+gem 'pry', '~&gt; 0.12.2'  # see Github link for current version #
+</code></pre></div></div>
+
+<p>(… don’t forget to <code class="language-plaintext highlighter-rouge">bundle install</code> afterward.)</p>
+
+<p>Set breakpoints:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File prog.rb</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s1">'Inside f!'</span><span class="p">)</span>
+    <span class="nb">require</span> <span class="s1">'pry'</span><span class="p">;</span> <span class="nb">binding</span><span class="p">.</span><span class="nf">pry</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"Now s=</span><span class="si">#{</span><span class="n">s</span><span class="si">}</span><span class="s2"> !!"</span><span class="p">)</span>
+    <span class="nb">require</span> <span class="s1">'pry'</span><span class="p">;</span> <span class="nb">binding</span><span class="p">.</span><span class="nf">pry</span>
+    <span class="k">return</span> <span class="n">s</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span><span class="p">(</span><span class="s1">'About to call f!!!'</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">puts</span><span class="p">(</span><span class="s1">'Bye!'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Run your program to hit the first debug point:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~ $ ruby prog.rb 
+About to call f!!!
+Inside f!
+
+From: /Users/justin/prog.rb @ line 5 Object#f:
+
+     3: def f(x,y)
+     4:     puts('Inside f!')
+ =&gt;  5:     require 'pry'; binding.pry
+     6:     s = x+y
+     7:     puts("Now s=#{s} !!")
+     8:     require 'pry'; binding.pry
+     9:     return s
+    10: end
+
+[1] pry(main)&gt; 
+</code></pre></div></div>
+
+<p>Examine variables:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1] pry(main)&gt; x 
+=&gt; 1
+[2] pry(main)&gt; y
+=&gt; 2
+</code></pre></div></div>
+
+<p>Use CTRL-d to exit from the current breakpoint and continue execution, hitting the next breakpoint:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[2] pry(main)&gt; 
+Now s=3 !!
+
+From: /Users/justin/prog.rb @ line 8 Object#f:
+
+     3: def f(x,y)
+     4:     puts('Inside f!')
+     5:     require 'pry'; binding.pry
+     6:     s = x+y
+     7:     puts("Now s=#{s} !!")
+ =&gt;  8:     require 'pry'; binding.pry
+     9:     return s
+    10: end
+</code></pre></div></div>
+
+<p>Type <code class="language-plaintext highlighter-rouge">!!!</code> to immediately quit out of <code class="language-plaintext highlighter-rouge">pry</code>.</p>
+
+<h3 id="debug-via-introspection">Debug via introspection</h3>
+
+<p>(This section uses some advanced concepts, so you may want to skip it for now.)</p>
+
+<p>Ruby does support some interesting introspection that can help with debugging. Here is a summary:</p>
+
+<p>An object:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'asdf'</span>
+</code></pre></div></div>
+
+<p>List all methods, even ones inherited from superclasses, and ones defined in included modules:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">methods</span>     <span class="c1">#  =&gt; [:encode, :include?, :%, :*, :+, :count, :partition, :to_c, ... ]</span>
+</code></pre></div></div>
+
+<p>To dig deeper, gotta talk to the object’s class:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">class</span>       <span class="c1"># String</span>
+</code></pre></div></div>
+
+<p>List the classes and modules that will be searched when you do a method call:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">ancestors</span>   <span class="c1">#  =&gt; [String, Comparable, Object, Kernel, BasicObject]</span>
+</code></pre></div></div>
+
+<p>Some of these are classes, some are modules. Amazingly, even classes and modules are themselves objects (inheriting from the <code class="language-plaintext highlighter-rouge">Class</code> and <code class="language-plaintext highlighter-rouge">Module</code> classes), and therefore have methods that you can call on them. Here we call the <code class="language-plaintext highlighter-rouge">class</code> method on each of <code class="language-plaintext highlighter-rouge">x</code>’s ancestors to see whether each ancestor is a class or a module:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">ancestors</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="n">c</span><span class="p">.</span><span class="nf">class</span> <span class="p">}</span>  <span class="c1"># =&gt; [Class, Module, Class, Module, Class]</span>
+</code></pre></div></div>
+
+<p>It can be useful to know which class or module defined a given method.
+You can find out by creating a <code class="language-plaintext highlighter-rouge">Method</code> object that points to the object’s method of interest, and asking for its owner:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:encode</span><span class="p">)</span>             <span class="c1">#  =&gt; #&lt;Method: String#encode&gt;</span>
+<span class="n">m</span><span class="p">.</span><span class="nf">class</span>                           <span class="c1">#  =&gt; Method</span>
+<span class="n">m</span><span class="p">.</span><span class="nf">owner</span>                           <span class="c1">#  =&gt; String</span>
+</code></pre></div></div>
+
+<p>Different methods are defined by different classes and modules in the hierarchy:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:encode</span><span class="p">).</span><span class="nf">owner</span>     <span class="c1">#  =&gt; String</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:between?</span><span class="p">).</span><span class="nf">owner</span>   <span class="c1">#  =&gt; Comparable</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:nil?</span><span class="p">).</span><span class="nf">owner</span>       <span class="c1">#  =&gt; Kernel</span>
+</code></pre></div></div>
+
+<p>A very useful debugging trick is to use the <code class="language-plaintext highlighter-rouge">source_location</code> method ask a method in which file (and line #) it was defined. For example:</p>
+
+<p>A library:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># my-lib.rb</span>
+
+<span class="k">class</span> <span class="nc">C</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="k">end</span>
+<span class="k">end</span>    
+</code></pre></div></div>
+
+<p>Your program:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># File prog.rb</span>
+
+<span class="nb">require</span> <span class="s1">'./my-lib.rb'</span>
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span>
+
+<span class="c1"># Add breakpoint for debugging:</span>
+<span class="nb">require</span> <span class="s1">'pry'</span><span class="p">;</span> <span class="nb">binding</span><span class="p">.</span><span class="nf">pry</span>
+</code></pre></div></div>
+
+<p>Run it and ask which file defines <code class="language-plaintext highlighter-rouge">c.f</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby prog.rb 
+
+From: /Users/justin/prog.rb @ line 7 :
+
+    2: 
+    3: require './my-lib.rb'
+    4: 
+    5: c = C.new
+    6: 
+ =&gt; 7: require 'pry'; binding.pry
+
+[1] pry(main)&gt; c.method(:f).source_location
+=&gt; ["/Users/justin/my-lib.rb", 4]
+</code></pre></div></div>
+
+<h2 id="datatypes-and-control-flow">Datatypes and Control Flow</h2>
+
+<h3 id="nil">nil</h3>
+
+<p>The value <code class="language-plaintext highlighter-rouge">nil</code> denotes the absence of a value:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">index</span><span class="p">(</span><span class="s1">'c'</span><span class="p">)</span>    <span class="c1"># =&gt; 2</span>
+<span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">index</span><span class="p">(</span><span class="s1">'z'</span><span class="p">)</span>    <span class="c1"># =&gt; nil</span>
+</code></pre></div></div>
+
+<p>Use the method <code class="language-plaintext highlighter-rouge">nil?</code> to check if a value is <code class="language-plaintext highlighter-rouge">nil</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">index</span><span class="p">(</span><span class="s1">'b'</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">index</span><span class="p">(</span><span class="s1">'z'</span><span class="p">)</span>
+<span class="n">i</span><span class="p">.</span><span class="nf">nil?</span>      <span class="c1"># =&gt; false </span>
+<span class="n">j</span><span class="p">.</span><span class="nf">nil?</span>      <span class="c1"># =&gt; true</span>
+
+<span class="s1">'hi'</span><span class="p">.</span><span class="nf">nil?</span>    <span class="c1"># =&gt; false</span>
+<span class="kp">false</span><span class="p">.</span><span class="nf">nil?</span>   <span class="c1"># =&gt; false</span>
+<span class="mf">3.14</span><span class="p">.</span><span class="nf">nil?</span>    <span class="c1"># =&gt; false</span>
+<span class="kp">nil</span><span class="p">.</span><span class="nf">nil?</span>     <span class="c1"># =&gt; true</span>
+</code></pre></div></div>
+
+<h3 id="only-nil-and-false-are-falsey">Only nil and false are falsey</h3>
+
+<p>That is,</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="k">if</span> <span class="n">x</span> <span class="k">then</span> <span class="nb">puts</span><span class="p">(</span><span class="s1">'nil is true'</span><span class="p">)</span> <span class="k">else</span> <span class="nb">puts</span><span class="p">(</span><span class="s1">'nil is false'</span><span class="p">)</span> <span class="k">end</span>       <span class="c1"># prints "nil is false"</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="k">if</span> <span class="n">y</span> <span class="k">then</span> <span class="nb">puts</span><span class="p">(</span><span class="s1">'false is true'</span><span class="p">)</span> <span class="k">else</span> <span class="nb">puts</span><span class="p">(</span><span class="s1">'false is false'</span><span class="p">)</span> <span class="k">end</span>   <span class="c1"># prints "false is false"</span>
+</code></pre></div></div>
+
+<p><strong>Everything besides <code class="language-plaintext highlighter-rouge">nil</code> and <code class="language-plaintext highlighter-rouge">false</code> is truthy.</strong></p>
+
+<p>(This is different from Python and Javascript.)</p>
+
+<p>In particular, the following objects are <strong>truthy</strong>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[]</span>   <span class="c1"># empty array</span>
+<span class="p">{}</span>   <span class="c1"># empty hash</span>
+<span class="s1">''</span>   <span class="c1"># empty string</span>
+<span class="mi">0</span>    <span class="c1"># integer zero</span>
+<span class="mf">0.0</span>  <span class="c1"># float zero</span>
+</code></pre></div></div>
+
+<p>You can use the cute trick of double-not (<code class="language-plaintext highlighter-rouge">!!</code>) to see an object’s truthiness easily:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">!!</span><span class="kp">nil</span>     <span class="c1"># false</span>
+<span class="o">!!</span><span class="kp">false</span>   <span class="c1"># false</span>
+<span class="o">!!</span><span class="kp">true</span>    <span class="c1"># true</span>
+<span class="o">!!</span><span class="p">[]</span>      <span class="c1"># true</span>
+<span class="o">!!</span><span class="p">{}</span>      <span class="c1"># true</span>
+<span class="o">!!</span><span class="s1">''</span>      <span class="c1"># true</span>
+<span class="o">!!</span><span class="mi">0</span>       <span class="c1"># true</span>
+<span class="o">!!</span><span class="mf">0.0</span>     <span class="c1"># true</span>
+</code></pre></div></div>
+
+<p>(As an intriguing aside, I left out <code class="language-plaintext highlighter-rouge">//</code> (empty regex literal) (we discuss regex <a href="#regex">later</a>) because although a <em>variable</em> whose value is a <code class="language-plaintext highlighter-rouge">Regexp</code> is truthy, the truth value of any regex <em>literal</em> actually depends on the value of the mysterious built-in global variable <code class="language-plaintext highlighter-rouge">$_</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="sr">//</span>
+<span class="o">!!</span><span class="n">x</span>          <span class="c1"># true (expected)</span>
+<span class="o">!!</span><span class="sr">//</span>         <span class="c1"># false (wtf!)</span>
+<span class="vg">$_</span> <span class="o">=</span> <span class="s1">'abc'</span>
+<span class="o">!!</span><span class="sr">//</span>         <span class="c1"># true (wtf!!)</span>
+<span class="o">!!</span><span class="sr">/b/</span>        <span class="c1"># true</span>
+<span class="o">!!</span><span class="sr">/z/</span>        <span class="c1"># false (wtf!!!)</span>
+</code></pre></div></div>
+
+<p>This bizarre behavior is explained as follows. Inspired by Perl, Ruby has a few global, built-in variables that start with dollar-sign <code class="language-plaintext highlighter-rouge">$</code>. They are used in special-cased, non-obvious, implicit ways to enable powerful one-liners on the command line, for example, filtering lines of text from stdin. The variable <code class="language-plaintext highlighter-rouge">$_</code> is the global variable for “the most recent line read from stdin”. To enable this command-line magic, Ruby adopts the following sneaky behavior: When asked to compute the truth value of a regex literal, instead of simply having regex literals be truthy like the other literals, Ruby instead converts the regex literal from <code class="language-plaintext highlighter-rouge">/foo/</code> to <code class="language-plaintext highlighter-rouge">/foo/.match?($_)</code> — that is, Ruby checks if the most recent line from stdin matches the given regex literal. (In the example above, where we set <code class="language-plaintext highlighter-rouge">$_</code> to <code class="language-plaintext highlighter-rouge">'abc'</code>, the regex <code class="language-plaintext highlighter-rouge">/b/</code> matches the <code class="language-plaintext highlighter-rouge">'b'</code> in the string <code class="language-plaintext highlighter-rouge">'abc'</code>, but the regex <code class="language-plaintext highlighter-rouge">/z/</code> does not match.) This design decision surely has useful and impressive applications (see <a href="https://robm.me.uk/ruby/2015/10/31/dollar-underscore.html">here for examples</a>), but I think it confuses more folks than it helps (see <a href="https://stackoverflow.com/questions/58340585/why-is-a-regexp-object-considered-to-be-falsy-in-ruby">here on StackOverflow</a>).</p>
+
+<p>End aside.)</p>
+
+<h3 id="string-interpolation-syntax">String interpolation syntax</h3>
+
+<p>Like Bash, single-quoted string literals preserve their characters, whereas double-quoted strings support escaped characters and interpolation with <code class="language-plaintext highlighter-rouge">#{}</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'\n'</span><span class="p">.</span><span class="nf">length</span>   <span class="c1"># =&gt; 2  (has literal backslash)</span>
+<span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">.</span><span class="nf">length</span>   <span class="c1"># =&gt; 1  (has newline character \n)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">'Not interpolated: #{x}'</span>         <span class="c1">#  =&gt; "Not interpolated: \#{x}"</span>
+                                     <span class="c1"># ( Note: IRB prints # as \# )</span>
+<span class="n">t</span> <span class="o">=</span> <span class="s2">"I ate </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2"> pizzas"</span>              <span class="c1"># I ate 100 pizzas</span>
+<span class="n">u</span> <span class="o">=</span> <span class="s2">"Tim ate </span><span class="si">#{</span><span class="n">x</span><span class="o">**</span><span class="n">x</span><span class="si">}</span><span class="s2"> pizzas"</span>         <span class="c1"># Tim ate 100...000 pizzas</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="s2">"I feel </span><span class="si">#{</span>                       <span class="c1"># Can interpolate multi-line code</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span>
+            <span class="s2">"Great"</span>                  <span class="c1"># Quotes are matched smartly</span>
+        <span class="k">else</span>
+            <span class="s2">"Horrible"</span> 
+        <span class="k">end</span>
+        <span class="si">}</span><span class="s2">"</span>  
+</code></pre></div></div>
+
+<p><strong>Warning.</strong> The value <code class="language-plaintext highlighter-rouge">nil</code> interpolates to empty-string, which is bad for debugging; not even <code class="language-plaintext highlighter-rouge">p</code> can save you, if it’s printing a string where the <code class="language-plaintext highlighter-rouge">nil</code>s have already been interpolated to empty-strings! The workaround is to call <code class="language-plaintext highlighter-rouge">inspect</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="nb">puts</span><span class="p">(</span><span class="s2">"x=</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>            <span class="c1"># BAD: "x="</span>
+<span class="nb">p</span><span class="p">(</span><span class="s2">"x=</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>               <span class="c1"># BAD: "x="</span>
+<span class="nb">puts</span><span class="p">(</span><span class="s2">"x=</span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>    <span class="c1"># GOOD: "x=nil"</span>
+</code></pre></div></div>
+
+<h3 id="symbols">Symbols</h3>
+
+<p>A symbol is a datatype similar to a string, but with less functionality.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s1">'asdf'</span>
+<span class="n">t</span> <span class="o">=</span> <span class="ss">:asdf</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">class</span>     <span class="c1">#  =&gt; String</span>
+<span class="n">t</span><span class="p">.</span><span class="nf">class</span>     <span class="c1">#  =&gt; Symbol</span>
+</code></pre></div></div>
+
+<p>A symbol literal is delimited with a single leading colon:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="ss">:asdf</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">:</span><span class="o">+</span>       <span class="c1"># weird chars ok</span>
+<span class="n">u</span> <span class="o">=</span> <span class="ss">:has_underscores</span>
+<span class="n">v</span> <span class="o">=</span> <span class="ss">:'Symbols can have whitespace and other chars, but don\'t do it!'</span>
+<span class="n">w</span> <span class="o">=</span> <span class="ss">:'123'</span>   <span class="c1"># leading digit =&gt; symbol must be quoted</span>
+</code></pre></div></div>
+
+<p>There are two motivations for symbols.</p>
+
+<p><strong>Motivation 1</strong>: General-purpose strings are good for general-purpose natural language, which can have whitespace, multiple lines, text encodings, etc. Symbols are simpler than strings: Symbols are meant for <em>names of things</em>, for example, the name of a method, the name of a method’s argument, or an HTTP verb (<code class="language-plaintext highlighter-rouge">GET</code>, <code class="language-plaintext highlighter-rouge">PUT</code>, <code class="language-plaintext highlighter-rouge">DELETE</code>, <code class="language-plaintext highlighter-rouge">PATCH</code>). Names typically do not have the concept of trailing whitespace, multiple lines, etc. You do not need to do “string surgery” (indexing, concatenating, substituting, etc) on the name of a thing. Consequently, symbols have fewer methods than strings:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:asdf</span><span class="p">.</span><span class="nf">methods</span><span class="p">.</span><span class="nf">count</span>     <span class="c1"># 84</span>
+<span class="s1">'asdf'</span><span class="p">.</span><span class="nf">methods</span><span class="p">.</span><span class="nf">count</span>    <span class="c1"># 183</span>
+</code></pre></div></div>
+
+<p>Strings have many methods that Symbols do not have:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'asdf'</span><span class="p">.</span><span class="nf">methods</span> <span class="o">-</span> <span class="ss">:asdf</span><span class="p">.</span><span class="nf">methods</span>    <span class="c1"># =&gt; [:encode, :include?, :%, :*, :+, :count, ... ]</span>
+</code></pre></div></div>
+
+<p>Symbols have only a couple methods that Strings don’t have:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:asdf</span><span class="p">.</span><span class="nf">methods</span> <span class="o">-</span> <span class="s1">'asdf'</span><span class="p">.</span><span class="nf">methods</span>    <span class="c1"># =&gt; [:to_proc, :id2name]</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">id2name</code> is an antiquated name for <code class="language-plaintext highlighter-rouge">to_s</code> (“to string”).</li>
+  <li><code class="language-plaintext highlighter-rouge">to_proc</code> is part of a bloated, self-indulgent addition to the language that we discuss <a href="#passing-symbol-instead-of-code-block">here</a>. Basically, <code class="language-plaintext highlighter-rouge">:a.to_proc().call(obj)</code> performs <code class="language-plaintext highlighter-rouge">obj.a()</code> — roughly speaking, it turns a symbol <em>s</em> into a function that takes an object and calls the method named <em>s</em> on it.</li>
+</ul>
+
+<p><strong>Motivation 2</strong>: (This next motivation is not as compelling, but you see pedants cite it, so you need to recognize it.) Historically, symbols were appealing because they were more memory-efficient than strings: if two variables point to symbols, and the symbols have the same value, then the symbols are stored in the same memory address:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="ss">:asdf</span>
+<span class="n">y</span> <span class="o">=</span> <span class="ss">:asdf</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">object_id</span>     <span class="c1"># =&gt; 1271388</span>
+<span class="n">y</span><span class="p">.</span><span class="nf">object_id</span>     <span class="c1"># =&gt; 1271388  (same!)</span>
+</code></pre></div></div>
+
+<p>This is not true of strings:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'asdf'</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s1">'asdf'</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">object_id</span>    <span class="c1"># =&gt; 70287991526840</span>
+<span class="n">y</span><span class="p">.</span><span class="nf">object_id</span>    <span class="c1"># =&gt; 70287991798420  (different)</span>
+</code></pre></div></div>
+
+<p>This is not a big selling point. Besides, strings used as hash keys are optimized in a similar way since Ruby 2.2 (Dec 2014), and ALL string literals will be optimized in Ruby 3.0 (Dec 2020). (In Ruby terminology, strings will be “frozen” by default.)</p>
+
+<p><strong>Important</strong>: newcomers to Ruby are often confused between variables and symbols. They worry that the symbol <code class="language-plaintext highlighter-rouge">:a</code> is somehow linked to a variable named <code class="language-plaintext highlighter-rouge">a</code>. They are not linked in any way. That is like worrying if you’re allowed to have a string literal <code class="language-plaintext highlighter-rouge">'a'</code> if you don’t have a variable named <code class="language-plaintext highlighter-rouge">a</code>. A string is just a bunch of arbitrary characters! So is a symbol.</p>
+
+<h3 id="hash">Hash</h3>
+
+<p>A Hash is a set of key/value pairs, like Python’s <code class="language-plaintext highlighter-rouge">dict</code> or a Java’s <code class="language-plaintext highlighter-rouge">HashMap</code>. Hash literals are delimited with curly braces, and the rocket-ship operator <code class="language-plaintext highlighter-rouge">=&gt;</code> separates a key from its value:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'b'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="kp">nil</span> <span class="o">=&gt;</span> <span class="ss">:asdf</span><span class="p">,</span> <span class="mi">999</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="mi">10</span> <span class="o">=&gt;</span> <span class="mi">20</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="n">h</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span>           <span class="c1">#  =&gt; 1</span>
+<span class="n">h</span><span class="p">[</span><span class="s1">'b'</span><span class="p">]</span>          <span class="c1">#  =&gt; 2</span>
+<span class="n">h</span><span class="p">[</span><span class="s1">'c'</span><span class="p">]</span>          <span class="c1">#  =&gt; nil  &lt;-- missing key doesn't raise KeyError!</span>
+<span class="n">h</span><span class="p">[</span><span class="kp">nil</span><span class="p">]</span>          <span class="c1">#  =&gt; :asdf</span>
+<span class="n">h</span><span class="p">[</span><span class="mi">999</span><span class="p">][</span><span class="mi">10</span><span class="p">]</span>      <span class="c1">#  =&gt; 20</span>
+<span class="n">h</span><span class="p">.</span><span class="nf">dig</span><span class="p">(</span><span class="mi">999</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1">#  =&gt; 20  dig() is useful for nested hashes</span>
+</code></pre></div></div>
+
+<p>Confusingly, when defining a hash literal, there is a special optional syntax for defining a key/value pair whose key is a symbol: You may move the symbol’s colon from its left to its right, and remove the rocket-ship <code class="language-plaintext highlighter-rouge">=&gt;</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}</span>    <span class="c1"># =&gt; { :a =&gt; 1 }</span>
+<span class="n">h</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span>           <span class="c1"># =&gt; 1</span>
+<span class="n">h</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>            <span class="c1"># undefined method or variable 'a'</span>
+</code></pre></div></div>
+
+<p>It is <strong>critical</strong> to note that when using this “right-hand colon” shortcut notation for hash literals, the <code class="language-plaintext highlighter-rouge">a</code> in the hash literal <code class="language-plaintext highlighter-rouge">{ a: 1 }</code> is <strong>not a variable</strong>, it is the symbol <code class="language-plaintext highlighter-rouge">:a</code>. It is irrelevant whether or not a variable <code class="language-plaintext highlighter-rouge">a</code> has been defined. You can see that IRB prints it out in the traditional explicit form <code class="language-plaintext highlighter-rouge">{ :a =&gt; 1 }</code> with the rocket-ship operator:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="ss">a: </span><span class="mi">1</span> <span class="p">}</span>    <span class="c1">#  =&gt; { :a =&gt; 1 }</span>
+</code></pre></div></div>
+
+<p>Make sure you understand this behavior:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="s1">'wow'</span>         <span class="c1"># defines variable named a</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'a'</span> <span class="o">=&gt;</span> <span class="mi">10</span> <span class="p">}</span> <span class="c1"># key is the string 'a'</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="mi">10</span> <span class="p">}</span>  <span class="c1"># key is the symbol :a</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">a: </span><span class="mi">10</span> <span class="p">}</span>     <span class="c1"># key is the symbol :a (fancy syntax)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">10</span> <span class="p">}</span>   <span class="c1"># key is the string 'wow' (!!)</span>
+</code></pre></div></div>
+
+<p>This “right-hand colon” shortcut is very bad: Newcomers already feel uneasy about the relationship between symbols with variables, and this shorthand syntax for hash literals deepens their confusion. Worse, this syntactic trick with symbolic keys is easily confused with another syntactic shortcut involving a function’s keyword arguments, discussed in <a href="#automatic-conversion-btwn-hash-and-keyword-args">this section</a>.</p>
+
+<p>You might wonder whether a company could simply adopt a style guide forbidding this weird implicit confusing syntax. Unfortunately the syntax is pervasive in Rails and therefore all Rails docs. So it is easier for newcomers to grit their teeth and do as the Romans-On-Rails do.</p>
+
+<h3 id="if--while--case-returns-the-last-thing-executed">if / while / case returns the last thing executed</h3>
+
+<p>Like functions, control flow statements “return” values; they return the last statement executed. You can therefore assign an <code class="language-plaintext highlighter-rouge">if</code> statement to a variable — impossible in Python:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="o">=</span> <span class="mi">85</span>
+<span class="n">s</span> <span class="o">=</span> <span class="k">if</span> <span class="nb">p</span> <span class="o">&gt;</span> <span class="mi">90</span>
+        <span class="nb">puts</span> <span class="s1">'Great work!'</span>
+        <span class="s1">'A'</span>
+    <span class="k">elsif</span> <span class="nb">p</span> <span class="o">&gt;</span> <span class="mi">80</span>
+        <span class="nb">puts</span> <span class="s1">'Good job!'</span>
+        <span class="s1">'B'</span>
+    <span class="k">else</span>
+        <span class="nb">puts</span> <span class="s1">'Try harder!'</span>
+        <span class="s1">'C-'</span>
+    <span class="k">end</span>
+
+<span class="c1"># prints "Good job!"</span>
+
+<span class="n">s</span>   <span class="c1">#  =&gt; "B"</span>
+</code></pre></div></div>
+
+<p>This is used with <code class="language-plaintext highlighter-rouge">case</code> statements too:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'pizza'</span>
+<span class="n">double</span> <span class="o">=</span> <span class="k">case</span> <span class="n">x</span>
+         <span class="k">when</span> <span class="no">Integer</span>
+            <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+         <span class="k">when</span> <span class="no">String</span>
+            <span class="s2">"</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span>
+         <span class="k">end</span>
+
+<span class="n">double</span>  <span class="c1">#  =&gt; "pizza pizza"</span>
+</code></pre></div></div>
+
+<p><em>Note</em>. You might be wondering how <code class="language-plaintext highlighter-rouge">case</code> compares its argument <code class="language-plaintext highlighter-rouge">x</code> with its cases <code class="language-plaintext highlighter-rouge">Integer</code> and <code class="language-plaintext highlighter-rouge">String</code>. The insane answer is that case statements use the <code class="language-plaintext highlighter-rouge">===</code> operator:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'pizza'</span>
+<span class="no">Integer</span> <span class="o">===</span> <span class="n">x</span>  <span class="c1"># =&gt; false</span>
+<span class="no">String</span> <span class="o">===</span> <span class="n">x</span>   <span class="c1"># =&gt; true</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">===</code> operator is NOT like in JavaScript. It is an equality operator that is meant to be overloaded for your specific application, so that you don’t have to overload the normal <code class="language-plaintext highlighter-rouge">==</code> operator. But that is weird, so don’t do it.</p>
+
+<p>Incredibly, the <code class="language-plaintext highlighter-rouge">===</code> operator is not commutative:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="s1">'pizza'</span>
+<span class="no">String</span> <span class="o">===</span> <span class="n">x</span>   <span class="c1"># =&gt; true</span>
+<span class="n">x</span> <span class="o">===</span> <span class="no">String</span>   <span class="c1"># =&gt; false, wtf</span>
+</code></pre></div></div>
+
+<p>(The reason is that, in the 1st case, <code class="language-plaintext highlighter-rouge">===</code> is being called on the <code class="language-plaintext highlighter-rouge">String</code> class itself, whereas in the 2nd case, <code class="language-plaintext highlighter-rouge">===</code> is being called on the string <em>instance</em> <code class="language-plaintext highlighter-rouge">x</code>. Those two entities define <code class="language-plaintext highlighter-rouge">===</code> differently: The 1st definition is “is my arg an instance of String?”, and the 2nd definition is probably something like “is my arg a string whose characters are equal to mine?”.)</p>
+
+<p>Never use the <code class="language-plaintext highlighter-rouge">===</code> operator.</p>
+
+<h3 id="regex">Regex</h3>
+
+<p>Ruby offers a dedicated datatype for regular-expressions, and dedicated weird syntax for regex literals and regex matching.</p>
+
+<p>A regex literal is delimited with slashes:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">r</span> <span class="o">=</span> <span class="sr">/asdf/</span>
+<span class="n">r</span><span class="p">.</span><span class="nf">class</span>     <span class="c1"># =&gt; Regexp</span>
+</code></pre></div></div>
+
+<p>The strange <code class="language-plaintext highlighter-rouge">=~</code> operator, defined both on <code class="language-plaintext highlighter-rouge">String</code> and on <code class="language-plaintext highlighter-rouge">Regexp</code>, searches a string for a regex:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s1">'This string has asdf as a substring'</span>
+<span class="n">s</span> <span class="o">=~</span> <span class="n">r</span>      <span class="c1"># =&gt; 16  (the index where asdf appears) (=~ called on s)</span>
+<span class="n">r</span> <span class="o">=~</span> <span class="n">s</span>      <span class="c1"># =&gt; 16  (=~ called on r)</span>
+</code></pre></div></div>
+
+<p>Luckily, unlike <code class="language-plaintext highlighter-rouge">===</code> from the previous section, the <code class="language-plaintext highlighter-rouge">=~</code> operator has the same definitions on <code class="language-plaintext highlighter-rouge">String</code> as on <code class="language-plaintext highlighter-rouge">Regexp</code>. That is, it is somewhat “commutative”.</p>
+
+<p>IMHO it’s better to use the explicltly-named <code class="language-plaintext highlighter-rouge">match?</code> method than the weird <code class="language-plaintext highlighter-rouge">=~</code> operator:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">r</span> <span class="o">=</span> <span class="sr">/[a-z0-9\.]+@gmail\.com/</span>   <span class="c1"># Ruby regexs support the normal regex syntax</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">'bob1985@gmail.com'</span>
+<span class="n">t</span> <span class="o">=</span> <span class="s1">'joe@hotmail.com'</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">match?</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>   <span class="c1"># =&gt; true</span>
+<span class="n">t</span><span class="p">.</span><span class="nf">match?</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>   <span class="c1"># =&gt; false</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Add <code class="language-plaintext highlighter-rouge">i</code> after the trailing slash to make the regexp case-insensitive.</li>
+  <li>Special characters <code class="language-plaintext highlighter-rouge">\d</code> for <code class="language-plaintext highlighter-rouge">[0-9]</code>, etc.</li>
+</ul>
+
+<p><strong>Note:</strong> For “beginning/end of line”, you will see <code class="language-plaintext highlighter-rouge">\A</code> and <code class="language-plaintext highlighter-rouge">\z</code> used instead of the normal <code class="language-plaintext highlighter-rouge">^</code> and <code class="language-plaintext highlighter-rouge">$</code> characters. It can be confusing to know which to use. They differ only with multi-line strings:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">^</code>  Matches beginning of any line in a possibly multi-line string</li>
+  <li><code class="language-plaintext highlighter-rouge">$</code>  Matches end of any line in a possibly multi-line string</li>
+  <li><code class="language-plaintext highlighter-rouge">\A</code>  Matches beginning of the string.</li>
+  <li><code class="language-plaintext highlighter-rouge">\Z</code>  Matches end of the string. If string ends with a newline, it matches just before newline.</li>
+  <li><code class="language-plaintext highlighter-rouge">\z</code>  Matches end of the string.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">r</span> <span class="o">=</span> <span class="sr">/^hit$/</span>          <span class="c1"># Will match any string containing a line 'hit'</span>
+<span class="n">q</span> <span class="o">=</span> <span class="sr">/\Ahit\Z/</span>        <span class="c1"># Will match only the string 'hit'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">"Tom</span><span class="se">\n</span><span class="s2">hit</span><span class="se">\n</span><span class="s2">Bob"</span>
+<span class="n">s</span> <span class="o">=~</span> <span class="n">r</span>               <span class="c1"># =&gt; 4: 4th char of string contains the line 'hit'</span>
+<span class="n">s</span> <span class="o">=~</span> <span class="n">q</span>               <span class="c1"># =&gt; nil: the string does not equal the string 'hit'</span>
+</code></pre></div></div>
+
+<p>As in all languages, regexes quickly become incomprehensible and are best used clearly and sparingly.</p>
+
+<h2 id="functions">Functions</h2>
+
+<h3 id="functions-return-the-last-thing-executed">Functions return the last thing executed</h3>
+
+<p>Consequently, this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="k">return</span> <span class="n">s</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>… can be shortened to:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>… and for quick debugging, since <code class="language-plaintext highlighter-rouge">p</code> returns its arg, you could do:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="nb">p</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>(However, if you had used <code class="language-plaintext highlighter-rouge">puts</code>, which returns <code class="language-plaintext highlighter-rouge">nil</code>, the function would always return <code class="language-plaintext highlighter-rouge">nil</code>.)</p>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">return</code>  can be used to force the return of a function:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
+        <span class="k">return</span>   <span class="c1"># returns nil</span>
+    <span class="k">end</span>
+    <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Or equivalently, using the one-line <code class="language-plaintext highlighter-rouge">if</code> syntax, we can rewrite the guard clause as a one-liner:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
+    <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Here is a common confusion arising from “functions return the last thing executed”. I once encountered a function of this form:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+    <span class="n">list</span><span class="p">.</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+        <span class="n">x</span><span class="p">.</span><span class="nf">foo</span> <span class="k">do</span> <span class="o">|</span><span class="n">y</span><span class="o">|</span>
+            <span class="n">y</span><span class="p">.</span><span class="nf">bar</span> <span class="k">do</span> <span class="o">|</span><span class="n">z</span><span class="o">|</span>
+                <span class="n">z</span><span class="p">.</span><span class="nf">baz</span><span class="p">()</span>
+            <span class="k">end</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>(We discuss <code class="language-plaintext highlighter-rouge">map</code> more in <a href="#code-blocks">Code Blocks</a>, but you’re probably familiar with it already.)</p>
+
+<p>This function doesn’t return anything explicitly. But this function’s first, and last, thing executed is the call to <code class="language-plaintext highlighter-rouge">map</code>. So the function returns whatever <code class="language-plaintext highlighter-rouge">map</code> returns. And <code class="language-plaintext highlighter-rouge">map</code> returns the array <code class="language-plaintext highlighter-rouge">list</code> where each element has been passed through a mapping function. But, the mapping function is the long, complicated lambda function that begins with <code class="language-plaintext highlighter-rouge">do |x|</code> and which calls other functions that themselves take code blocks (eg, <code class="language-plaintext highlighter-rouge">do |y|</code>). The newcomer is immediately lost in the details of the mapping function, and might actually forget whether or not this function is supposed to return anything. This is a serious problem, because in Ruby On Rails, many functions simply write to the database, and their return values are irrelevant. Worse, <code class="language-plaintext highlighter-rouge">map</code> is almost identical to <code class="language-plaintext highlighter-rouge">each</code>, except that <code class="language-plaintext highlighter-rouge">map</code> returns the mapped array, whereas <code class="language-plaintext highlighter-rouge">each</code> simply returns the original array. In a database-writing function, you’d use <code class="language-plaintext highlighter-rouge">each</code>, whereas if you’re processing a list to return, you’d use <code class="language-plaintext highlighter-rouge">map</code> to return the processed list.</p>
+
+<p>My point is that I had to understand several low-level details in order to guess what this function might do. Many of these details can trip up a newcomer, and many of them (but not all) could be avoided by clarifying the code with an explicit <code class="language-plaintext highlighter-rouge">return</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">list</span><span class="p">.</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> 
+        <span class="c1"># ...</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="parens-are-optional-in-a-function-call">Parens are optional in a function call</h3>
+
+<p>This is one of the most striking features of Ruby’s syntax: 
+when calling a method, you may omit the parentheses that would normally delimit the args.</p>
+
+<p>That is, the method call</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">o</span><span class="p">.</span><span class="nf">m</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>can be written equivalently as</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">o</span><span class="p">.</span><span class="nf">m</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+</code></pre></div></div>
+
+<p>For example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># =&gt; 3</span>
+<span class="n">f</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span>    <span class="c1"># =&gt; 3</span>
+</code></pre></div></div>
+
+<p>Besides being very weird syntactically, the absence of parens confuses Python programmers, because in Python, <code class="language-plaintext highlighter-rouge">o.m</code> accesses the instance variable named <code class="language-plaintext highlighter-rouge">m</code>, whereas <code class="language-plaintext highlighter-rouge">o.m()</code> is calling the method <code class="language-plaintext highlighter-rouge">m</code>.</p>
+
+<p>But Ruby is very strict: instance variables are not available outside the class. The only thing you can do with objects is call their methods. (Ruby has convenient ways of generating setter and getter methods to access instance variables, which we will see later.) (This idea is from <a href="https://en.wikipedia.org/wiki/Smalltalk#Object-oriented_programming">Smalltalk</a>.) So <code class="language-plaintext highlighter-rouge">o.m</code> is always calling the method <code class="language-plaintext highlighter-rouge">m</code> on the object <code class="language-plaintext highlighter-rouge">o</code>, and is never directly accessing an instance variable.</p>
+
+<p>Omitting parens invites operator-precedence bugs, e.g.,</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">is_a?</span> <span class="no">Hash</span> <span class="o">||</span> <span class="n">x</span><span class="p">.</span><span class="nf">respond_to?</span> <span class="ss">:[]</span> 
+</code></pre></div></div>
+
+<p>The author intended</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Hash</span><span class="p">)</span> <span class="o">||</span> <span class="n">x</span><span class="p">.</span><span class="nf">respond_to?</span><span class="p">(</span><span class="ss">:[]</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>(That is, is <code class="language-plaintext highlighter-rouge">x</code> a Hash object, or can I at least use square-brackets on it?)</p>
+
+<p>But stupidly, <code class="language-plaintext highlighter-rouge">||</code> binds tighter than method-call, so it is parsed as</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span> <span class="no">Hash</span> <span class="o">||</span> <span class="n">x</span><span class="p">.</span><span class="nf">respond_to?</span><span class="p">(</span><span class="ss">:[]</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>and the <code class="language-plaintext highlighter-rouge">||</code> evaluates to the first non-<code class="language-plaintext highlighter-rouge">nil</code> argument — <code class="language-plaintext highlighter-rouge">Hash</code> — so the line reduces to</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span> <span class="no">Hash</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>which will not return <code class="language-plaintext highlighter-rouge">true</code> for non-Hash objects that support <code class="language-plaintext highlighter-rouge">[]</code>, as the author intended.</p>
+
+<h3 id="positional-args-keyword-args-default-values">Positional args, Keyword args, default values</h3>
+
+<p>As you know, the simplest functions use positional arguments:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>    
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>      <span class="c1">#  =&gt; 3</span>
+<span class="n">f</span><span class="p">()</span>         <span class="c1"># ArgumentError (wrong number of arguments (given 0, expected 2))</span>
+</code></pre></div></div>
+
+<p>This error message is not very helpful, since it doesn’t tell you the names of the required args. We will see a better way shortly.</p>
+
+<p>Like Python, the splat notation unrolls an arg list into positional args:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>      <span class="c1"># =&gt; 3</span>
+</code></pre></div></div>
+
+<p>Default values for positional arguments are defined like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">()</span>     <span class="c1">#  =&gt; 30</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1">#  =&gt; 21 </span>
+<span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">#  =&gt; 21 (WRONG, we expected 11)</span>
+</code></pre></div></div>
+
+<p>The above “WRONG” example occurs because the expression <code class="language-plaintext highlighter-rouge">y=1</code> is executed, defining the variable <code class="language-plaintext highlighter-rouge">y</code> in the caller’s namespace (BAD), and then the function assigns the value of the expression <code class="language-plaintext highlighter-rouge">y=1</code>, which is <code class="language-plaintext highlighter-rouge">1</code>, to the function argument <code class="language-plaintext highlighter-rouge">x</code>, leaving the function argument <code class="language-plaintext highlighter-rouge">y</code> to its default value of 20. This silently conflicts with Python’s function-calling syntax.</p>
+
+<p>Instead of positional arguments, I prefer <strong>keyword arguments</strong>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:,</span> <span class="n">y</span><span class="p">:)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># ArgumentError (wrong number of arguments (given 2, expected 0; required keywords: x, y))</span>
+<span class="n">f</span><span class="p">()</span>     <span class="c1"># ArgumentError (missing keywords: x, y)</span>
+<span class="n">f</span><span class="p">(</span><span class="ss">x: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">y: </span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># =&gt; 3</span>
+<span class="n">f</span><span class="p">(</span><span class="ss">y: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">x: </span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># =&gt; 3  (can specify args in any order!)</span>
+</code></pre></div></div>
+
+<p>The first error message is a bit confusing: when it says it <code class="language-plaintext highlighter-rouge">expected 0</code> arguments, it means it expected zero <em>positional arguments</em>.</p>
+
+<p>Keyword arguments force the caller to explicitly write the names of the inputs, which is nice for clarity. A famous OOP consultant once told me: 
+“A piece of code is written once, but read many times.” So it’s worth writing a little more now, to help your future readers.</p>
+
+<p>Default values for keyword args can be specified:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="ss">x: </span><span class="mi">10</span><span class="p">,</span> <span class="ss">y: </span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="ss">y: </span><span class="mi">1</span><span class="p">)</span>  <span class="c1">#  =&gt; 11, as desired</span>
+</code></pre></div></div>
+
+<p>Like Python, the double-splat notation unrolls an arg hash into keyword args:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:,</span> <span class="n">y</span><span class="p">:)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">x: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">y: </span><span class="mi">2</span><span class="p">}</span>
+<span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">h</span><span class="p">)</span>            <span class="c1"># =&gt; 3</span>
+</code></pre></div></div>
+
+<p>A function’s definition can specify both positional args and keyword args:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="ss">verbose: </span><span class="kp">false</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="k">if</span> <span class="n">verbose</span>
+        <span class="nb">p</span><span class="p">(</span><span class="s2">"Sum = </span><span class="si">#{</span><span class="n">s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">end</span>
+    <span class="n">s</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>… but why not just always use keywords for uniformity and clarity?</p>
+
+<h3 id="automatic-conversion-btwn-hash-and-keyword-args">Automatic conversion btwn hash and keyword args</h3>
+
+<p>There is a confusing quirk to keyword argument syntax, which muddies the waters:</p>
+
+<p>When calling a function that expects keyword args, you can instead provide a hash whose keys match the keyword arg names:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">:,</span> <span class="n">y</span><span class="p">:)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span><span class="ss">x: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">y: </span><span class="mi">2</span><span class="p">}</span>
+<span class="n">f</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>               <span class="c1">#  =&gt; 3, but you'd expect a "Missing keywords" error!</span>
+</code></pre></div></div>
+
+<p>To avoid parsing ambiguity, this only works if the keyword args are the rightmost arguments in the function definition, in which case the hash will be the last positional argument in the function call.</p>
+
+<p>Maddeningly, Ruby also permits being sloppy in the opposite way:</p>
+
+<p>When calling a function that expects a Hash as the last argument, you can provide the hash’s key/value pairs without the curly braces:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"x: </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y: </span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"Keys: </span><span class="si">#{</span><span class="n">h</span><span class="p">.</span><span class="nf">keys</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"Values: </span><span class="si">#{</span><span class="n">h</span><span class="p">.</span><span class="nf">values</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">a: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">2</span><span class="p">,</span> <span class="s1">'hello'</span> <span class="o">=&gt;</span> <span class="s1">'world'</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">=&gt;</span> <span class="s1">'thousand'</span><span class="p">)</span>  <span class="c1"># Note: NO CURLY BRACES!</span>
+</code></pre></div></div>
+
+<p>prints</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x: 1, y: 2
+Keys: [:a, :b, "hello", 1000]
+Values: [1, 2, "world", "thousand"]
+=&gt; nil
+</code></pre></div></div>
+
+<p>This is confusing because it makes the hash’s keys look like explicit keyword arguments, which doesn’t match the function’s definition.</p>
+
+<p>(It becomes utterly baffling and incomprehensible if you then proceed to omit the parens in the function call.)</p>
+
+<p>This bizarre syntactic sloppiness comes from Ruby’s history: Ruby did not support keyword arguments until Ruby 2.0 in 2013. Before then, the workaround was the convention of using a hash as a final positional argument — called an “options hash” — as an attempt to name the arguments of a function call. Removing the requirement for curly braces around the options hash provided a minor convenience until keyword args were officially supported in 2013.</p>
+
+<p>These two symmetric features, that let you be sloppy about keyword args versus hash args, were actually going to be 
+<a href="https://www.ruby-lang.org/en/news/2019/12/12/separation-of-positional-and-keyword-arguments-in-ruby-3-0/">removed from the language in Ruby 3.0</a>,
+starting with deprecation warnings in Ruby 2.7 
+(discussed <a href="https://bugs.ruby-lang.org/issues/14183">here</a> 
+and
+announced <a href="https://www.ruby-lang.org/en/news/2019/12/25/ruby-2-7-0-released/">here</a>), 
+but the Rails community relies on these sneaky shortcuts so heavily that Matz decided to 
+<a href="https://discuss.rubyonrails.org/t/new-2-7-3-0-keyword-argument-pain-point/74980">postpone the removal</a>.</p>
+
+<h3 id="methods-ending-in--or-">Methods ending in ? or !</h3>
+
+<p>Conventionally, methods ending in a question mark (<code class="language-plaintext highlighter-rouge">?</code>) return <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">palindrome?</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">.</span><span class="nf">reverse</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Conventionally, methods ending in an exclamation point (<code class="language-plaintext highlighter-rouge">!</code>) (also called a “bang”) do something dangerous: have a subtle side-effect, raise an exception, etc. The bang reminds the programmer to “use caution” when calling this method.</p>
+
+<p>For example, <code class="language-plaintext highlighter-rouge">Array#map</code> returns a mapped array, but leaves the original object unchanged:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">map</span><span class="p">()</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>   <span class="c1">#  =&gt; [100,200,300]</span>
+<span class="n">x</span>                       <span class="c1">#  =&gt; [1,2,3]  (unchanged)</span>
+</code></pre></div></div>
+
+<p>However, <code class="language-plaintext highlighter-rouge">Array#map!</code> returns a mapped array, but ALSO modifies the original object!:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">map!</span><span class="p">()</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>  <span class="c1">#  =&gt; [100,200,300]</span>
+<span class="n">x</span>                       <span class="c1">#  =&gt; [100,200,300]  (CHANGED!)</span>
+</code></pre></div></div>
+
+<p>Two important misconceptions:</p>
+
+<ul>
+  <li>
+    <p>Newcomers think that every “bang” method must have a non-bang counterpart. This is not true. Just because an object has a <code class="language-plaintext highlighter-rouge">foo!</code> method doesn’t mean it has a <code class="language-plaintext highlighter-rouge">foo</code> method, and vice versa. They are separate methods. In principle they could do totally separate things. But often they do related things, and the bang simply means that you need to read the docs to understand what dangerous thing the bang-method does.</p>
+  </li>
+  <li>
+    <p>Important: Newcomers see the <code class="language-plaintext highlighter-rouge">map!</code> example and conclude that “bang” means “it modifies the caller”. This is not true. “Bang” simply means “use caution”: This method might do something weird. For example, in Ruby On Rails, an <code class="language-plaintext highlighter-rouge">ActiveRecord</code> object has both a <code class="language-plaintext highlighter-rouge">save</code> method and a <code class="language-plaintext highlighter-rouge">save!</code> method. They both insert the object’s data into the database. If that fails (possibly because the database server is down, or a db validation fails), <code class="language-plaintext highlighter-rouge">save</code> returns <code class="language-plaintext highlighter-rouge">false</code>, whereas <code class="language-plaintext highlighter-rouge">save!</code> raises an exception. Since <code class="language-plaintext highlighter-rouge">save</code> just returns <code class="language-plaintext highlighter-rouge">false</code>, your program will continue running. But with <code class="language-plaintext highlighter-rouge">save!</code>, unless you rescue that exception, your program will die. The bang in <code class="language-plaintext highlighter-rouge">save!</code> means “Use caution”. Specifically: “Use caution — this method may raise an exception, which will kill your program if you don’t rescue it!”</p>
+  </li>
+</ul>
+
+<h3 id="weird-ways-to-call-methods">Weird ways to call methods</h3>
+
+<p>Method names are often stored as symbols:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">meths</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="nf">methods</span>  <span class="c1">#  =&gt; [ :+, :-, :/, :*, :size, :succ, :&lt;, :&gt;, ... ]</span>
+</code></pre></div></div>
+
+<p>We all know the normal way of calling a method on an object:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">succ</span><span class="p">()</span>    <span class="c1">#  =&gt; 101</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">succ</span>      <span class="c1">#  =&gt; 101  (parens optional)</span>
+</code></pre></div></div>
+
+<p>Ruby enables lazy programming with the “safe method call” operator, which checks if the receiver is <code class="language-plaintext highlighter-rouge">nil</code> before trying to call a method on it:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">succ</span><span class="p">()</span>   <span class="c1">#  Raises exception: NoMethodError (undefined method `succ' for nil:NilClass)</span>
+<span class="n">x</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">succ</span><span class="p">()</span>  <span class="c1">#  =&gt; nil</span>
+</code></pre></div></div>
+
+<p>(This is very dangerous because it can mask bugs.)</p>
+
+<p>If you have a method name as a symbol, you can use <code class="language-plaintext highlighter-rouge">send</code> to call that method on an object:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">m</span> <span class="o">=</span> <span class="ss">:succ</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>    <span class="c1">#  =&gt; 101</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="mi">999</span>
+<span class="n">m</span> <span class="o">=</span> <span class="ss">:&lt;</span>       <span class="c1"># a perfectly valid symbol</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1">#  =&gt; true   (100 is less than 999)</span>
+</code></pre></div></div>
+
+<p>You occasionally see <code class="language-plaintext highlighter-rouge">send</code> used in meta-programming applications.</p>
+
+<p>Surprisingly, Ruby allows you to call even <em>non-alphanumeric</em> method names with the canonical “dot” method-call syntax:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">&lt;</span> <span class="mi">999</span>      <span class="c1">#  =&gt; true</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">&lt;</span><span class="p">(</span><span class="mi">999</span><span class="p">)</span>     <span class="c1">#  =&gt; true  (using "dot" method call syntax)</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">&lt;</span> <span class="mi">999</span>      <span class="c1">#  =&gt; true  (omitting parens)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="mi">999</span>
+<span class="n">x</span><span class="o">+</span><span class="n">y</span>            <span class="c1"># =&gt; 1099  (use normal arithmetic infix operator "+")</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">send</span><span class="p">(:</span><span class="o">+</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># =&gt; 1099  (use Object#send with symbol :+ and arg y)</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">+</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>         <span class="c1"># =&gt; 1099  (use dot notation w parens)</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">+</span> <span class="n">y</span>          <span class="c1"># =&gt; 1099  (use dot notation w/o parens)</span>
+</code></pre></div></div>
+
+<p>(I’ve never seen this used in real life.)</p>
+
+<h2 id="code-blocks">Code blocks</h2>
+
+<p>We have seen that Ruby’s method-call syntax is pretty weird:</p>
+
+<ol>
+  <li>parens are not required.</li>
+  <li>keyword args are interchangeable with positional-arg hashes</li>
+</ol>
+
+<p>Amazingly, there is an even weirder feature of Ruby’s method-call syntax, which we will now discuss:</p>
+
+<p><strong>Every method call may be passed an anonymous function literal called a <em>code block</em>.</strong></p>
+
+<p>For example (the curly braces <code class="language-plaintext highlighter-rouge">{}</code> delimit the code block; the pipes <code class="language-plaintext highlighter-rouge">||</code> delimit its parameter list):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">map</span><span class="p">()</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>   <span class="c1">#  =&gt; [100, 200, 300]</span>
+</code></pre></div></div>
+
+<p>A code block is written AFTER all the positional and keyword args, OUTSIDE the closing paren of the method-call:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">map</span><span class="p">()</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>     <span class="c1"># YES: =&gt; [100, 200, 300]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">map</span>   <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>     <span class="c1"># YES: =&gt; [100, 200, 300] (Parens optional in Ruby!)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span>  <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span> <span class="p">)</span>   <span class="c1">#  NO: syntax error</span>
+</code></pre></div></div>
+
+<p>Keywords <code class="language-plaintext highlighter-rouge">do</code> <code class="language-plaintext highlighter-rouge">end</code> can be used in place of curlies. (Looks better for multi-line code blocks.):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">map</span><span class="p">()</span> <span class="k">do</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> 
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"In the code block! e=</span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">e</span><span class="o">*</span><span class="mi">100</span> 
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>prints</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In the code block! e=1
+In the code block! e=2
+In the code block! e=3
+=&gt; [100, 200, 300]
+</code></pre></div></div>
+
+<p>Technically, <strong>any</strong> method call may be passed a code block, even if the method wasn’t expecting it and doesn’t invoke it:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="o">|</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">"Hello world!"</span><span class="p">)</span> <span class="p">}</span>   <span class="c1">#  =&gt; 3 </span>
+</code></pre></div></div>
+
+<p>Note that the code block remains <em>unevaluated</em> until the method invokes it. If the method never invokes it, the code block never executes. For example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="s1">'Uh oh!'</span> <span class="p">}</span>  <span class="c1">#  =&gt; 3 (code block is not invoked)</span>
+</code></pre></div></div>
+
+<p>It is very important to understand that a code block is part of a method call. It is essentially a special kind of argument.</p>
+
+<p>For example, in the examples above, <code class="language-plaintext highlighter-rouge">map()</code> expects NO positional or keyword arguments, but it does expect to be given a code block when it is called.</p>
+
+<p><strong>Important:</strong> a code block can ONLY appear as part of a method call. For example, you cannot assign a code block to a variable:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>  <span class="c1"># syntax error</span>
+</code></pre></div></div>
+
+<p>If you can’t assign code blocks to variables, then how do you make lambda functions? We discuss that next.</p>
+
+<h3 id="lambda-functions">Lambda functions.</h3>
+
+<p>To make a lambda function, give a code block to the <code class="language-plaintext highlighter-rouge">Proc</code> class constructor (Ruby’s class for encapsulating lambda functions), which will embed your code block into a <code class="language-plaintext highlighter-rouge">Proc</code> object:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># =&gt; 300</span>
+<span class="n">b</span><span class="o">.</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>      <span class="c1"># =&gt; 300  (NEVER use this subtle confusing syntax)</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>       <span class="c1"># =&gt; 300  (same)</span>
+</code></pre></div></div>
+
+<p>For historical reasons, there is a built-in function <code class="language-plaintext highlighter-rouge">proc</code> that is an alias for <code class="language-plaintext highlighter-rouge">Proc.new</code>.</p>
+
+<p>You may also have seen the function <code class="language-plaintext highlighter-rouge">lambda</code>, which (confusingly) also makes <code class="language-plaintext highlighter-rouge">Proc</code> instances:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>        <span class="c1">#  =&gt; #&lt;Proc:0x00007fc2c495ee88@(irb):43 (lambda)&gt;</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">class</span>                         <span class="c1">#  =&gt; Proc</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">lambda?</span>                       <span class="c1">#  =&gt; true</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">proc</code> and <code class="language-plaintext highlighter-rouge">lambda</code> functions both create <code class="language-plaintext highlighter-rouge">Proc</code> instances. They differ in how they treat missing arguments: <code class="language-plaintext highlighter-rouge">proc</code> and <code class="language-plaintext highlighter-rouge">Proc.new</code> set missing args to <code class="language-plaintext highlighter-rouge">nil</code> and ignore extra args, but <code class="language-plaintext highlighter-rouge">lambda</code> will throw an error if you don’t call it with the right number of args:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nb">proc</span>       <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">"x=</span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">, y=</span><span class="si">#{</span><span class="n">y</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">g</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span>   <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">"x=</span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">, y=</span><span class="si">#{</span><span class="n">y</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">h</span> <span class="o">=</span> <span class="nb">lambda</span>     <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="nb">puts</span><span class="p">(</span><span class="s2">"x=</span><span class="si">#{</span><span class="n">x</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">, y=</span><span class="si">#{</span><span class="n">y</span><span class="p">.</span><span class="nf">inspect</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="c1"># Missing args:</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># x=1, y=nil</span>
+<span class="n">g</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># x=1, y=nil</span>
+<span class="n">h</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># ArgumentError (wrong number of arguments (given 1, expected 2))</span>
+
+<span class="c1"># Extra args:</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># x=1, y=2</span>
+<span class="n">g</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># x=1, y=2</span>
+<span class="n">h</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># ArgumentError (wrong number of arguments (given 3, expected 2))</span>
+</code></pre></div></div>
+
+<p>Ruby supports a confusing second syntax for defining lambda functions, called a <em>lambda literal</em>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">}</span>   <span class="c1"># #&lt;Proc:... (lambda)&gt;</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>           <span class="c1"># =&gt; 3</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s1">'hi'</span> <span class="p">}</span>  <span class="c1"># Takes no args</span>
+<span class="n">g</span><span class="p">.</span><span class="nf">call</span>                <span class="c1"># Prints 'hi', returns nil</span>
+</code></pre></div></div>
+
+<p>This syntax saves a few characters of typing, yet must be learned by every Ruby developer.</p>
+
+<p>Worse, it is confusing because it looks too similar to a code block, making it look like you can assign a code block to a variable:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">puts</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span> <span class="p">}</span>   <span class="c1"># ok </span>
+<span class="n">g</span> <span class="o">=</span>    <span class="p">{</span> <span class="nb">puts</span><span class="p">(</span><span class="s1">'world'</span><span class="p">)</span> <span class="p">}</span>   <span class="c1"># syntax error</span>
+</code></pre></div></div>
+
+<p>It is critical to observe that a lambda literal, like a code block, is not executed when it is defined:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="k">raise</span> <span class="s1">'uh oh'</span> <span class="p">}</span>   <span class="c1"># ok!</span>
+<span class="n">g</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span> <span class="p">}</span>             <span class="c1"># ok!</span>
+<span class="n">h</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="mi">10</span><span class="p">.</span><span class="nf">barf</span><span class="p">()</span> <span class="p">}</span>       <span class="c1"># ok!</span>
+</code></pre></div></div>
+
+<p>Therefore you see people use lambda literals as a quick, easy way to defer execution of their code, sometimes even defining the lambda literal inside a method call.</p>
+
+<h3 id="with-lambdas-why-need-code-blocks">With lambdas, why need Code Blocks?</h3>
+
+<p>You might wonder why Ruby has special syntax for tacking on an extra argument (an anonymous function literal) to a method call, since Ruby DOES support lambda functions, which can be passed as normal positional or keyword arguments, thereby making code blocks unnecessary:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># map() without code blocks:</span>
+<span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="k">in</span> <span class="n">list</span>
+        <span class="n">out</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span> <span class="n">func</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">out</span>
+<span class="k">end</span>
+
+<span class="c1"># Define a lambda function object:</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"In the code block! e=</span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">e</span><span class="o">*</span><span class="mi">100</span>
+<span class="k">end</span>
+
+<span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># map the lambda function over the list</span>
+</code></pre></div></div>
+
+<p>prints</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In the code block! e=1
+In the code block! e=2
+In the code block! e=3
+=&gt; [100, 200, 300]
+</code></pre></div></div>
+
+<p>As far as I can tell, the main advantage of the special code block syntax is that you don’t have a bunch of leftover closing parens when you have nested code blocks.</p>
+
+<h3 id="passing-a-proc-as-a-code-block">Passing a Proc as a code block</h3>
+
+<p>What if I have a <code class="language-plaintext highlighter-rouge">Proc</code> object that I want to give to a method-call, instead of defining a code block literal? The clumsy way is to do this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">b</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">}</span>   <span class="c1">#  =&gt; [100, 200, 300]</span>
+</code></pre></div></div>
+
+<p>… but there is a better way:</p>
+
+<p>When calling a method, instead of providing a code block literal, you can pass a <code class="language-plaintext highlighter-rouge">Proc</code> object as the last argument, prepended with an ampersand (<code class="language-plaintext highlighter-rouge">&amp;</code>), which Ruby will treat as if you had provided a code block literal:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>                 <span class="c1"># =&gt; [100, 200, 300]</span>
+</code></pre></div></div>
+
+<p>This is confusing because <code class="language-plaintext highlighter-rouge">map</code> takes no arguments, yet it looks like <code class="language-plaintext highlighter-rouge">map</code> is being given an argument. It results in hard-to-catch errors. Can you spot it?:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># ArgumentError (wrong number of arguments (given 1, expected 0))</span>
+</code></pre></div></div>
+
+<h3 id="defining-a-method-that-expects-a-code-block">Defining a method that expects a code block</h3>
+
+<p>So far we have only talked about how to <strong>use</strong> a method that expects a code block. Now we discuss how to <strong>write</strong> a method that expects a code block.</p>
+
+<p>Inside the method’s body, the <code class="language-plaintext highlighter-rouge">yield</code> keyword invokes the code block:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span><span class="p">(</span><span class="s2">"Defining the method."</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"Sum = </span><span class="si">#{</span><span class="n">s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="k">yield</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>    <span class="c1"># Call the code block</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"The code block returned z=</span><span class="si">#{</span><span class="n">z</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">z</span> <span class="c1"># return the result of passing the sum thru the code block</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span><span class="p">(</span><span class="s2">"Calling the method."</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> 
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"In the code block! e=</span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">e</span><span class="o">*</span><span class="mi">100</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>prints</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Defining the method.
+Calling the method.
+Sum = 3
+In the code block! e=3
+The code block returned z=300
+=&gt; 300
+</code></pre></div></div>
+
+<p>(Very important: Ruby’s <code class="language-plaintext highlighter-rouge">yield</code> seems similar to Python’s <code class="language-plaintext highlighter-rouge">yield</code>, in that <code class="language-plaintext highlighter-rouge">yield</code> returns from the currently-executing function in a manner that allows the function to resume execution later. But the similarity ends there. In Python, <code class="language-plaintext highlighter-rouge">yield</code> converts a normal function into a generator that returns a succession of values when you call <code class="language-plaintext highlighter-rouge">next()</code> repeatedly on it. In Ruby, <code class="language-plaintext highlighter-rouge">yield</code> is how a function calls the lambda function that was provided to the function.)</p>
+
+<p>Pay close attention to how the control of the program flowed: First the method author defined a method that expects a code block. Then the caller called the method. Then the method ran partway. Then the method called the code block, which effectively returned control to the caller (who authored the code block). After the block returned, the method resumed. Then the method finished, returning control to the caller once again. Complicated! Code blocks introduce a lot of complex redirection into your code.</p>
+
+<p>If a function calls <code class="language-plaintext highlighter-rouge">yield</code>, but the caller didn’t provide a code block, a <code class="language-plaintext highlighter-rouge">no block given</code> error is raised:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="k">yield</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># Pass sum to the code block</span>
+              <span class="c1"># and return whatever the code block returns</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># error: no block given</span>
+</code></pre></div></div>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">block_given?()</code> boolean-valued function to see if the caller provided a block:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="nb">block_given?</span> <span class="p">?</span> <span class="k">yield</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">:</span> <span class="n">s</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>               <span class="c1">#  =&gt; 3</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span><span class="p">}</span>   <span class="c1">#  =&gt; 300</span>
+</code></pre></div></div>
+
+<p>A downside of <code class="language-plaintext highlighter-rouge">yield</code> is that the method body doesn’t have a variable referring to the code block, which is handy if you want to pass the code block down to a sub-function. To address this, Ruby offers a special method-definition syntax:</p>
+
+<p>Just as you can use <code class="language-plaintext highlighter-rouge">&amp;</code> to pass a <code class="language-plaintext highlighter-rouge">Proc</code> as a code block in a method-call, you can use <code class="language-plaintext highlighter-rouge">&amp;</code> in a method <em>definition</em> to give a variable name to your method’s code block:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># Note the ampersand (&amp;)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># b is a Proc instance</span>
+    <span class="n">z</span>
+<span class="k">end</span>
+
+<span class="c1"># Same as before:</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> 
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"In the code block! e=</span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">e</span><span class="o">*</span><span class="mi">100</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This is confusing because the method definition looks like it takes 3 positional arguments, but it only takes 2 (and a code block).</p>
+
+<h3 id="code-blocks-are-over-used">Code blocks are over-used</h3>
+
+<p>Code blocks are pervasive in Ruby. Even simple iterators are demonstrated using code blocks.</p>
+
+<p>For example, many Ruby tutorials begin with an example that uses the <code class="language-plaintext highlighter-rouge">times()</code> method of <code class="language-plaintext highlighter-rouge">Integer</code>, which idiotically is meant to read like English when used with the <code class="language-plaintext highlighter-rouge">do end</code> code block syntax:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="mi">10</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"In the code block! i=</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="k">end</span>
+<span class="n">total</span>
+</code></pre></div></div>
+
+<p>… which prints</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In the code block! i=0
+In the code block! i=1
+In the code block! i=2
+In the code block! i=3
+In the code block! i=4
+=&gt; 45
+</code></pre></div></div>
+
+<p>This is a terrible way to begin your introduction to Ruby, because it combines three bizarre aspects of Ruby into a single incomprehensible mess:</p>
+
+<ol>
+  <li>you can call methods on Integer literals (weird)</li>
+  <li>parens are not needed on method calls (very weird)</li>
+  <li>every method call may be given an anonymous function literal called a code block (wtf!)</li>
+</ol>
+
+<p>Moreover, students probably think the word <code class="language-plaintext highlighter-rouge">times</code> means “multiply”, which causes further confusion. Shouldn’t <code class="language-plaintext highlighter-rouge">10.times 3</code> return <code class="language-plaintext highlighter-rouge">30</code>??</p>
+
+<p>In my opinion, code blocks are over-used. There are many places in Ruby On Rails where code blocks are used, when the same logic could be achieved without them. Each code block adds a new stack frame, and since code blocks are often nested (especially in Ruby On Rails), stack traces become long and hard to follow.</p>
+
+<h3 id="implementing-pythons-with-as-a-code-block">Implementing Python’s “with” as a code block</h3>
+
+<p>Despite being over-used, code blocks have several interesting uses.</p>
+
+<p>For example, consider Python’s <code class="language-plaintext highlighter-rouge">with</code> statement, which is used to perform setup and teardown of an object. The following common Python example uses <code class="language-plaintext highlighter-rouge">with</code> to close a file after writing to it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">foo.txt</span><span class="sh">'</span><span class="p">,</span><span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">world</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Under the hood, <code class="language-plaintext highlighter-rouge">with</code> essentially does this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">foo.txt</span><span class="sh">'</span><span class="p">,</span><span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">__enter__</span><span class="p">()</span>
+
+<span class="c1">### execute body of the `with`:
+</span><span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">world</span><span class="sh">'</span><span class="p">)</span>
+<span class="c1">###
+</span>
+<span class="n">f</span><span class="p">.</span><span class="nf">__exit__</span><span class="p">()</span>   <span class="c1"># closes the file
+</span></code></pre></div></div>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">with</code> allows a file object to open a file, then run some user-specified code, and finally close the file.</p>
+
+<p>Ruby does not have a <code class="language-plaintext highlighter-rouge">with</code> statement, but code blocks allow us to write a <code class="language-plaintext highlighter-rouge">with()</code> function that looks like it’s built-in to Ruby:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">with</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">b</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+<span class="k">end</span>
+
+<span class="n">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'foo.txt'</span><span class="p">,</span><span class="s1">'w'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s1">'world'</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Note that since Ruby doesn’t require parens, the <code class="language-plaintext highlighter-rouge">open</code> call is the first and only positional argument to <code class="language-plaintext highlighter-rouge">with</code>.</p>
+
+<p>(Astute readers may criticize this example because <code class="language-plaintext highlighter-rouge">with</code> assumes that its arg supports a <code class="language-plaintext highlighter-rouge">close()</code> method. But that assumption was also needed in Python, whose <code class="language-plaintext highlighter-rouge">with</code> statement assumes its arg supports methods <code class="language-plaintext highlighter-rouge">__enter__()</code> and <code class="language-plaintext highlighter-rouge">__exit__()</code>.)</p>
+
+<p>As an aside, it turns out that Ruby’s <code class="language-plaintext highlighter-rouge">open</code> actually accepts a code block, which closes the file for you!:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">open</span><span class="p">(</span><span class="s1">'foo.txt'</span><span class="p">,</span><span class="s1">'w'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s1">'world'</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>(So <code class="language-plaintext highlighter-rouge">with</code> is not needed for this use case!)</p>
+
+<p>This example highlights an important aspect of code blocks: It requires careful coordination between the person who writes a method, and the person who calls the method:</p>
+
+<ol>
+  <li>When I call your method, does it expect a code block in addition to the normal positional and keyword args?</li>
+  <li>How many args should my code block accept? (That is, how many args will your method give to my code block?)</li>
+  <li>How many times will your method call my code block?</li>
+</ol>
+
+<p>For example, here is a snippet from the <code class="language-plaintext highlighter-rouge">open</code> method’s docs (<a href="https://apidock.com/ruby/Kernel/open">apidoc.com</a>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If a block is specified, it will be invoked with the IO object as a parameter, 
+and the IO will be automatically closed when the block terminates. 
+The call returns the value of the block.
+</code></pre></div></div>
+
+<h3 id="break-vs-return">Break vs Return</h3>
+
+<p><strong>Pitfall</strong>: in a code block, use <code class="language-plaintext highlighter-rouge">break</code> to return early out of the block, whereby the calling method will continue. Astonishingly, using <code class="language-plaintext highlighter-rouge">return</code> in a code block actually forces the entire method to return!:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"sum = </span><span class="si">#{</span><span class="n">s</span><span class="si">}</span><span class="s2">, block output = </span><span class="si">#{</span><span class="n">z</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">z</span>
+<span class="k">end</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="k">return</span> <span class="n">e</span><span class="o">*</span><span class="mi">100</span> <span class="p">}</span>    <span class="c1"># LocalJumpError (unexpected return)</span>
+</code></pre></div></div>
+
+<h3 id="passing-symbol-instead-of-code-block">Passing Symbol instead of Code Block</h3>
+
+<p>You will probably see this strange idiom:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:upcase</span><span class="p">)</span>   <span class="c1"># =&gt; ["A", "B", "C"]</span>
+</code></pre></div></div>
+
+<p>This code is equivalent to</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">map</span><span class="p">()</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="p">.</span><span class="nf">upcase</span> <span class="p">}</span>    <span class="c1"># =&gt; ["A", "B", "C"]</span>
+</code></pre></div></div>
+
+<p>This ridiculous confusing shortcut saves only a few characters of typing, but it is a whole new idiom that assaults newcomers.</p>
+
+<p>To understand this idiom, recall that normally the ampersand argument takes a <code class="language-plaintext highlighter-rouge">Proc</code> object, like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">p</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="p">.</span><span class="nf">upcase</span> <span class="p">}</span>
+<span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="nb">p</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>However, astoundingly, if the ampersand argument is not a Proc, Ruby calls <code class="language-plaintext highlighter-rouge">to_proc</code> on it to try to convert it to a Proc. <strong>(This is totally subtle and non-obvious.)</strong></p>
+
+<p>Therefore, in the above example, Ruby calls <code class="language-plaintext highlighter-rouge">:upcase.to_proc</code>. As we saw in the section on <a href="#symbols">Symbols</a>, <code class="language-plaintext highlighter-rouge">Symbol#to_proc</code> is one of the few methods that Symbols have that Strings don’t have. It is defined like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Symbol</span>
+    <span class="k">def</span> <span class="nf">to_proc</span><span class="p">()</span>
+        <span class="k">return</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">o</span><span class="o">|</span> <span class="n">o</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">}</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>(Recall that <code class="language-plaintext highlighter-rouge">o.send(m)</code>, where <code class="language-plaintext highlighter-rouge">m</code> is a symbol, is simply the method call <code class="language-plaintext highlighter-rouge">o.m()</code>)</p>
+
+<p>That is, <code class="language-plaintext highlighter-rouge">:f.to_proc()</code> returns a <code class="language-plaintext highlighter-rouge">Proc</code> that takes an object and calls its <code class="language-plaintext highlighter-rouge">f()</code> method. So a convoluted way to write <code class="language-plaintext highlighter-rouge">4.odd?()</code> would be <code class="language-plaintext highlighter-rouge">:odd?.to_proc.call 4</code>.</p>
+
+<p>The whole idea of expanding method call syntax to accept anything that defines <code class="language-plaintext highlighter-rouge">to_proc</code>, instead of simply a proc or a code block, is very bad for newcomers. They see <code class="language-plaintext highlighter-rouge">map(&amp;:upcase)</code> and they mistakenly think <code class="language-plaintext highlighter-rouge">&amp;:</code> has special meaning separate from <code class="language-plaintext highlighter-rouge">&amp;</code>. They parse it as <code class="language-plaintext highlighter-rouge">map( &amp;: upcase )</code>, whose bare <code class="language-plaintext highlighter-rouge">upcase</code> exacerbates their confusion between symbols and variables. To correct this mistake, they have to learn how <code class="language-plaintext highlighter-rouge">&amp;</code> doesn’t just take procs or code blocks, but ALSO calls <code class="language-plaintext highlighter-rouge">to_proc</code> as a backup, and conveniently, Symbol implements <code class="language-plaintext highlighter-rouge">to_proc</code>, despite Symbol supposedly being a simpler concept than String, and its implementation involves the meta-programmatic <code class="language-plaintext highlighter-rouge">send</code>, and if you look up <code class="language-plaintext highlighter-rouge">Symbol#to_proc</code> in the <a href="https://apidock.com/ruby/Symbol/to_proc">official Ruby documentation</a>, the entire help article is one enigmatic and ungrammatical line accompanied by a cryptic example that doesn’t even use <code class="language-plaintext highlighter-rouge">to_proc</code> directly:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>irb&gt; help('Symbol#to_proc')
+
+  sym.to_proc
+
+Returns a Proc object which respond to the given method by sym.
+
+  (1..3).collect(&amp;:to_s)  #=&gt; ["1", "2", "3"]
+</code></pre></div></div>
+
+<p>(Note that <code class="language-plaintext highlighter-rouge">to_proc</code> does not even appear in the given example!)</p>
+
+<p>And all this complexity for a single weird idiomatic shortcut!</p>
+
+<p>Oh Ruby! Truly a Programmer’s Best Friend!!</p>
+
+<h2 id="classes-and-modules">Classes and Modules</h2>
+
+<h3 id="classes-can-be-nested">Classes can be nested</h3>
+
+<p>Drill down into nested classes with <code class="language-plaintext highlighter-rouge">::</code>, like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>
+    <span class="k">class</span> <span class="nc">D</span>
+        <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="k">class</span> <span class="nc">E</span>
+        <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">x</span><span class="o">**</span><span class="n">y</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="no">C</span><span class="o">::</span><span class="no">D</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">e</span> <span class="o">=</span> <span class="no">C</span><span class="o">::</span><span class="no">E</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">d</span><span class="p">.</span><span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>      <span class="c1"># =&gt; 3</span>
+<span class="n">e</span><span class="p">.</span><span class="nf">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>      <span class="c1"># =&gt; 8</span>
+</code></pre></div></div>
+
+<h3 id="instance-vars-are-inaccessible-outside-the-class">Instance vars are inaccessible outside the class</h3>
+
+<p>In Ruby, instance variables are named with a leading “at” (<code class="language-plaintext highlighter-rouge">@</code>), and they are not accessible outside the class:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">()</span>
+        <span class="vi">@x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">c</span><span class="o">.</span><span class="vi">@x</span>        <span class="c1"># syntax error</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span>         <span class="c1"># undefined method 'x'</span>
+</code></pre></div></div>
+
+<p>Instead, to interact with instance vars from outside, you must write getter and setter methods:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="vi">@x</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">x</span><span class="p">()</span>
+        <span class="vi">@x</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">x</span><span class="o">=</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="vi">@x</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span>            <span class="c1"># =&gt; 5  uses getter x()</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span> <span class="o">=</span> <span class="mi">6</span>        <span class="c1"># uses setter x=(); now @x = 6 internally</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span><span class="o">=</span><span class="p">(</span> <span class="mi">7</span> <span class="p">)</span>      <span class="c1"># same, but uses dot notation w/ the x= method</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span>            <span class="c1"># =&gt; 7</span>
+</code></pre></div></div>
+
+<p>A minor point is that instance variables are “lifted” like in JavaScript, in the sense that they are automatically initialized to <code class="language-plaintext highlighter-rouge">nil</code> if they are mentioned anywhere in the class body:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">()</span>
+        <span class="vi">@x</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span>      <span class="c1"># @x init'd to nil</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">f</span>            <span class="c1"># =&gt; nil, not "undefined" or "uninitialized"</span>
+</code></pre></div></div>
+
+<p>Ruby provides the functions <code class="language-plaintext highlighter-rouge">attr_reader</code>, <code class="language-plaintext highlighter-rouge">attr_writer</code>, and <code class="language-plaintext highlighter-rouge">attr_accessor</code> to meta-programatically add a getter, setter, or both:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>
+    <span class="nb">attr_reader</span> <span class="ss">:x</span>      <span class="c1"># same as def x() ; @x ; end</span>
+    <span class="nb">attr_writer</span> <span class="ss">:y</span>      <span class="c1"># same as def y=(v) ; @y = v ; end</span>
+    <span class="nb">attr_accessor</span> <span class="ss">:z</span>    <span class="c1"># does both of the above</span>
+<span class="k">end</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">methods</span>    <span class="c1">#  =&gt; [:x, :y=, :z=, :z, ... ]</span>
+
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span>          <span class="c1"># =&gt; nil (all instance variables are initialized to nil)</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span> <span class="o">=</span> <span class="mi">5</span>      <span class="c1"># error: undefined method x=()</span>
+
+<span class="n">c</span><span class="p">.</span><span class="nf">y</span> <span class="o">=</span> <span class="mi">5</span>      <span class="c1"># instance variable @y is set to 5</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">y</span>          <span class="c1"># error: undefined method y()</span>
+
+<span class="n">c</span><span class="p">.</span><span class="nf">z</span> <span class="o">=</span> <span class="mi">5</span>      <span class="c1"># ok</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">z</span>          <span class="c1"># =&gt; 5</span>
+</code></pre></div></div>
+
+<p>A couple notes on this:</p>
+
+<ol>
+  <li>
+    <p>It is legal to have a method named <code class="language-plaintext highlighter-rouge">x=</code>. Indeed, Ruby converts the expression <code class="language-plaintext highlighter-rouge">c.x = 5</code> into the canonical method-call form <code class="language-plaintext highlighter-rouge">c.x=(5)</code> — calling the <code class="language-plaintext highlighter-rouge">x=</code> method on the object <code class="language-plaintext highlighter-rouge">c</code> with the argument <code class="language-plaintext highlighter-rouge">5</code>. Using <code class="language-plaintext highlighter-rouge">Object#send</code> makes this explicit: <code class="language-plaintext highlighter-rouge">c.send( :x= , 5 )</code>.</p>
+  </li>
+  <li>
+    <p>It looks like <code class="language-plaintext highlighter-rouge">attr_reader</code> (and friends) is a language keyword or macro, but it isn’t. It is a normal function being called without parens, executing at <em>class-definition time</em>, not at runtime. Surprisingly, this is allowed (even in Python).
+Moreover, in Ruby, every function has a receiver, and <code class="language-plaintext highlighter-rouge">self</code> is used as the receiver if one isn’t specified. Therefore the call could be written more explicitly as:</p>
+  </li>
+</ol>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>
+    <span class="nb">puts</span><span class="p">(</span><span class="s2">"In the class definition! self = </span><span class="si">#{</span><span class="nb">self</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">attr_accessor</span><span class="p">(</span><span class="ss">:x</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c1"># prints: "In the class definition! self = C"</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span>         <span class="c1"># =&gt; 5</span>
+</code></pre></div></div>
+
+<p>Note that in the class body, <code class="language-plaintext highlighter-rouge">self</code> takes the value <code class="language-plaintext highlighter-rouge">C</code> — the class that’s in the process of being defined — and therefore the method call could’ve been written explicitly as <code class="language-plaintext highlighter-rouge">C.attr_accessor(:x)</code>. This shows that <code class="language-plaintext highlighter-rouge">attr_accessor</code> is a class method of the class <code class="language-plaintext highlighter-rouge">C</code>; in Ruby, even classes are themselves objects — instances of the <code class="language-plaintext highlighter-rouge">Class</code> class — and therefore they have a class hierarchy that gets searched when you call methods on them:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span> <span class="p">;</span> <span class="k">end</span>  <span class="c1"># define an empty class</span>
+<span class="no">C</span><span class="p">.</span><span class="nf">methods</span>      <span class="c1">#  =&gt; [:new, :allocate, :superclass, ...</span>
+               <span class="c1">#       :attr_accessor, ... ]</span>
+
+<span class="no">C</span><span class="p">.</span><span class="nf">class</span>                         <span class="c1">#  =&gt; Class   (C is an instance of the Class class)</span>
+<span class="no">C</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">superclass</span>              <span class="c1">#  =&gt; Module  (the Class class is a subclass of the Module class)</span>
+<span class="no">Module</span><span class="p">.</span><span class="nf">class</span>                    <span class="c1">#  =&gt; Class   (the Module class is a class)</span>
+<span class="no">C</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">superclass</span><span class="p">.</span><span class="nf">class</span>        <span class="c1">#  =&gt; Class   (same)</span>
+<span class="no">C</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">ancestors</span>               <span class="c1">#  =&gt; [Class, Module, Object, Kernel, BasicObject]</span>
+<span class="no">C</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:attr_accessor</span><span class="p">).</span><span class="nf">owner</span>  <span class="c1">#  =&gt; Module  (the Module class defines attr_accessor)</span>
+
+</code></pre></div></div>
+
+<p>Here we see that the <code class="language-plaintext highlighter-rouge">Module</code> class, a superclass of the <code class="language-plaintext highlighter-rouge">Class</code> class, defines <code class="language-plaintext highlighter-rouge">attr_accessor</code>.</p>
+
+<p>It is not worth spending much time studying Ruby’s object model, because it is convoluted and you can do plenty of damage without it.</p>
+
+<h3 id="can-modify-existing-classes-at-runtime">Can modify existing classes at runtime</h3>
+
+<p>You might conclude from Ruby’s strict stance on hiding instance variables that Ruby would take a similarly strict stance on the immutability of classes and objects. You would be wrong.</p>
+
+<p>Astoundingly, you can “open up” existing classes at runtime and add, delete, or redefine their methods:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>          <span class="c1"># some class</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># =&gt; 3</span>
+
+<span class="k">class</span> <span class="nc">C</span>  <span class="c1"># open up C </span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># rewrite existing method</span>
+        <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># add new method</span>
+        <span class="n">x</span><span class="o">**</span><span class="n">y</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">c</span><span class="p">.</span><span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># =&gt; 2 (different!! new def'n applies immediately!)</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">g</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>   <span class="c1"># =&gt; 8 (no need to "reload" object c!)</span>
+</code></pre></div></div>
+
+<p>For example, you can call the <code class="language-plaintext highlighter-rouge">attr_accessor</code> class method <strong>even outside the class,</strong> to add new methods dynamically at runtime:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">C</span>              <span class="c1"># a class that doesn't expose its instance variable</span>
+    <span class="k">def</span> <span class="nf">initialize</span>
+        <span class="vi">@x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span>            <span class="c1"># error, good</span>
+
+<span class="no">C</span><span class="p">.</span><span class="nf">attr_accessor</span> <span class="ss">:x</span>   <span class="c1"># now we can "reach into" the class </span>
+                     <span class="c1"># and modify @x</span>
+
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span> <span class="o">=</span> <span class="mi">6</span>     <span class="c1"># No need to "reload" object c!</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">x</span>         <span class="c1"># =&gt; 6</span>
+</code></pre></div></div>
+
+<p>It is fantastically dangerous to circumvent Ruby’s protections of instance variables.</p>
+
+<p>Ruby allows this even for built-in classes like String and Integer:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">4</span><span class="p">.</span><span class="nf">odd?</span>          <span class="c1"># =&gt; false</span>
+
+<span class="k">class</span> <span class="nc">Integer</span>
+    <span class="k">def</span> <span class="nf">odd?</span>
+        <span class="kp">true</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="mi">4</span><span class="p">.</span><span class="nf">odd?</span>          <span class="c1"># =&gt; true</span>
+</code></pre></div></div>
+
+<p>Rails uses this power to do all sorts of mischief. For example, it adds the <code class="language-plaintext highlighter-rouge">days</code> method to the <code class="language-plaintext highlighter-rouge">Numeric</code> class (superclass of <code class="language-plaintext highlighter-rouge">Integer</code> and <code class="language-plaintext highlighter-rouge">Float</code>), so that you can write:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">4</span><span class="p">.</span><span class="nf">days</span><span class="p">.</span><span class="nf">ago</span>   <span class="c1">#=&gt; Tue, 08 Aug 2020 02:38:28 PST -08:00</span>
+</code></pre></div></div>
+
+<p>Unsurprisingly, this is a horrible idea, because:</p>
+
+<ul>
+  <li>It’s subtle.</li>
+  <li>It makes it look like you can program in plain English, which nobody would want to do in real life (ask a non-native English speaker, or anyone who’s tried to write AppleScript!)</li>
+  <li>It blurs the line between Ruby and the Rails framework, making it harder to debug: do I look at Ruby docs, or Rails docs? Can I use this in my non-Rails program? (No.)</li>
+  <li><code class="language-plaintext highlighter-rouge">days</code> converted my simple <code class="language-plaintext highlighter-rouge">Integer</code> into some weird Rails <code class="language-plaintext highlighter-rouge">ActiveSupport::Duration</code> object.</li>
+  <li>The API is inconsistent: Rails adds the method <code class="language-plaintext highlighter-rouge">fortnight</code>, but no method <code class="language-plaintext highlighter-rouge">year</code>. It offers the conversion method <code class="language-plaintext highlighter-rouge">in_milliseconds</code>, but no <code class="language-plaintext highlighter-rouge">millisecond</code>.</li>
+  <li>And why stop with time-based units?? Rails 3.0 added <code class="language-plaintext highlighter-rouge">kilobyte</code>. Maybe more units will be added later. This pollutes <code class="language-plaintext highlighter-rouge">Integer</code>. The concept of a number-with-units is different than the concept of a number. You shouldn’t cram the unit concept into the number concept.</li>
+</ul>
+
+<h3 id="can-add-methods-to-individual-objects">Can add methods to individual objects</h3>
+
+<p>We saw that Ruby permits adding, deleting, or rewriting existing classes at runtime — even built-in classes. What is even more insane is that Ruby offers a mechanism for doing this <em>on individual objects</em>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="s1">'a'</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">'b'</span>
+
+<span class="k">def</span> <span class="nc">b</span><span class="o">.</span><span class="nf">upcase</span>
+    <span class="s1">'z'</span>
+<span class="k">end</span>
+
+<span class="n">a</span><span class="p">.</span><span class="nf">upcase</span>  <span class="c1">#  =&gt; 'A'</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">upcase</span>  <span class="c1">#  =&gt; 'z'   # oh noooo</span>
+</code></pre></div></div>
+
+<p>Ruby makes this possible through a completely bizarre mechanism called the <em>singleton class</em>. The top Google hit for “ruby singleton class” is an article about Ruby’s apparently beautiful object model, which concludes as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The superclass of the singleton class of a class is the singleton class of the class’s superclass.
+</code></pre></div></div>
+
+<p>“If you understand, no explanation is necessary. If you do not, no explanation is possible.”</p>
+
+<p>You should know how to check for meta-programming mischief:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="p">.</span><span class="nf">singleton_methods</span>   <span class="c1">#  =&gt; []</span>
+<span class="n">b</span><span class="p">.</span><span class="nf">singleton_methods</span>   <span class="c1">#  =&gt; [:upcase]</span>
+</code></pre></div></div>
+
+<h3 id="modules">Modules</h3>
+
+<p>A module is a set of methods that you inject into your classes using <code class="language-plaintext highlighter-rouge">include</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">M</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">C</span>
+    <span class="kp">include</span> <span class="no">M</span>
+<span class="k">end</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="no">C</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">c</span><span class="p">.</span><span class="nf">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>    <span class="c1">#  =&gt; 3</span>
+</code></pre></div></div>
+
+<p>The methods may refer to <code class="language-plaintext highlighter-rouge">self</code>, in which case they are instance methods of whatever class you <code class="language-plaintext highlighter-rouge">include</code> them in. This is known as a <em>mixin</em> in general OOP. It is Ruby’s form of multiple-inheritance.</p>
+
+<p>Like classes, modules may be nested, which is nice for name-spacing; nested modules are accessed with <code class="language-plaintext highlighter-rouge">::</code>.</p>
+
+<p>When you call a method on an object, Ruby searches the object’s class hierarchy for that method’s definition, as well as the modules included in each class:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>                             <span class="c1"># =&gt; 5</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">class</span>                           <span class="c1"># =&gt; Integer</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">ancestors</span>                 <span class="c1"># =&gt; [Integer, Numeric, Comparable, Object, Kernel, BasicObject]</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">ancestors</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:class</span><span class="p">)</span>    <span class="c1"># =&gt; [Class, Class, Module, Class, Module, Class]</span>
+
+<span class="n">x</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:abs</span><span class="p">).</span><span class="nf">owner</span>              <span class="c1"># =&gt; Integer</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:positive?</span><span class="p">).</span><span class="nf">owner</span>        <span class="c1"># =&gt; Numeric</span>
+<span class="n">x</span><span class="p">.</span><span class="nf">method</span><span class="p">(</span><span class="ss">:between?</span><span class="p">).</span><span class="nf">owner</span>         <span class="c1"># =&gt; Comparable</span>
+</code></pre></div></div>
+
+<p>There’s more to say on this, but I’m tired.</p>
+
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+
+<p>Ruby’s tagline is “A Programmer’s Best Friend”. It gives you a lot of power and flexibility, even to modify itself. The argument for this is, “Well, you need to know what you’re doing. The language will let you do dangerous things. It’s like a gun.” This is not a compelling argument for newcomers who are faced with hidden global variables, strange new datatypes, sloppy inconsistent syntax, and bizarre method-calling conventions. What’s worse, there are countless introductory tutorials touting Ruby as a beautiful, simple language. Ruby isn’t a gun — guns are simple. Ruby is a bomb inside a colorless Rubik’s cube on opposite day, with a big label “So Easy To Use!”</p>
+
+<p>As we saw, the learning curve is incredibly steep: to understand these apparently simple one-liners, which are pervasive in Ruby tutorials,</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">map</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="p">.</span><span class="nf">upcase</span><span class="p">}</span>  <span class="c1"># =&gt; ["A", "B", "C"]</span>
+<span class="p">[</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:upcase</span><span class="p">)</span>       <span class="c1"># =&gt; ["A", "B", "C"]</span>
+</code></pre></div></div>
+
+<p>… we had to understand:</p>
+
+<ol>
+  <li>no parens for method call</li>
+  <li>code block syntax &amp; usage</li>
+  <li>symbols</li>
+  <li>the <code class="language-plaintext highlighter-rouge">&amp;</code>-based syntax for passing code blocks</li>
+  <li>procs</li>
+  <li>the <code class="language-plaintext highlighter-rouge">to_proc</code> method of Symbol</li>
+</ol>
+
+<p>This is crazy!</p>
+
+<p>I’ve studied teaching, I’ve taught university courses, and I’ve been told I’m a gifted teacher. I taught AppFolio’s “Intro to Ruby” workshop to new software engineers for a couple years at my job. But I never figured out how to introduce Ruby in a way that left my students feeling good about the language. They appreciated my guidance, but they worried the language (and/or Rails) would blow up in their face.</p>
+
+<p>From here, my advice is to slowly and thoughtfully read <em>The Ruby Programming Language</em> written by Ruby’s designer (“Matz”). It only covers Ruby 1.9, but nevertheless straightforwardly explains many of the language’s oddities.</p>
+
+<p>Good luck!</p>
+
+<p>-Justin Pearson</p>
+
+<p>Sep 2020</p>
+
+    </main>
+
+    <footer>
+    <p class="footer">&copy; 2017–2025 Justin P. Pearson. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

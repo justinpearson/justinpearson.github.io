@@ -7,4 +7,5 @@
 {% include_relative header.css %}
 {% include_relative nav.css    %}
 {% include_relative footer.css %}
+{% include_relative tips.css   %}
 

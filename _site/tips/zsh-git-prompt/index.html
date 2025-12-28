@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <title>Justin Pearson</title>
+    
+
+
+    <!-- Otherwise quotes don't come out right when uploaded: -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Not sure why needed; saw on Lynda.com: -->
+    <meta charset="utf-8"> 
+    <!-- For mobile; don't let mobile devs lie about their width -->
+    <!-- src: https://www.thesitewizard.com/css/mobile-friendly-responsive-design.shtml -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Main css file. -->
+    <link rel="stylesheet" type="text/css" href="/css/BASE-LAYOUT.css">
+
+    <!-- Each page's yaml front-matter may declare addnl css, eg, code syntax-highlighting. -->
+    
+</head>
+
+<body>
+    
+<!-- Hamburger menu -->
+<div class=hamburger-menu>
+    <a id="menu-button" href="#nav">
+        <svg width="50" height="40" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg"><title>three-bars</title><desc>Created with Sketch.</desc><path d="M11.41 9h-10.82c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4h-10.82c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm-10.82 6h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h-10.81c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1z" fill="#000"></path></svg>
+    </a>
+</div>
+
+<header>
+    <div id="header-info">
+        <p id="header-info-name">Justin Pearson</p>
+        <ul id="header-info-list">
+            <li>Senior Software Engineer</li>
+            <li>AppFolio Inc</li>
+            <li>California, USA</li>
+            <li>justin.pearson<span style="display:none">foo</span>@gmail.com</li>
+        </ul>     
+        <span style="flex; align-items: center; margin: 10px;">
+                <a href="https://www.youtube.com/channel/UCR0w3EPVTsRJjCJVgwGXsaA">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/youtube.png"
+                    ></a>
+                <a href="https://github.com/justinpearson/">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/github.png"
+                    ></a>
+                <a href="https://stackexchange.com/users/3565268/convexmartian">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/stack-exchange.png"
+                    ></a>
+                <a href="https://www.linkedin.com/in/justin-pearson-1a5b48a/">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/linkedin.png"
+                    ></a>
+        </span>
+    </div>
+    <div id="header-pic">
+        <img src="/assets/header/my-face.png" alt="My face" >
+    </div>
+</header>
+
+
+    <nav id="nav">
+    
+        <a class="nav-link" href="/index.html">
+        <span class="nav-button ">About me</span>
+        </a>
+    
+        <a class="nav-link" href="/resume.html">
+        <span class="nav-button ">Résumé</span>
+        </a>
+    
+        <a class="nav-link" href="/teaching.html">
+        <span class="nav-button ">Teaching</span>
+        </a>
+    
+        <a class="nav-link" href="/research.html">
+        <span class="nav-button ">Research</span>
+        </a>
+    
+        <a class="nav-link" href="/industry.html">
+        <span class="nav-button ">Industry</span>
+        </a>
+    
+        <a class="nav-link" href="/projects.html">
+        <span class="nav-button ">Projects</span>
+        </a>
+    
+        <a class="nav-link" href="/tips.html">
+        <span class="nav-button ">Tips</span>
+        </a>
+    
+        <a class="nav-link" href="/talks.html">
+        <span class="nav-button ">Talks</span>
+        </a>
+    
+        <a class="nav-link" href="/fun-videos.html">
+        <span class="nav-button ">Fun videos</span>
+        </a>
+    
+</nav>
+
+
+    <main>
+        <article class="tip">
+    <header class="tip-header">
+        <h1>show git branch and status info in zsh command prompt</h1>
+        <div class="tip-meta">
+            <time datetime="2025-02-05">February 05, 2025</time>
+            
+            <span class="tip-tags">
+                
+                <span class="tag">zsh</span>
+                
+                <span class="tag">git</span>
+                
+                <span class="tag">shell</span>
+                
+            </span>
+            
+        </div>
+    </header>
+
+    <div class="tip-content">
+        <p>In <code class="language-plaintext highlighter-rouge">~/.zshrc</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># show git branch &amp; status of unstaged / staged-but-uncommitted files</span>
+
+git_branch<span class="o">()</span> <span class="o">{</span>
+    <span class="c"># Check if we are inside a Git repository</span>
+    <span class="k">if</span> <span class="o">!</span> git rev-parse <span class="nt">--is-inside-work-tree</span> <span class="o">&gt;</span>/dev/null 2&gt;&amp;1<span class="p">;</span> <span class="k">then
+        return
+    fi</span>
+
+    <span class="c"># Get the current branch name</span>
+    <span class="nv">branch</span><span class="o">=</span><span class="si">$(</span>git symbolic-ref <span class="nt">--short</span> HEAD 2&gt;/dev/null<span class="si">)</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$branch</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+        return
+    fi</span>
+
+    <span class="c"># Initialize status indicators</span>
+    <span class="nv">git_status</span><span class="o">=</span><span class="s2">""</span>
+
+    <span class="c"># Check for staged changes (cached diff)</span>
+    <span class="k">if</span> <span class="o">!</span> git diff <span class="nt">--cached</span> <span class="nt">--quiet</span> <span class="nt">--ignore-submodules</span><span class="p">;</span> <span class="k">then
+        </span><span class="nv">git_status</span><span class="o">=</span><span class="s2">"*"</span>
+    <span class="k">fi</span>
+
+    <span class="c"># Check for unstaged changes (working tree diff)</span>
+    <span class="k">if</span> <span class="o">!</span> git diff <span class="nt">--quiet</span> <span class="nt">--ignore-submodules</span><span class="p">;</span> <span class="k">then
+        </span><span class="nv">git_status</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">git_status</span><span class="k">}</span><span class="s2">+"</span>
+    <span class="k">fi</span>
+
+    <span class="c"># Print the formatted Git branch with status</span>
+    <span class="nb">echo</span> <span class="s2">"%F{blue}(</span><span class="nv">$branch$git_status</span><span class="s2">)%f"</span>
+<span class="o">}</span>
+
+
+update_prompt<span class="o">()</span> <span class="o">{</span>
+    <span class="nv">PROMPT</span><span class="o">=</span><span class="s1">'%(?.%F{green}√.%F{red}!%?)%f 20%D %* %B%F{240}%1~%f%b '</span><span class="s2">"</span><span class="si">$(</span>git_branch<span class="si">)</span><span class="s2">"</span><span class="s1">' %# '</span>
+<span class="o">}</span>
+
+precmd<span class="o">()</span> <span class="o">{</span>
+    update_prompt
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Prompt breakdown:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">%(?.%F{green}√.%F{red}!%?)</code> Shows √ (green) if last command succeeded, or !exit_code (red) if it failed</li>
+  <li><code class="language-plaintext highlighter-rouge">%f</code> Resets the foreground color</li>
+  <li><code class="language-plaintext highlighter-rouge">20%D</code> Displays date in YYYY-MM-DD format</li>
+  <li><code class="language-plaintext highlighter-rouge">%*</code> Displays time in HH:MM:SS format</li>
+  <li><code class="language-plaintext highlighter-rouge">%B</code> Starts bold text</li>
+  <li><code class="language-plaintext highlighter-rouge">%F{240}</code> Sets color to gray</li>
+  <li><code class="language-plaintext highlighter-rouge">%1~</code> Shows current directory, shortened to one level</li>
+  <li><code class="language-plaintext highlighter-rouge">$(git_branch)</code> Calls function to display Git branch and status</li>
+  <li><code class="language-plaintext highlighter-rouge">%#</code> Shows $ (normal user) or # (root user)</li>
+</ul>
+
+    </div>
+
+    <footer class="tip-footer">
+        <a href="/tips/">&larr; Back to all tips</a>
+    </footer>
+</article>
+
+    </main>
+
+    <footer>
+    <p class="footer">&copy; 2017–2025 Justin P. Pearson. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+
+/*****************************************************/    
+/* Debug */
+/*****************************************************/
+
+
+/* Warning: this seems to crush nav li's together. */
+
+/*
+
+* {
+    border: 1px solid red;
+}
+
+*/
+
+
+/*****************************************************/
+/* Global styles */
+/*****************************************************/
+
+
+
+/** Reset some basic elements */
+html, body, h1, h2, h3, h4, h5, h6, p,
+blockquote, code, a, div, svg, pre,
+hr, dl, dd, figure
+{ margin: 0; padding: 0; }
+
+/*  ol, ul, li, */
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+/** Basic styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    line-height: 1.5;
+    font-size: 20px;
+    font-weight: 300;
+    color: #444444;
+    -webkit-text-size-adjust: 100%;
+    background-color: #ececec;
+    padding: 0px 2% 0px;
+    /* Not allowing text to split results in subtle and shitty layout on screens. */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;     
+}
+
+@media (max-width: 430px) { body { font-size: 16px; } }
+
+
+/* https://www.w3.org/TR/css-flexbox-1/#order-accessibility */
+/*main {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+*/
+/* Can change order of elems using CSS Flexbox */
+/*main > article { order: 2; min-width: 3in; flex:1; }*/
+/*main > nav     { order: 1; width: 2in; }*/
+
+
+main {
+    max-width: 14in;
+    padding: 0 2% 0;
+    margin: auto;
+}
+
+main > h1 {
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-weight: 300;
+}
+@media (max-width: 430px) { main > h1 { font-size: 30px; } }
+
+main > h2 {
+    font-size: 30px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    font-weight: 300;
+}
+@media (max-width: 430px) { main > h2 { font-size: 25px; } }
+
+main > h3 {
+    font-size: 25px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    font-weight: 300;
+}
+@media (max-width: 430px) { main > h3 { font-size: 20px; } }
+
+main > p {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+ol, ul {
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* From code-syntax-highlight.css: */
+/*
+main h1 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+main h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+main p {
+    margin: 5px;
+}
+*/
+
+/* Cute "external link" arrow icon shows after the text in the <a> */
+/* Update: Or, to reduce link eye-fatigue, just paste in the
+image itself and have the arrow icon link. */
+/*
+a.external {
+    background-image: url({{site.baseurl}}/assets/external-link-ltr-icon.svg);
+    background-position: center right;
+    background-repeat: no-repeat;
+    padding-right: 13px;
+}
+*/

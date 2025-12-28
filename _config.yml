@@ -1,5 +1,19 @@
 markdown: kramdown
 
+# Tips collection - topic-based tech notes
+collections:
+  tips:
+    output: true
+    permalink: /tips/:name/
+
+# Default front matter for tips
+defaults:
+  - scope:
+      path: ""
+      type: "tips"
+    values:
+      layout: "tip"
+
 exclude:
   - '.gitignore'
   - 'CLAUDE.md'

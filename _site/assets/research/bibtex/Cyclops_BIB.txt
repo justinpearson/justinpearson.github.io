@@ -1,0 +1,16 @@
+@InProceedings{AlanwarAnwarZhangPearsonHespanhaSrivastavaAug17,
+  author    =     {Amr Alanwar 
+                    and Fatima M. Anwar 
+                    and Yi-Fan Zhang 
+                    and Justin Pearson 
+                    and Jo{\~a}o Pedro Hespanha 
+                    and Mani B. Srivastava
+                  },
+  title     =     {Cyclops: {PRU} Programming Framework for Precise Timing Applications},
+  year      =     2017,
+  booktitle =     "In Proc. of the 2017 IEEE Int.~Symp.~on Precision Clock Synchronization for
+                   Measurement, Control, and Communication (ISPCS)",
+  month     =     "Aug.",
+  annote    =     "Available at \url{http://www.ece.ucsb.edu/~hespanha/published}",
+  doi       =     {https://doi.org/10.1109/ISPCS.2017.8056744},
+}

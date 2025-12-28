@@ -1,0 +1,9 @@
+@InProceedings{PearsonHespanhaLiberzonDec15,
+  title     = {Quasi-optimality of event-based encoders},
+  author    = {Justin Pearson and Jo{\~a}o Pedro Hespanha and Daniel Liberzon},
+  booktitle = "Proc. of the 54th Conf. on Decision and Contr.",
+  year      = 2015,
+  month     = "Dec.",
+  annote    = "Available at \url{http://www.ece.ucsb.edu/~hespanha/published}",
+  doi       = {https://doi.org/10.1109/CDC.2015.7402968},
+}

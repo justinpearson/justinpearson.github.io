@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  resource-allocation-v6
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="font-size: Floor[125. Inherited]%;">
+
+<p class="Title">
+ Envy-free economic allocations
+</p>
+
+
+
+<p class="Subsection">
+ Visualizing an algorithm from an economics paper
+</p>
+
+
+
+<p class="Text">
+ Justin Pearson<br />2018-10-20
+</p>
+
+
+
+<p class="Section">
+ Summary
+</p>
+
+
+
+<p class="Text">
+ We illustrate an algorithm from an economics paper by a Dutch economics professor named Flip Klijn. The paper addresses the problem of allocating <span><em>n</em></span> objects to <span><em>n</em></span> people (each person gets 1 object). Each person derives some amount of utility (&ldquo;happiness&rdquo;) from each object. After allocating the objects, some people may envy others, e.g., Alice&rsquo;s utility would be higher if she had been allocated Bob&rsquo;s object instead of her own. Indeed, depending on people&rsquo;s preferences for the objects, it may not be possible to allocate the objects in an envy-free way: For example, if we have 1 ferrari and 9 goats to allocate, everyone will envy the ferrari owner. The paper considers the following idea: Suppose whoever got the ferrari had to give $10,000 to each person who got a goat. This sweetens the goat prize and makes the ferrari prize less attractive: Who wants a ferrari if you also have to pay $90,000? I would rather own a goat and $10,000 than a ferrari and -$90,000. If enough money is transferred from the ferrari-owner to the goat-owners, the goat-owners wouldn&rsquo;t envy the ferrari owner. The paper presents an algorithm to allocate objects and transfer money between people so that everyone is happy with his or her allocation of object and money.
+</p>
+
+
+
+<p class="Section">
+ Source
+</p>
+
+
+
+<p class="Text">
+ &ldquo;An Algorithm for Envy-free Allocations in an Economy with Indivisible Objects and Money&rdquo;<br />Flip Klijn, Department of Econometrics and CentER, Tilburg University, The Netherlands<br /><span><a href="https://pdfs.semanticscholar.org/1722/1cbf08f9a28e527fb9037e96260f4da73345.pdf"><span class="HyperlinkInline">https://pdfs.semanticscholar.org/1722/1cbf08f9a28e527fb9037e96260f4da73345.pdf</span></a></span>
+</p>
+
+
+
+<p class="Section">
+ Outline
+</p>
+
+
+
+<p class="Text">
+ A set <span><span>Q:={1,...,n}</span></span> of <span><em>n</em></span> indivisible objects and an amount <span><em>M</em><em>&ge;</em><em>0</em></span> of money are to be distributed among a set <span><span>N:={1,...,n}</span></span> of agents.<br /><span style='font-weight: bold;'>Utility:</span> Agents derive utility (happiness) from objects and from money: <span><span><img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="21" height="27" style="vertical-align:middle" /></span></span> is how much agent <span><em>i</em></span> likes object <span><em>j</em></span> and <span><span><img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="16" height="24" style="vertical-align:middle" /></span></span> is agent <span><em>i</em></span>&rsquo;s utility per unit money. (We assume each agent&rsquo;s money-utility is linear.)<br /><span style='font-weight: bold;'>Allocation:</span> Each agent is assigned an object and an amount of money: Agent <span><em>i</em></span> gets object <span><span><img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="15" height="24" style="vertical-align:middle" /></span></span> and money <span><span><img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="13" height="24" style="vertical-align:middle" /></span></span>, and therefore derives an amount of utility <span><span><img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="78" height="27" style="vertical-align:middle" /></span></span>. The object-allocation <span><em>&sigma;</em></span> is a bijection from agents to objects, and the money-allocation <span><span><img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="48" height="24" style="vertical-align:middle" /></span></span> has <span><span><img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="57" height="24" style="vertical-align:middle" /></span></span>.<br /><span style='font-weight: bold;'>Envy</span>: Given an allocation <span><span>(&sigma;,x)</span></span>, the quantity <span><span><img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="265" height="33" style="vertical-align:middle" /></span></span> is the amount of &ldquo;envy&rdquo; that agent <span><em>i</em></span> feels for agent <span><em>j</em></span>. <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- The first term is how much agent <span><em>i</em></span> likes agent <span><em>j</em></span>&rsquo;s loot. The second term is how much agent <span><em>i</em></span> likes his own loot.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- If <span><span>e(i,j)&gt;0</span></span>, then agent <span><em>i</em></span> would have higher utility if he had agent <span><em>j</em></span>&rsquo;s loot instead.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- If <span><span>e(i,j)==0</span></span>, then agent <span><em>i</em></span> would keep the same utility if he had <span><em>j</em></span>&rsquo;s loot instead.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- If <span><span>e(i,j)&lt;0</span></span>, then agent <span><em>i</em></span> would have lower utility if he had agent <span><em>j</em></span>&rsquo;s loot instead.<br /><span style='font-weight: bold;'>Goal:</span> find an allocation <span><span>(&sigma;,x)</span></span> where no agent envies any other agent: <span><span>e(i,j)&le;0</span></span> for all <span><span>i,j&isin;N</span></span>. <br /><span style='font-weight: bold;'>Envy graph: </span>A graph where agents are vertices and we have a directed edge <span><em>i</em><em>&rarr;</em><em>j</em></span> if <span><span>e(i,j)&ge;0</span></span>. If <span><span>e(i,j)&gt;0</span></span>, <span><em>i</em><em>&rarr;</em><em>j</em></span> is called a <span style='font-style: italic;'>strong edge</span>. If <span><span>e(i,j)==0</span></span> it&rsquo;s called a <span style='font-style: italic;'>weak edge</span>. <br /><span style='font-weight: bold;'>Algorithm: </span>Let a feasible allocation <span><span>(&sigma;,x)</span></span> be given. Consider its envy-graph.<br />&nbsp;&nbsp;&nbsp;&nbsp;Step 1. If there are no strong arcs, then we have an envy-free allocation. Stop. Otherwise go to step 2.<br />&nbsp;&nbsp;&nbsp;&nbsp;Step 2. If there is a cycle containing a strong arc, then apply the <span style='font-weight: bold;'>permutation procedure</span> and go to step 1. Otherwise pick a strong arc and go to step 3.<br />&nbsp;&nbsp;&nbsp;&nbsp;Step 3. Apply the <span style='font-weight: bold;'>sidepayment procedure</span> to the picked arc and go to step 4. <br />&nbsp;&nbsp;&nbsp;&nbsp;Step 4. If a strong arc has been eliminated, go to step 1. If a cycle with a strong arc has emerged, go to step 2. Otherwise go to step 3.<br /><span style='font-weight: bold;'>Permutation procedure:</span> You&rsquo;ve got a cycle like <span><span>i &rarr; j &rarr; k &rarr; i</span></span>. Allocate objects and money like <span><span><img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="85" height="27" style="vertical-align:middle" /></span></span>, <span><span><img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="88" height="24" style="vertical-align:middle" /></span></span>, <span><span><img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="82" height="24" style="vertical-align:middle" /></span></span>. Now everyone has an allocation they like better.<br /><span style='font-weight: bold;'>Sidepayment procedure:</span> You&rsquo;ve got a strong edge <span><em>i</em><em>&rarr;</em><em>j</em></span>. Let <span><em>P</em></span> denote the agents for which a weak-edged path to <span><em>i</em></span> exists, and let <span><em>R</em></span> denote agents who are reachable along a weak-edged path starting from <span><em>j</em></span>. Take money from <span><em>R</em></span> and give it to <span><em>P</em></span> until a weak edge forms. 
+</p>
+
+
+
+<p class="Section">
+ Discussion
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="650" height="74" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ A set <span><span>Q:={1,...,n}</span></span> of <span><em>n</em></span> indivisible objects and an amount <span><em>M</em><em>&ge;</em><em>0</em></span> of money are to be distributed among a set <span><span>N:={1,...,n}</span></span> of agents.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_13.gif" alt="Graphics:PlotLabel /. Options[{imPreprocess[im_Image] := Module[{im2, bg, alpha}, im2 = ImageResize[im, 70] ; bg = RemoveBackground[im2, {White, .001}] ; alpha = bg//AlphaChannel//Dilation[#, 1] &amp;amp;//FillingTransform//Binarize ; SetAlphaChannel[im2, alpha] ], , SetAttributes[imPreprocess, Listable] ;, , RowBox[{RowBox[{agentPix, =, RowBox[{RowBox[{{, RowBox[{GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;859,1020,3&gt;], {{0, 859}, {1020, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageResolution -&gt; {72, 72}, Interleaving -&gt; True], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {1020, 859}, PlotRange -&gt; {{0, 1020}, {0, 859}}], ,, GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;859,1020,3&gt;], {{0, 859}, {1020, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageResolution -&gt; {72, 72}, Interleaving -&gt; True], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {1020, 859}, PlotRange -&gt; {{0, 1020}, {0, 859}}], ,, GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;850,850,4&gt;], {{0, 850}, {850, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], Interleaving -&gt; True, MetaInformation -&gt; Association[System`Convert`CommonDump`ConvertText[Comments, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}] -&gt; Association[System`Convert`CommonDump`ConvertText[Software, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}] -&gt; System`Convert`CommonDump`ConvertText[Adobe ImageReady, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}]]]], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {850, 850}, PlotRange -&gt; {{0, 850}, {0, 850}}], ,, GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;850,850,4&gt;], {{0, 850}, {850, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], Interleaving -&gt; True, MetaInformation -&gt; Association[System`Convert`CommonDump`ConvertText[Comments, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}] -&gt; Association[System`Convert`CommonDump`ConvertText[Software, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}] -&gt; System`Convert`CommonDump`ConvertText[Adobe ImageReady, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}]]]], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {850, 850}, PlotRange -&gt; {{0, 850}, {0, 850}}], ,, GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;850,850,4&gt;], {{0, 850}, {850, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], Interleaving -&gt; True, MetaInformation -&gt; Association[System`Convert`CommonDump`ConvertText[Comments, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}] -&gt; Association[System`Convert`CommonDump`ConvertText[Software, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}] -&gt; System`Convert`CommonDump`ConvertText[Adobe ImageReady, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}]]]], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {850, 850}, PlotRange -&gt; {{0, 850}, {0, 850}}]}], }}], //, imPreprocess}]}], ;}], , RowBox[{RowBox[{objectPix, =, RowBox[{RowBox[{{, RowBox[{GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;335,532,4&gt;], {{0, 335}, {532, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; ColorProfileData[RawArray[UnsignedInteger8, &lt;6964&gt;], System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], System`Convert`CommonDump`ConvertText[XYZ, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}]], Interleaving -&gt; True], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {532, 335}, PlotRange -&gt; {{0, 532}, {0, 335}}], ,, GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;358,445,4&gt;], {{0, 358}, {445, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; ColorProfileData[RawArray[UnsignedInteger8, &lt;6964&gt;], System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], System`Convert`CommonDump`ConvertText[XYZ, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}]], Interleaving -&gt; True], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {445, 358}, PlotRange -&gt; {{0, 445}, {0, 358}}], ,, GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;235,200,4&gt;], {{0, 235}, {200, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], Interleaving -&gt; True], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {200, 235}, PlotRange -&gt; {{0, 200}, {0, 235}}], ,, GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;235,200,4&gt;], {{0, 235}, {200, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], Interleaving -&gt; True], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {200, 235}, PlotRange -&gt; {{0, 200}, {0, 235}}], ,, GraphicsBox[TagBox[RasterBox[RawArray[UnsignedInteger8, &lt;235,200,4&gt;], {{0, 235}, {200, 0}}, {0, 255}, ColorFunction -&gt; RGBColor], BoxForm`ImageTag[System`Convert`CommonDump`ConvertText[Byte, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ColorSpace -&gt; System`Convert`CommonDump`ConvertText[RGB, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], Interleaving -&gt; True], Selectable -&gt; False], DefaultBaseStyle -&gt; System`Convert`CommonDump`ConvertText[ImageGraphics, System`Convert`HTMLDump`htmlsave, HTMLEntities -&gt; {HTMLBasic}, AltMathOutput -&gt; PlotLabel, WindowSize -&gt; {2000, Automatic}, ManipulateOutput -&gt; JPG, CSS -&gt; mma.css, CharacterEncoding -&gt; Automatic, ConversionStyleEnvironment -&gt; None, ConversionRules -&gt; Automatic, HeadAttributes -&gt; {}, HeadElements -&gt; {}, CSS -&gt; Automatic, ConvertLinkedNotebooks -&gt; False, MathOutput -&gt; GIF, GraphicsOutput -&gt; GIF, Graphics3DOutput -&gt; Automatic, ManipulateOutput -&gt; CDF, ConvertClosed -&gt; True, ConvertReverseClosed -&gt; False, FullDocument -&gt; True, AltMathOutput -&gt; FileName, TableOutput -&gt; {TextForm, Automatic}, AnimationOutput -&gt; Automatic, FilesDirectory -&gt; HTMLFiles, LinksDirectory -&gt; HTMLLinks, HTMLEntities -&gt; {HTML}, AllowBlockMathML -&gt; False, ShowStyles -&gt; True, DataUri -&gt; False, MathMLOptions -&gt; {UseUnicodePlane1Characters -&gt; False, IncludeMarkupAnnotations -&gt; False, Entities -&gt; MathML}], ImageSizeRaw -&gt; {200, 235}, PlotRange -&gt; {{0, 200}, {0, 235}}]}], }}], //, imPreprocess}]}], ;}], , showAgent[agent_] := Show[agentPix[[agent]], ImageSize&amp;rarr;40]//Overlay[{#, agent}] &amp;amp; ;, , showObject[object_] := Show[objectPix[[object]], ImageSize&amp;rarr;40]//Row[{object, #}] &amp;amp; ;, , SetAttributes[showAgent, Listable] ;, , SetAttributes[showObject, Listable] ;, , n = Length @ agentPix ;, , M = 0 ; (* Paper says you can always rescale utilities to make M = 0 WLOG *), , objects = Range[n] ;, , agents = Range[n] ;}] " width="904" height="642" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Utility
+</p>
+
+
+
+<p class="Text">
+ <span style='font-weight: bold;'>Utility:</span> Agents derive utility (happiness) from objects and from money: <span><span><img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="21" height="27" style="vertical-align:middle" /></span></span> is how much agent <span><em>i</em></span> likes object <span><em>j</em></span>, and <span><span><img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="16" height="24" style="vertical-align:middle" /></span></span> is agent <span><em>i</em></span>'s utility per unit money. (We assume each agent's money-utility is linear.)
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="1189" height="246" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box'>
+ <tr style='vertical-align: top;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="533" height="367" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="176" height="300" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="627" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here is how much agent 1 likes object 2 and $100:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="140" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="29" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Allocation of objects &amp; money
+</p>
+
+
+
+<p class="Text">
+ <span style='font-weight: bold;'>Allocation:</span> Each agent is assigned an object and an amount of money: Agent <span><em>i</em></span> gets object <span><span><img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="15" height="24" style="vertical-align:middle" /></span></span> and money <span><span><img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="13" height="24" style="vertical-align:middle" /></span></span>, and therefore derives an amount of utility <span><span><img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="78" height="27" style="vertical-align:middle" /></span></span>. The object-allocation <span><em>&sigma;</em></span> is a bijection from agents to objects, and the money-allocation <span><span><img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="48" height="24" style="vertical-align:middle" /></span></span> has <span><span><img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="57" height="24" style="vertical-align:middle" /></span></span>.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="1803" height="282" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="171" height="19" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><table class='Inline'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="50" height="42" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="93" height="61" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+</td>
+  <td style='text-align: center;'><table class='Inline'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="50" height="42" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="93" height="61" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+</td>
+  <td style='text-align: center;'><table class='Inline'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="50" height="50" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="93" height="61" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+</td>
+  <td style='text-align: center;'><table class='Inline'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="50" height="50" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="93" height="42" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+</td>
+  <td style='text-align: center;'><table class='Inline'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="50" height="50" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="93" height="33" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+</td>
+ </tr>
+</table>
+
+<p class="Output">
+ <img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="404" height="165" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="504" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="117" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_42.gif" alt="index_42.gif" width="52" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Envy
+</p>
+
+
+
+<p class="Text">
+ <span style='font-weight: bold;'>Envy</span>: Given an allocation <span><span>(&sigma;,x)</span></span>, the quantity <span><span><img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="265" height="33" style="vertical-align:middle" /></span></span> is the amount of &quot;envy&quot; that agent <span><em>i</em></span> feels for agent <span><em>j</em></span>. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_44.gif" alt="index_44.gif" width="525" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- The first term is how much agent <span><em>i</em></span> likes agent <span><em>j</em></span>'s loot. The second term is how much agent <span><em>i</em></span> likes his own loot.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- If <span><span>e(i,j)&gt;0</span></span>, then agent <span><em>i</em></span> would have higher utility if he had agent <span><em>j</em></span>'s loot instead.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- If <span><span>e(i,j)==0</span></span>, then agent <span><em>i</em></span> would keep the same utility if he had <span><em>j</em></span>'s loot instead.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- If <span><span>e(i,j)&lt;0</span></span>, then agent <span><em>i</em></span> would have lower utility if he had agent <span><em>j</em></span>'s loot instead.
+</p>
+
+
+
+<p class="Text">
+ Table of envies:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="593" height="230" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="559" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="454" height="142" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Problem Statement
+</p>
+
+
+
+<p class="Text">
+ <span style='font-weight: bold;'>Goal:</span> find an allocation <span><span>(&sigma;,x)</span></span> where no agent envies any other: <span><span>e(i,j)&le;0</span></span> for all <span><span>i,j&isin;N</span></span>.
+</p>
+
+
+
+<p class="Subsection">
+ Envy Graph
+</p>
+
+
+
+<p class="Text">
+ <span style='font-weight: bold;'>Envy graph: </span>A graph where agents are vertices and <span><em>i</em><em>&rarr;</em><em>j</em></span> if <span><span>e(i,j)&ge;0</span></span>.&nbsp;&nbsp;If <span><span>e(i,j)&gt;0</span></span>, <span><em>i</em><em>&rarr;</em><em>j</em></span> is called a <span style='font-style: italic;'>strong edge</span>. If <span><span>e(i,j)==0</span></span> it's called a <span style='font-style: italic;'>weak edge</span>. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="1023" height="426" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="108" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="619" height="595" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Useful functions for working the the envy graph:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="672" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="522" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="804" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_54.gif" alt="index_54.gif" width="500" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_55.gif" alt="index_55.gif" width="891" height="48" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_56.gif" alt="index_56.gif" width="1069" height="126" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_57.gif" alt="index_57.gif" width="776" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_58.gif" alt="index_58.gif" width="805" height="631" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Next we discuss two procedures that will be used in the overall algorithm.
+</p>
+
+
+
+<p class="Subsection">
+ Permutation Procedure
+</p>
+
+
+
+<p class="Text">
+ <span style='font-weight: bold;'>Permutation procedure:</span> You&rsquo;ve got a cycle like <span><span>i &rarr; j &rarr; k &rarr; i</span></span>. Allocate objects and money like <span><span><img src="HTMLFiles/index_59.gif" alt="index_59.gif" width="85" height="27" style="vertical-align:middle" /></span></span>, <span><span><img src="HTMLFiles/index_60.gif" alt="index_60.gif" width="88" height="24" style="vertical-align:middle" /></span></span>, <span><span><img src="HTMLFiles/index_61.gif" alt="index_61.gif" width="82" height="24" style="vertical-align:middle" /></span></span>. Now everyone has an allocation they like better.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_62.gif" alt="index_62.gif" width="376" height="126" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Example
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_63.gif" alt="index_63.gif" width="1342" height="152" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_64.gif" alt="index_64.gif" width="699" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_65.gif" alt="index_65.gif" width="108" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_66.gif" alt="index_66.gif" width="631" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Sidepayment Procedure
+</p>
+
+
+
+<p class="Text">
+ <span style='font-weight: bold;'>Sidepayment procedure:</span> You&rsquo;ve got a strong edge <span><em>i</em><em>&rarr;</em><em>j</em></span>. Let <span><em>P</em></span> denote the agents for which a weak-edged path to <span><em>i</em></span> exists, and let <span><em>R</em></span> denote agents who are reachable along a weak-edged path starting from <span><em>j</em></span>. Take money from <span><em>R</em></span> and give it to <span><em>P</em></span> until a weak edge forms. 
+</p>
+
+
+
+<p class="Subsubsection">
+ Analysis
+</p>
+
+
+
+<p class="Text">
+ We now determine the least amount of money to transfer for a weak edge to form.
+</p>
+
+
+
+<p class="Text">
+ Let <span><em>t</em><em>&gt;</em><em>0</em></span> denote the total amount of money that will be transferred from <span><em>R</em></span> to <span><em>P</em></span>. Let <span><span><img src="HTMLFiles/index_67.gif" alt="index_67.gif" width="45" height="24" style="vertical-align:middle" /></span></span> be defined as <br /><span><span><img src="HTMLFiles/index_68.gif" alt="index_68.gif" width="127" height="98" style="vertical-align:middle" /></span></span> <br />so that <span><span><img src="HTMLFiles/index_69.gif" alt="index_69.gif" width="19" height="24" style="vertical-align:middle" /></span></span> is the amount of money given to agent <span><em>i</em></span> for <span><span>i=1,...,n</span></span>. For any two agents <span><em>i</em><em>,</em><em>j</em></span>, the value of <span><em>t</em></span> that results in <span><span>e(i,j)==0</span></span> &mdash; a weak edge from <span><em>i</em></span> to <span><em>j</em></span> &mdash; satisfies<br /> <span><span><img src="HTMLFiles/index_70.gif" alt="index_70.gif" width="310" height="133" style="vertical-align:middle" /></span></span><br />and solving this for <span><em>t</em></span> yields<br /><span><span><img src="HTMLFiles/index_71.gif" alt="index_71.gif" width="152" height="57" style="vertical-align:middle" /></span></span>.<br />Note that we only have <span><em>t</em><em>&gt;</em><em>0</em></span> in certain cases, for example when <span><em>i</em><em>&isin;</em><em>R</em></span> and <span><em>j</em><em>&isin;</em><em>P</em></span>. There are some cases, e.g., when <span><em>i</em><em>,</em><em>j</em></span> belong to the same class, for which !&exist; <span><em>t</em></span> for which <span><span>e(i,j)==0</span></span>. <br />Therefore, the smallest <span><em>t</em></span> for which a weak edge appears is<br /><span><span><img src="HTMLFiles/index_72.gif" alt="index_72.gif" width="207" height="57" style="vertical-align:middle" /></span></span>,<br />where we only Min over the finite, positive values.
+</p>
+
+
+
+<p class="Subsubsection">
+ Code
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_73.gif" alt="index_73.gif" width="1114" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_74.gif" alt="index_74.gif" width="1225" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_75.gif" alt="index_75.gif" width="913" height="152" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_76.gif" alt="index_76.gif" width="1024" height="219" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_77.gif" alt="index_77.gif" width="980" height="440" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_78.gif" alt="index_78.gif" width="317" height="193" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Computing the data relevant to the sidepayment before actually performing it allows us to display it without actually doing it.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_79.gif" alt="index_79.gif" width="1524" height="384" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here is the function that performs the <span style='font-weight: bold;'>sidepayment procedure</span>.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_80.gif" alt="index_80.gif" width="675" height="178" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ Example of sidepayment procedure
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_81.gif" alt="index_81.gif" width="1503" height="590" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_82.gif" alt="index_82.gif" width="864" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_83.gif" alt="index_83.gif" width="891" height="631" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Final Algorithm
+</p>
+
+
+
+<p class="Text">
+ <span style='font-weight: bold;'>Algorithm: </span>Let a feasible allocation <span><span>(&sigma;,x)</span></span> be given. Consider its envy-graph.<br />&nbsp;&nbsp;&nbsp;&nbsp;Step 1. If there are no strong edges, then we have an envy-free allocation. Stop. Otherwise go to step 2.<br />&nbsp;&nbsp;&nbsp;&nbsp;Step 2. If there is a cycle containing a strong edge, then apply the <span style='font-weight: bold;'>permutation procedure</span> and go to step 1. Otherwise pick a strong edge and go to step 3.<br />&nbsp;&nbsp;&nbsp;&nbsp;Step 3. Apply the <span style='font-weight: bold;'>sidepayment procedure</span> to the picked edge and go to step 4. <br />&nbsp;&nbsp;&nbsp;&nbsp;Step 4. If a strong edge has been eliminated, go to step 1. If a cycle with a strong edge has emerged, go to step 2. Otherwise go to step 3.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_84.gif" alt="index_84.gif" width="1623" height="1452" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_85.gif" alt="index_85.gif" width="54" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_86.gif" alt="index_86.gif" width="795" height="629" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_87.gif" alt="index_87.gif" width="468" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_88.gif" alt="index_88.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_89.gif" alt="index_89.gif" width="222" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_90.gif" alt="index_90.gif" width="342" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_91.gif" alt="index_91.gif" width="801" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_92.gif" alt="index_92.gif" width="708" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_93.gif" alt="index_93.gif" width="855" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_94.gif" alt="index_94.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_95.gif" alt="index_95.gif" width="795" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_96.gif" alt="index_96.gif" width="108" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_97.gif" alt="index_97.gif" width="468" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_98.gif" alt="index_98.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_99.gif" alt="index_99.gif" width="222" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_100.gif" alt="index_100.gif" width="342" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_101.gif" alt="index_101.gif" width="801" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_102.gif" alt="index_102.gif" width="753" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_103.gif" alt="index_103.gif" width="855" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_104.gif" alt="index_104.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_105.gif" alt="index_105.gif" width="795" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_106.gif" alt="index_106.gif" width="108" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_107.gif" alt="index_107.gif" width="468" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_108.gif" alt="index_108.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_109.gif" alt="index_109.gif" width="222" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_110.gif" alt="index_110.gif" width="342" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_111.gif" alt="index_111.gif" width="801" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_112.gif" alt="index_112.gif" width="699" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_113.gif" alt="index_113.gif" width="855" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_114.gif" alt="index_114.gif" width="468" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_115.gif" alt="index_115.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_116.gif" alt="index_116.gif" width="222" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_117.gif" alt="index_117.gif" width="342" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_118.gif" alt="index_118.gif" width="801" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_119.gif" alt="index_119.gif" width="708" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_120.gif" alt="index_120.gif" width="855" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_121.gif" alt="index_121.gif" width="342" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_122.gif" alt="index_122.gif" width="801" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_123.gif" alt="index_123.gif" width="753" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_124.gif" alt="index_124.gif" width="855" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_125.gif" alt="index_125.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_126.gif" alt="index_126.gif" width="795" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_127.gif" alt="index_127.gif" width="108" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_128.gif" alt="index_128.gif" width="468" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_129.gif" alt="index_129.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_130.gif" alt="index_130.gif" width="222" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_131.gif" alt="index_131.gif" width="342" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_132.gif" alt="index_132.gif" width="801" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_133.gif" alt="index_133.gif" width="735" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_134.gif" alt="index_134.gif" width="855" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_135.gif" alt="index_135.gif" width="468" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_136.gif" alt="index_136.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_137.gif" alt="index_137.gif" width="222" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_138.gif" alt="index_138.gif" width="342" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_139.gif" alt="index_139.gif" width="801" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_140.gif" alt="index_140.gif" width="753" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_141.gif" alt="index_141.gif" width="855" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_142.gif" alt="index_142.gif" width="864" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_143.gif" alt="index_143.gif" width="795" height="630" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_144.gif" alt="index_144.gif" width="108" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_145.gif" alt="index_145.gif" width="468" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_146.gif" alt="index_146.gif" width="288" height="19" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_147.gif" alt="index_147.gif" width="795" height="629" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ No net money is required; the agents pay each other:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_148.gif" alt="index_148.gif" width="79" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_149.gif" alt="index_149.gif" width="10" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here are the final object allocations and money allocations:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_150.gif" alt="index_150.gif" width="568" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_151.gif" alt="index_151.gif" width="362" height="165" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here is the final envy table. No one envies anyone else!
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_152.gif" alt="index_152.gif" width="542" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_153.gif" alt="index_153.gif" width="473" height="142" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Save animation
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_154.gif" alt="index_154.gif" width="1172" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_155.gif" alt="index_155.gif" width="4" height="21" style="vertical-align:middle" />
+</p>
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

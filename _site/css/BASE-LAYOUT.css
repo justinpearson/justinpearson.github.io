@@ -1,0 +1,432 @@
+/* Dump multiple css files into this one. */
+
+
+/*****************************************************/    
+/* Debug */
+/*****************************************************/
+
+
+/* Warning: this seems to crush nav li's together. */
+
+/*
+
+* {
+    border: 1px solid red;
+}
+
+*/
+
+
+/*****************************************************/
+/* Global styles */
+/*****************************************************/
+
+
+
+/** Reset some basic elements */
+html, body, h1, h2, h3, h4, h5, h6, p,
+blockquote, code, a, div, svg, pre,
+hr, dl, dd, figure
+{ margin: 0; padding: 0; }
+
+/*  ol, ul, li, */
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+/** Basic styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    line-height: 1.5;
+    font-size: 20px;
+    font-weight: 300;
+    color: #444444;
+    -webkit-text-size-adjust: 100%;
+    background-color: #ececec;
+    padding: 0px 2% 0px;
+    /* Not allowing text to split results in subtle and shitty layout on screens. */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;     
+}
+
+@media (max-width: 430px) { body { font-size: 16px; } }
+
+
+/* https://www.w3.org/TR/css-flexbox-1/#order-accessibility */
+/*main {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+*/
+/* Can change order of elems using CSS Flexbox */
+/*main > article { order: 2; min-width: 3in; flex:1; }*/
+/*main > nav     { order: 1; width: 2in; }*/
+
+
+main {
+    max-width: 14in;
+    padding: 0 2% 0;
+    margin: auto;
+}
+
+main > h1 {
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-weight: 300;
+}
+@media (max-width: 430px) { main > h1 { font-size: 30px; } }
+
+main > h2 {
+    font-size: 30px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    font-weight: 300;
+}
+@media (max-width: 430px) { main > h2 { font-size: 25px; } }
+
+main > h3 {
+    font-size: 25px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    font-weight: 300;
+}
+@media (max-width: 430px) { main > h3 { font-size: 20px; } }
+
+main > p {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+ol, ul {
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* From code-syntax-highlight.css: */
+/*
+main h1 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+main h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+main p {
+    margin: 5px;
+}
+*/
+
+/* Cute "external link" arrow icon shows after the text in the <a> */
+/* Update: Or, to reduce link eye-fatigue, just paste in the
+image itself and have the arrow icon link. */
+/*
+a.external {
+    background-image: url(/assets/external-link-ltr-icon.svg);
+    background-position: center right;
+    background-repeat: no-repeat;
+    padding-right: 13px;
+}
+*/
+#menu-button {
+    position: fixed;
+    z-index: 99;
+    top: 2px;
+    left: 0;
+    margin-left: 2%;
+}
+
+header { 
+    display: flex; 
+    flex-flow: row wrap;
+    justify-content: center; 
+    align-items: center;
+    /*width: 80%;*/
+    background-color: #cfceca;    
+    padding: 5px;
+    border: 4px solid #5ca0c3;
+}
+
+#header-info {
+    flex: 0 1 360px;
+    margin: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    /*border: 1px solid red;*/    
+}
+@media (max-width: 430px) { #header-info { font-size: 15px; } }
+
+#header-info-name { 
+    font-size: 40px; 
+    text-align: center;
+}
+@media (max-width: 430px) { #header-info-name { font-size: 30px; } }
+
+#header-info-list {
+    list-style-type: none;
+}
+
+#header-pic {
+    /*flex: 0 1 300px;*/
+    margin: 10px;
+    /*border: 1px solid blue;*/
+}
+#header-pic img {
+    width: 100%;
+    max-width: 250px;
+    /*display: block;*/
+}
+
+
+/*****************************************************/
+/* Nav */
+/*****************************************************/
+
+#nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    /*align-items: center;*/
+    /*padding:  0px;*/
+    padding-bottom: 20px;
+    background-color: #cfceca;    
+    border: 4px solid #5ca0c3;
+    margin-top: -4px;
+}
+.nav-link {
+    padding-top: 10px;
+    margin-top: 8px;
+    margin-left: 4px;    
+    margin-right: 4px;
+
+    text-decoration: none;  
+    color: #2c81a9;
+}
+.nav-link :visited { 
+    color: #2c81a9; 
+}
+.nav-button {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 7px;
+    /*margin-top: -2px;*/
+    border-radius: 10px 10px 10px 10px;
+    -webkit-transition-duration: 0.1s; /* Safari */
+    transition-duration: 0.1s;
+    cursor: pointer;
+    text-decoration: none;  
+}
+.nav-link :hover {
+    background-color: #9c9a90;
+    color: white;
+}
+.nav-hilited {
+    font-weight: bold;
+    background-color: #636159;
+    color: white;
+}
+
+footer {
+    margin: 2em 0em 1em;
+}
+
+/*****************************************************/
+/* Tips section styles */
+/*****************************************************/
+
+/* Tips landing page */
+.tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.tips-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.tips-list li:last-child {
+    border-bottom: none;
+}
+
+.tips-list a {
+    text-decoration: none;
+    color: #333;
+}
+
+.tips-list a:hover {
+    color: #0066cc;
+}
+
+.tip-list-title {
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.tip-list-meta {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.tip-list-date {
+    margin-right: 15px;
+}
+
+/* Individual tip page */
+.tip-header {
+    /* Reset styles inherited from global header CSS */
+    background-color: transparent;
+    border: none;
+    display: block;
+    padding: 0;
+    /* Tip-specific styles */
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tip-header h1 {
+    font-size: 1.6em;
+    font-weight: 400;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.tip-meta {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.tip-meta time {
+    margin-right: 15px;
+}
+
+.tip-tags {
+    display: inline;
+}
+
+.tag {
+    display: inline-block;
+    background: #e8e8e8;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    margin-right: 5px;
+    color: #555;
+}
+
+.tip-content {
+    line-height: 1.7;
+}
+
+.tip-content h2 {
+    font-size: 1.4em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.tip-content h3 {
+    font-size: 1.2em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.tip-content p {
+    margin: 15px 0;
+}
+
+.tip-content pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-size: 0.9em;
+}
+
+.tip-content code {
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.tip-content p code,
+.tip-content li code {
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.tip-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.tip-content blockquote {
+    border-left: 4px solid #ddd;
+    padding-left: 20px;
+    margin: 20px 0;
+    color: #666;
+    font-style: italic;
+}
+
+.tip-content ul,
+.tip-content ol {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.tip-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.tip-footer a {
+    color: #666;
+    text-decoration: none;
+}
+
+.tip-footer a:hover {
+    color: #0066cc;
+}
+
+/* Search box (for future Pagefind integration) */
+.tips-search {
+    margin: 20px 0;
+}
+
+.tips-search input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tips-search input:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+

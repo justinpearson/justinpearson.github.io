@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <title>Justin Pearson</title>
+    
+
+
+    <!-- Otherwise quotes don't come out right when uploaded: -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Not sure why needed; saw on Lynda.com: -->
+    <meta charset="utf-8"> 
+    <!-- For mobile; don't let mobile devs lie about their width -->
+    <!-- src: https://www.thesitewizard.com/css/mobile-friendly-responsive-design.shtml -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Main css file. -->
+    <link rel="stylesheet" type="text/css" href="/css/BASE-LAYOUT.css">
+
+    <!-- Each page's yaml front-matter may declare addnl css, eg, code syntax-highlighting. -->
+    
+</head>
+
+<body>
+    
+<!-- Hamburger menu -->
+<div class=hamburger-menu>
+    <a id="menu-button" href="#nav">
+        <svg width="50" height="40" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg"><title>three-bars</title><desc>Created with Sketch.</desc><path d="M11.41 9h-10.82c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4h-10.82c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm-10.82 6h10.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h-10.81c-.59 0-.59-.41-.59-1 0-.59 0-1 .59-1z" fill="#000"></path></svg>
+    </a>
+</div>
+
+<header>
+    <div id="header-info">
+        <p id="header-info-name">Justin Pearson</p>
+        <ul id="header-info-list">
+            <li>Senior Software Engineer</li>
+            <li>AppFolio Inc</li>
+            <li>California, USA</li>
+            <li>justin.pearson<span style="display:none">foo</span>@gmail.com</li>
+        </ul>     
+        <span style="flex; align-items: center; margin: 10px;">
+                <a href="https://www.youtube.com/channel/UCR0w3EPVTsRJjCJVgwGXsaA">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/youtube.png"
+                    ></a>
+                <a href="https://github.com/justinpearson/">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/github.png"
+                    ></a>
+                <a href="https://stackexchange.com/users/3565268/convexmartian">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/stack-exchange.png"
+                    ></a>
+                <a href="https://www.linkedin.com/in/justin-pearson-1a5b48a/">
+                    <img
+                        width="20px"
+                        height="20px"
+                        src="/assets/social-buttons/linkedin.png"
+                    ></a>
+        </span>
+    </div>
+    <div id="header-pic">
+        <img src="/assets/header/my-face.png" alt="My face" >
+    </div>
+</header>
+
+
+    <nav id="nav">
+    
+        <a class="nav-link" href="/index.html">
+        <span class="nav-button ">About me</span>
+        </a>
+    
+        <a class="nav-link" href="/resume.html">
+        <span class="nav-button ">Résumé</span>
+        </a>
+    
+        <a class="nav-link" href="/teaching.html">
+        <span class="nav-button ">Teaching</span>
+        </a>
+    
+        <a class="nav-link" href="/research.html">
+        <span class="nav-button ">Research</span>
+        </a>
+    
+        <a class="nav-link" href="/industry.html">
+        <span class="nav-button ">Industry</span>
+        </a>
+    
+        <a class="nav-link" href="/projects.html">
+        <span class="nav-button ">Projects</span>
+        </a>
+    
+        <a class="nav-link" href="/tips.html">
+        <span class="nav-button ">Tips</span>
+        </a>
+    
+        <a class="nav-link" href="/talks.html">
+        <span class="nav-button ">Talks</span>
+        </a>
+    
+        <a class="nav-link" href="/fun-videos.html">
+        <span class="nav-button ">Fun videos</span>
+        </a>
+    
+</nav>
+
+
+    <main>
+        <article class="tip">
+    <header class="tip-header">
+        <h1>ffmpeg - how to tell if video is interlaced</h1>
+        <div class="tip-meta">
+            <time datetime="2025-04-22">April 22, 2025</time>
+            
+            <span class="tip-tags">
+                
+                <span class="tag">ffmpeg</span>
+                
+                <span class="tag">video</span>
+                
+            </span>
+            
+        </div>
+    </header>
+
+    <div class="tip-content">
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg <span class="nt">-filter</span>:v idet <span class="nt">-frames</span>:v 500 <span class="nt">-an</span> <span class="nt">-f</span> rawvideo <span class="nt">-y</span> /dev/null <span class="nt">-i</span> input.mkv
+</code></pre></div></div>
+
+<p>Example output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Parsed_idet_0 @ ...] Repeated Fields: Neither: 480 Top: 15 Bottom: 5
+[Parsed_idet_0 @ ...] Single frame detection: TFF: 20 BFF: 10 Progressive: 470 Undetermined: 0
+</code></pre></div></div>
+
+<p>Key fields:</p>
+
+<ul>
+  <li>TFF / BFF: Top-/Bottom-field first = interlaced</li>
+  <li>Progressive: Most frames are not interlaced</li>
+  <li>Undetermined: Couldn’t detect</li>
+</ul>
+
+<p>How to interpret:</p>
+
+<ul>
+  <li>If TFF + BFF &gt; 0 → your video is interlaced</li>
+  <li>If Progressive ≈ total frames → video is progressive</li>
+</ul>
+
+    </div>
+
+    <footer class="tip-footer">
+        <a href="/tips/">&larr; Back to all tips</a>
+    </footer>
+</article>
+
+    </main>
+
+    <footer>
+    <p class="footer">&copy; 2017–2025 Justin P. Pearson. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

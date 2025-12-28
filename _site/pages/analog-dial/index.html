@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  dial-WEB
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Title">
+ Reading an analog dial with image processing
+</p>
+
+
+
+<p class="Text">
+ Justin Pearson<br />2014-10-19
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="267" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Function to display video metadata
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="995" height="144" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="342" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="260" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Video of gas meter
+</p>
+
+
+
+<p class="Text">
+ I recorded a video of the gas line next to my apartment:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="172" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="82" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="184" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="86" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="115" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="108" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="122" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="108" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="169" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="151" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="1718" height="966" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Too big to import every frame of. Instead I used After Effects 6.5 to stabilize and crop it, making &ldquo;dial.mov&rdquo;.
+</p>
+
+
+
+<p class="Section">
+ Import
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="141" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="170" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="86" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="115" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="101" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="122" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="108" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="155" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="151" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="453" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="47" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="299" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Manually record dial positions
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="746" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="367" height="330" style="vertical-align:middle;" usemap="#map_30" />
+<map name="map_30">
+<area shape="rect" coords="351,21,361,11" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ Manually record roughly what frames show which dial positions. Despite this dial rotating CCW, we label the positions like clock hands, clockwise with 0 at the top, up to 9.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="1360" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="752" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="1302" height="239" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="554" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="1302" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_36.gif" alt="Graphics:Manually-recorded training data of dial position" width="500" height="287" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ That discontinuity where it wraps will cause problems, as we&rsquo;ll see.
+</p>
+
+
+
+<p class="Text">
+ It&rsquo;ll be nice to draw a cute picture of a gauge.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="838" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="584" height="123" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>training pic</span></td>
+  <td style='text-align: center;'><span>dial position<br />(read manually)</span></td>
+  <td style='text-align: center;'><span>pretty position</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>8.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_40.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_40" />
+<map name="map_40">
+<area shape="rect" coords="11,53,53,34" title="8." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>7.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_42.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_42" />
+<map name="map_42">
+<area shape="rect" coords="11,64,53,46" title="7." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>6.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_44.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_44" />
+<map name="map_44">
+<area shape="rect" coords="24,83,53,46" title="6." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>5.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_46.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_46" />
+<map name="map_46">
+<area shape="rect" coords="47,89,52,47" title="5." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>4.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_48.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_48" />
+<map name="map_48">
+<area shape="rect" coords="46,83,75,46" title="4." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>3.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_50.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_50" />
+<map name="map_50">
+<area shape="rect" coords="46,64,88,46" title="3." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>2.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_52.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_52" />
+<map name="map_52">
+<area shape="rect" coords="46,53,88,34" title="2." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_54.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_54" />
+<map name="map_54">
+<area shape="rect" coords="46,53,75,15" title="1." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_55.gif" alt="index_55.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_56.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_56" />
+<map name="map_56">
+<area shape="rect" coords="47,52,52,9" title="0." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_57.gif" alt="index_57.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>9.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_58.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_58" />
+<map name="map_58">
+<area shape="rect" coords="24,53,53,15" title="9." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_59.gif" alt="index_59.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>8.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_60.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_60" />
+<map name="map_60">
+<area shape="rect" coords="11,53,53,34" title="8." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_61.gif" alt="index_61.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>7.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_62.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_62" />
+<map name="map_62">
+<area shape="rect" coords="11,64,53,46" title="7." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_63.gif" alt="index_63.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>6.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_64.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_64" />
+<map name="map_64">
+<area shape="rect" coords="24,83,53,46" title="6." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_65.gif" alt="index_65.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>5.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_66.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_66" />
+<map name="map_66">
+<area shape="rect" coords="47,89,52,47" title="5." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_67.gif" alt="index_67.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>4.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_68.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_68" />
+<map name="map_68">
+<area shape="rect" coords="46,83,75,46" title="4." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_69.gif" alt="index_69.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>3.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_70.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_70" />
+<map name="map_70">
+<area shape="rect" coords="46,64,88,46" title="3." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_71.gif" alt="index_71.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>2.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_72.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_72" />
+<map name="map_72">
+<area shape="rect" coords="46,53,88,34" title="2." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_73.gif" alt="index_73.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_74.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_74" />
+<map name="map_74">
+<area shape="rect" coords="46,53,75,15" title="1." nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_75.gif" alt="index_75.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_76.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_76" />
+<map name="map_76">
+<area shape="rect" coords="47,52,52,9" title="0." nohref="" />
+</map></span></td>
+ </tr>
+</table>
+
+<p class="Section">
+ Simplest place to start: use built-in Predict[]
+</p>
+
+
+
+<p class="Text">
+ There are a lot of built-in methods that Predict[] uses:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_77.gif" alt="index_77.gif" width="789" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Will any of them work out-of-the-box?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_78.gif" alt="index_78.gif" width="393" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_79.gif" alt="index_79.gif" width="911" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_80.gif" alt="index_80.gif" width="47" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Weirdly, the LinearRegression predictor varies across subsequent invocations:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_81.gif" alt="index_81.gif" width="1023" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_82.gif" alt="index_82.gif" width="321" height="160" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_83.gif" alt="index_83.gif" width="321" height="160" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_84.gif" alt="index_84.gif" width="484" height="17" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>LinearRegression</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_85.gif" alt="index_85.gif" width="343" height="167" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>NearestNeighbors</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_86.gif" alt="index_86.gif" width="365" height="167" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>NeuralNetwork</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_87.gif" alt="index_87.gif" width="354" height="260" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>RandomForest</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_88.gif" alt="index_88.gif" width="328" height="143" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>GaussianProcess</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_89.gif" alt="index_89.gif" width="361" height="236" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Does any of these predictors work out-of-the-box?
+</p>
+
+
+
+<p class="Text">
+ Unsurprisingly, the predictors are decent predicting the data they were trained on:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_90.gif" alt="index_90.gif" width="685" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_91.gif" alt="index_91.gif" width="55" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_92.gif" alt="index_92.gif" width="188" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_93.gif" alt="index_93.gif" width="722" height="20" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_94.gif" alt="index_94.gif" width="559" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_95.gif" alt="index_95.gif" width="800" height="20" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_96.gif" alt="index_96.gif" width="503" height="207" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_97.gif" alt="index_97.gif" width="751" height="538" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_98.gif" alt="index_98.gif" width="332" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_99.gif" alt="index_99.gif" width="1356" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_100.gif" alt="index_100.gif" width="828" height="2145" style="vertical-align:middle;" usemap="#map_100" />
+<map name="map_100">
+<area shape="rect" coords="756,2083,762,2040" title="0.00470211" nohref="" />
+<area shape="rect" coords="620,2084,657,2054" title="1.495" nohref="" />
+<area shape="rect" coords="493,2083,499,2040" title="0.0165258" nohref="" />
+<area shape="rect" coords="353,2083,359,2040" title="0." nohref="" />
+<area shape="rect" coords="201,2083,207,2040" title="          -6
+2.24377 10" nohref="" />
+<area shape="rect" coords="755,1974,785,1936" title="1.0036" nohref="" />
+<area shape="rect" coords="620,1973,663,1959" title="2.18125" nohref="" />
+<area shape="rect" coords="492,1974,522,1936" title="1.00305" nohref="" />
+<area shape="rect" coords="352,1974,382,1936" title="1." nohref="" />
+<area shape="rect" coords="200,1974,230,1936" title="1." nohref="" />
+<area shape="rect" coords="755,1864,798,1845" title="2.0025" nohref="" />
+<area shape="rect" coords="620,1889,655,1856" title="3.6625" nohref="" />
+<area shape="rect" coords="492,1864,535,1845" title="2.00103" nohref="" />
+<area shape="rect" coords="352,1864,395,1845" title="2." nohref="" />
+<area shape="rect" coords="200,1864,243,1845" title="2." nohref="" />
+<area shape="rect" coords="755,1765,798,1747" title="3.00139" nohref="" />
+<area shape="rect" coords="620,1774,659,1746" title="3.40042" nohref="" />
+<area shape="rect" coords="492,1765,535,1747" title="3.00115" nohref="" />
+<area shape="rect" coords="352,1765,395,1747" title="3." nohref="" />
+<area shape="rect" coords="200,1765,243,1747" title="3." nohref="" />
+<area shape="rect" coords="755,1674,785,1636" title="4.00029" nohref="" />
+<area shape="rect" coords="620,1674,649,1636" title="4.02542" nohref="" />
+<area shape="rect" coords="492,1674,522,1636" title="4.00028" nohref="" />
+<area shape="rect" coords="352,1674,382,1636" title="4." nohref="" />
+<area shape="rect" coords="200,1674,230,1636" title="4." nohref="" />
+<area shape="rect" coords="756,1570,762,1527" title="4.99919" nohref="" />
+<area shape="rect" coords="620,1570,636,1527" title="4.60708" nohref="" />
+<area shape="rect" coords="493,1570,499,1527" title="4.99953" nohref="" />
+<area shape="rect" coords="353,1570,359,1527" title="5." nohref="" />
+<area shape="rect" coords="201,1570,207,1527" title="5." nohref="" />
+<area shape="rect" coords="733,1454,763,1416" title="5.99808" nohref="" />
+<area shape="rect" coords="603,1457,627,1416" title="5.76417" nohref="" />
+<area shape="rect" coords="470,1454,500,1416" title="6.00017" nohref="" />
+<area shape="rect" coords="330,1454,360,1416" title="6." nohref="" />
+<area shape="rect" coords="178,1454,208,1416" title="6." nohref="" />
+<area shape="rect" coords="720,1325,763,1307" title="6.99698" nohref="" />
+<area shape="rect" coords="593,1340,627,1306" title="6.24167" nohref="" />
+<area shape="rect" coords="457,1325,500,1307" title="6.99842" nohref="" />
+<area shape="rect" coords="317,1325,360,1307" title="7." nohref="" />
+<area shape="rect" coords="165,1325,208,1307" title="7." nohref="" />
+<area shape="rect" coords="720,1204,763,1185" title="7.99588" nohref="" />
+<area shape="rect" coords="586,1220,627,1196" title="6.78" nohref="" />
+<area shape="rect" coords="457,1204,500,1185" title="7.99838" nohref="" />
+<area shape="rect" coords="317,1204,360,1185" title="8." nohref="" />
+<area shape="rect" coords="165,1204,208,1185" title="8." nohref="" />
+<area shape="rect" coords="733,1094,763,1056" title="8.99478" nohref="" />
+<area shape="rect" coords="584,1102,627,1087" title="7.115" nohref="" />
+<area shape="rect" coords="470,1094,500,1056" title="8.979" nohref="" />
+<area shape="rect" coords="330,1094,360,1056" title="9." nohref="" />
+<area shape="rect" coords="178,1094,208,1056" title="9." nohref="" />
+<area shape="rect" coords="756,983,762,940" title="0.00470211" nohref="" />
+<area shape="rect" coords="620,983,663,967" title="2.09083" nohref="" />
+<area shape="rect" coords="493,983,499,940" title="0.00488377" nohref="" />
+<area shape="rect" coords="353,983,359,940" title="0." nohref="" />
+<area shape="rect" coords="201,983,207,940" title="          -6
+2.24377 10" nohref="" />
+<area shape="rect" coords="755,874,785,836" title="1.0036" nohref="" />
+<area shape="rect" coords="620,873,663,857" title="2.07333" nohref="" />
+<area shape="rect" coords="492,874,522,836" title="1.00035" nohref="" />
+<area shape="rect" coords="352,874,382,836" title="1." nohref="" />
+<area shape="rect" coords="200,874,230,836" title="1." nohref="" />
+<area shape="rect" coords="755,764,798,745" title="2.0025" nohref="" />
+<area shape="rect" coords="620,769,663,757" title="2.76667" nohref="" />
+<area shape="rect" coords="492,764,535,745" title="2.00013" nohref="" />
+<area shape="rect" coords="352,764,395,745" title="2." nohref="" />
+<area shape="rect" coords="200,764,243,745" title="2." nohref="" />
+<area shape="rect" coords="755,665,798,647" title="3.00139" nohref="" />
+<area shape="rect" coords="620,674,659,646" title="3.39083" nohref="" />
+<area shape="rect" coords="492,665,535,647" title="3.00039" nohref="" />
+<area shape="rect" coords="352,665,395,647" title="3." nohref="" />
+<area shape="rect" coords="200,665,243,647" title="3." nohref="" />
+<area shape="rect" coords="755,574,785,536" title="4.00029" nohref="" />
+<area shape="rect" coords="620,570,654,536" title="3.72833" nohref="" />
+<area shape="rect" coords="492,574,522,536" title="4.00086" nohref="" />
+<area shape="rect" coords="352,574,382,536" title="4." nohref="" />
+<area shape="rect" coords="200,574,230,536" title="4." nohref="" />
+<area shape="rect" coords="756,470,762,427" title="4.99919" nohref="" />
+<area shape="rect" coords="621,470,628,427" title="4.91917" nohref="" />
+<area shape="rect" coords="493,470,499,427" title="4.99939" nohref="" />
+<area shape="rect" coords="353,470,359,427" title="5." nohref="" />
+<area shape="rect" coords="201,470,207,427" title="5." nohref="" />
+<area shape="rect" coords="733,354,763,316" title="5.99808" nohref="" />
+<area shape="rect" coords="621,360,626,317" title="5.00792" nohref="" />
+<area shape="rect" coords="470,354,500,316" title="5.99943" nohref="" />
+<area shape="rect" coords="330,354,360,316" title="6." nohref="" />
+<area shape="rect" coords="178,354,208,316" title="6." nohref="" />
+<area shape="rect" coords="720,225,763,207" title="6.99698" nohref="" />
+<area shape="rect" coords="602,247,627,206" title="5.77083" nohref="" />
+<area shape="rect" coords="457,225,500,207" title="6.99883" nohref="" />
+<area shape="rect" coords="317,225,360,207" title="7." nohref="" />
+<area shape="rect" coords="165,225,208,207" title="7." nohref="" />
+<area shape="rect" coords="720,104,763,85" title="7.99588" nohref="" />
+<area shape="rect" coords="594,131,627,96" title="6.22375" nohref="" />
+<area shape="rect" coords="457,104,500,85" title="7.99835" nohref="" />
+<area shape="rect" coords="317,104,360,85" title="8." nohref="" />
+<area shape="rect" coords="165,104,208,85" title="8." nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ But the predictors work horribly on non-training images:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_101.gif" alt="index_101.gif" width="417" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_102.gif" alt="index_102.gif" width="1183" height="107" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_103.gif" alt="index_103.gif" width="599" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_104.gif" alt="index_104.gif" width="55" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_105.gif" alt="index_105.gif" width="531" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_106.gif" alt="index_106.gif" width="1358" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_107.gif" alt="index_107.gif" width="828" height="1155" style="vertical-align:middle;" usemap="#map_107" />
+<map name="map_107">
+<area shape="rect" coords="755,1127,779,1086" title="4.26316" nohref="" />
+<area shape="rect" coords="620,1130,626,1087" title="5.01708" nohref="" />
+<area shape="rect" coords="461,1115,500,1086" title="6.53745" nohref="" />
+<area shape="rect" coords="317,1105,360,1087" title="7." nohref="" />
+<area shape="rect" coords="183,1127,208,1086" title="5.75566" nohref="" />
+<area shape="rect" coords="755,1017,779,976" title="4.26316" nohref="" />
+<area shape="rect" coords="620,1016,646,976" title="4.18375" nohref="" />
+<area shape="rect" coords="493,983,536,974" title="2.35691" nohref="" />
+<area shape="rect" coords="352,1014,382,976" title="4." nohref="" />
+<area shape="rect" coords="201,983,244,975" title="2.41216" nohref="" />
+<area shape="rect" coords="755,907,779,866" title="4.26316" nohref="" />
+<area shape="rect" coords="620,902,652,866" title="3.85958" nohref="" />
+<area shape="rect" coords="492,874,533,848" title="1.70882" nohref="" />
+<area shape="rect" coords="352,885,395,867" title="3." nohref="" />
+<area shape="rect" coords="200,874,241,848" title="1.70824" nohref="" />
+<area shape="rect" coords="755,797,779,756" title="4.26316" nohref="" />
+<area shape="rect" coords="620,794,650,756" title="3.97292" nohref="" />
+<area shape="rect" coords="492,764,531,737" title="1.6141" nohref="" />
+<area shape="rect" coords="353,763,359,720" title="0." nohref="" />
+<area shape="rect" coords="201,774,243,757" title="2.97328" nohref="" />
+<area shape="rect" coords="755,687,779,646" title="4.26316" nohref="" />
+<area shape="rect" coords="620,690,634,647" title="4.70792" nohref="" />
+<area shape="rect" coords="479,688,500,646" title="5.58998" nohref="" />
+<area shape="rect" coords="353,690,359,647" title="5." nohref="" />
+<area shape="rect" coords="195,690,207,647" title="5.25543" nohref="" />
+<area shape="rect" coords="755,577,779,536" title="4.26316" nohref="" />
+<area shape="rect" coords="620,562,660,536" title="3.3125" nohref="" />
+<area shape="rect" coords="492,570,526,536" title="3.75378" nohref="" />
+<area shape="rect" coords="352,574,382,536" title="4." nohref="" />
+<area shape="rect" coords="200,572,233,536" title="3.85085" nohref="" />
+<area shape="rect" coords="755,467,779,426" title="4.26316" nohref="" />
+<area shape="rect" coords="620,456,657,426" title="3.50792" nohref="" />
+<area shape="rect" coords="492,467,517,426" title="4.24511" nohref="" />
+<area shape="rect" coords="352,464,382,426" title="4." nohref="" />
+<area shape="rect" coords="201,469,218,427" title="4.55941" nohref="" />
+<area shape="rect" coords="755,357,779,316" title="4.26316" nohref="" />
+<area shape="rect" coords="620,351,653,316" title="3.77875" nohref="" />
+<area shape="rect" coords="477,358,500,316" title="5.68482" nohref="" />
+<area shape="rect" coords="352,335,395,317" title="3." nohref="" />
+<area shape="rect" coords="201,360,211,317" title="4.8205" nohref="" />
+<area shape="rect" coords="755,247,779,206" title="4.26316" nohref="" />
+<area shape="rect" coords="620,230,661,206" title="3.2075" nohref="" />
+<area shape="rect" coords="493,214,536,207" title="2.54123" nohref="" />
+<area shape="rect" coords="317,225,360,207" title="7." nohref="" />
+<area shape="rect" coords="200,231,241,206" title="3.24492" nohref="" />
+<area shape="rect" coords="755,137,779,96" title="4.26316" nohref="" />
+<area shape="rect" coords="620,131,653,96" title="3.77625" nohref="" />
+<area shape="rect" coords="493,140,500,97" title="4.94111" nohref="" />
+<area shape="rect" coords="330,134,360,96" title="6." nohref="" />
+<area shape="rect" coords="190,139,207,97" title="5.44261" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ They&rsquo;re all horrible. The best one is NearestNeighbors, which still sucks becuase it only returns values that were exactly in the training set (no interpolation).
+</p>
+
+
+
+<p class="Text">
+ So: let&rsquo;s explore another technique for reading a picture of an analog dial.
+</p>
+
+
+
+<p class="Section">
+ Read dial with image processing
+</p>
+
+
+
+<p class="Text">
+ Let&rsquo;s see if we can do better by just using good old image processing.
+</p>
+
+
+
+<p class="Text">
+ The first step in cleaning up the image feature-space is to use simpler images. Remove the background.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_108.gif" alt="index_108.gif" width="577" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_109.gif" alt="index_109.gif" width="189" height="107" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_110.gif" alt="index_110.gif" width="554" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_111.gif" alt="index_111.gif" width="285" height="386" style="vertical-align:middle;" usemap="#map_111" />
+<map name="map_111">
+<area shape="rect" coords="269,21,279,11" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ Let&rsquo;s dilate the image a bit, then take the centroid of the largest blob.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_112.gif" alt="index_112.gif" width="130" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_113.gif" alt="index_113.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_114.gif" alt="index_114.gif" width="240" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_115.gif" alt="index_115.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_116.gif" alt="index_116.gif" width="399" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_117.gif" alt="index_117.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_118.gif" alt="index_118.gif" width="543" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_119.gif" alt="index_119.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_120.gif" alt="index_120.gif" width="55" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Biggest blob:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_121.gif" alt="index_121.gif" width="378" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_122.gif" alt="index_122.gif" width="240" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_123.gif" alt="index_123.gif" width="783" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_124.gif" alt="index_124.gif" width="139" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_125.gif" alt="index_125.gif" width="378" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_126.gif" alt="index_126.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Roll it up:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_127.gif" alt="index_127.gif" width="908" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_128.gif" alt="index_128.gif" width="126" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_129.gif" alt="index_129.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_130.gif" alt="index_130.gif" width="220" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_131.gif" alt="index_131.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_132.gif" alt="index_132.gif" width="236" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_133.gif" alt="index_133.gif" width="210" height="210" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_134.gif" alt="index_134.gif" width="703" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_135.gif" alt="index_135.gif" width="1570" height="277" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ That component-measurement thing might be good enough that we can just arctan it to get the dial position and be done with it.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_136.gif" alt="index_136.gif" width="331" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_137.gif" alt="index_137.gif" width="75" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_138.gif" alt="index_138.gif" width="674" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_139.gif" alt="index_139.gif" width="255" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_140.gif" alt="index_140.gif" width="730" height="123" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span>training pic</span></td>
+  <td style='text-align: center;'><span>dial position<br />(read manually)</span></td>
+  <td style='text-align: center;'><span>predicted position</span></td>
+  <td style='text-align: center;'><span>pretty</span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_141.gif" alt="index_141.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>8.</span></td>
+  <td style='text-align: center;'><span>7.92911</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_142.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_142" />
+<map name="map_142">
+<area shape="rect" coords="10,53,53,36" title="7.92911" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_143.gif" alt="index_143.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>7.</span></td>
+  <td style='text-align: center;'><span>6.92176</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_144.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_144" />
+<map name="map_144">
+<area shape="rect" coords="11,66,53,46" title="6.92176" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_145.gif" alt="index_145.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>6.</span></td>
+  <td style='text-align: center;'><span>5.93068</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_146.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_146" />
+<map name="map_146">
+<area shape="rect" coords="25,84,53,46" title="5.93068" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_147.gif" alt="index_147.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>5.</span></td>
+  <td style='text-align: center;'><span>5.13835</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_148.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_148" />
+<map name="map_148">
+<area shape="rect" coords="43,90,53,46" title="5.13835" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_149.gif" alt="index_149.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>4.</span></td>
+  <td style='text-align: center;'><span>4.16442</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_150.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_150" />
+<map name="map_150">
+<area shape="rect" coords="46,85,72,46" title="4.16442" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_151.gif" alt="index_151.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>3.</span></td>
+  <td style='text-align: center;'><span>3.06872</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_152.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_152" />
+<map name="map_152">
+<area shape="rect" coords="46,66,88,46" title="3.06872" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_153.gif" alt="index_153.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>2.</span></td>
+  <td style='text-align: center;'><span>2.12698</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_154.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_154" />
+<map name="map_154">
+<area shape="rect" coords="46,53,89,37" title="2.12698" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_155.gif" alt="index_155.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.</span></td>
+  <td style='text-align: center;'><span>1.15822</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_156.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_156" />
+<map name="map_156">
+<area shape="rect" coords="46,53,78,18" title="1.15822" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_157.gif" alt="index_157.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+  <td style='text-align: center;'><span>0.0209366</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_158.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_158" />
+<map name="map_158">
+<area shape="rect" coords="47,52,53,9" title="0.0209366" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_159.gif" alt="index_159.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>9.</span></td>
+  <td style='text-align: center;'><span>8.99893</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_160.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_160" />
+<map name="map_160">
+<area shape="rect" coords="24,53,53,15" title="8.99893" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_161.gif" alt="index_161.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>8.</span></td>
+  <td style='text-align: center;'><span>7.94127</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_162.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_162" />
+<map name="map_162">
+<area shape="rect" coords="10,53,53,36" title="7.94127" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_163.gif" alt="index_163.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>7.</span></td>
+  <td style='text-align: center;'><span>6.91711</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_164.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_164" />
+<map name="map_164">
+<area shape="rect" coords="11,66,53,46" title="6.91711" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_165.gif" alt="index_165.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>6.</span></td>
+  <td style='text-align: center;'><span>5.93815</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_166.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_166" />
+<map name="map_166">
+<area shape="rect" coords="25,84,53,46" title="5.93815" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_167.gif" alt="index_167.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>5.</span></td>
+  <td style='text-align: center;'><span>5.09774</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_168.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_168" />
+<map name="map_168">
+<area shape="rect" coords="44,90,52,46" title="5.09774" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_169.gif" alt="index_169.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>4.</span></td>
+  <td style='text-align: center;'><span>4.05716</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_170.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_170" />
+<map name="map_170">
+<area shape="rect" coords="46,84,74,46" title="4.05716" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_171.gif" alt="index_171.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>3.</span></td>
+  <td style='text-align: center;'><span>3.19994</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_172.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_172" />
+<map name="map_172">
+<area shape="rect" coords="46,69,87,46" title="3.19994" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_173.gif" alt="index_173.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>2.</span></td>
+  <td style='text-align: center;'><span>2.16478</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_174.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_174" />
+<map name="map_174">
+<area shape="rect" coords="46,53,89,38" title="2.16478" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_175.gif" alt="index_175.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>1.</span></td>
+  <td style='text-align: center;'><span>1.18382</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_176.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_176" />
+<map name="map_176">
+<area shape="rect" coords="46,53,79,18" title="1.18382" nohref="" />
+</map></span></td>
+ </tr>
+ <tr style='vertical-align: middle;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_177.gif" alt="index_177.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>0.</span></td>
+  <td style='text-align: center;'><span>9.93654</span></td>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_178.gif" alt="Graphics:None" width="100" height="100" style="vertical-align:middle;" usemap="#map_178" />
+<map name="map_178">
+<area shape="rect" coords="45,52,52,9" title="9.93654" nohref="" />
+</map></span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Looks very nice. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_179.gif" alt="index_179.gif" width="372" height="78" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_180.gif" alt="index_180.gif" width="47" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_181.gif" alt="index_181.gif" width="86" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_182.gif" alt="index_182.gif" width="1336" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_183.gif" alt="index_183.gif" width="796" height="333" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ <span style='font-weight: bold;'>OLD: Predict dial </span><span style='font-weight: bold;'><em>x</em><em>,</em><em>y</em></span><span style='font-weight: bold;'> coordinates</span>
+</p>
+
+
+
+<p class="Text">
+ I locked these cells because newer versions of MMA don&rsquo;t produce the same nice outputs we have here. I left this here as a cautionary tale -- if you use MMA&rsquo;s Predict[] function, and they change it later, it&rsquo;ll break your stuff.
+</p>
+
+
+
+<p class="Text">
+ To get around the 0-&gt;9 discontinuity, let&rsquo;s make two predictors: one for the <span><em>x</em></span> coordinate of the tip of the dial, and one for the <span><em>y</em></span> coordinate. These are continuous quantities of the angle, so perhaps this will be more amenable to prediction.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_184.gif" alt="index_184.gif" width="229" height="161" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_185.gif" alt="index_185.gif" width="594" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Let&rsquo;s see how well these do:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_186.gif" alt="index_186.gif" width="310" height="81" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_187.gif" alt="index_187.gif" width="70" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_188.gif" alt="index_188.gif" width="70" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_189.gif" alt="index_189.gif" width="1314" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_190.gif" alt="index_190.gif" width="693" height="304" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_191.gif" alt="index_191.gif" width="294" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Armed with these, this function calculates the angle of the dial in degrees, then the dial position in [0,10):
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_192.gif" alt="index_192.gif" width="224" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_193.gif" alt="index_193.gif" width="287" height="35" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_194.gif" alt="index_194.gif" width="304" height="35" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Do the predictor functions work?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_195.gif" alt="index_195.gif" width="526" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_196.gif" alt="index_196.gif" width="266" height="107" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ That looks like 4 o&rsquo;clock degrees, nice.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_197.gif" alt="index_197.gif" width="651" height="39" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_198.gif" alt="index_198.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>145.817</span></td>
+  <td style='text-align: center;'><span>8.44953</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_199.gif" alt="index_199.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>-148.789</span></td>
+  <td style='text-align: center;'><span>6.63304</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_200.gif" alt="index_200.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>-83.7146</span></td>
+  <td style='text-align: center;'><span>4.82541</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_201.gif" alt="index_201.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>-14.2011</span></td>
+  <td style='text-align: center;'><span>2.89448</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_202.gif" alt="index_202.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>71.5818</span></td>
+  <td style='text-align: center;'><span>0.511615</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_203.gif" alt="index_203.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>160.953</span></td>
+  <td style='text-align: center;'><span>8.02908</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_204.gif" alt="index_204.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>-126.611</span></td>
+  <td style='text-align: center;'><span>6.01697</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_205.gif" alt="index_205.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>-53.9613</span></td>
+  <td style='text-align: center;'><span>3.99892</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span><img src="HTMLFiles/index_206.gif" alt="index_206.gif" width="210" height="210" style="vertical-align:middle" /></span></td>
+  <td style='text-align: center;'><span>29.6138</span></td>
+  <td style='text-align: center;'><span>1.6774</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ Predict the dial&rsquo;s angle for all zillion frames.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_207.gif" alt="index_207.gif" width="418" height="78" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_208.gif" alt="index_208.gif" width="70" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_209.gif" alt="index_209.gif" width="94" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_210.gif" alt="index_210.gif" width="1179" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_211.gif" alt="index_211.gif" width="780" height="321" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_212.gif" alt="index_212.gif" width="333" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_213.gif" alt="index_213.gif" width="266" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_214.gif" alt="index_214.gif" width="1511" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_215.gif" alt="index_215.gif" width="845" height="313" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ We&rsquo;ve removed the discontinuity in the predictor! This is because the predictor is secretly predicting the x and y coords.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_216.gif" alt="index_216.gif" width="412" height="17" style="vertical-align:middle" />
+</p>
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

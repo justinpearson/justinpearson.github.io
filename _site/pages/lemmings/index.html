@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  lemmings
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Title">
+ Lemmings on a plank
+</p>
+
+
+
+<p class="Text">
+ Spencer and Justin<br />June 12, 2017
+</p>
+
+
+
+<p class="Text">
+ Dad said:<br /><br />100 lemmings are positioned at 1-meter intervals along a narrow, 101-meter-long floating plank.&nbsp;&nbsp;(This is a 1-dimensional problem. Picture the plank as oriented left-right.&nbsp;&nbsp;The two outermost lemmings are 1 meter from the ends.&nbsp;&nbsp;Consider the lemmings to have zero length.)&nbsp;&nbsp;Each lemming is facing either left or right.&nbsp;&nbsp;At t=0, each lemming starts moving forward at 1 m/s.&nbsp;&nbsp;When two lemmings collide, each instantly reverses his direction of motion.&nbsp;&nbsp;Lemmings that reach the ends fall into the water and are out of play. <br /><br />If you can dictate the initial orientation of each of the lemmings, i.e., choose each lemming&rsquo;s initial direction of motion, what is the longest time the game can last before all the lemmings are in the water?
+</p>
+
+
+
+<p class="Text">
+ Let&rsquo;s simulate this hybrid dynamical system to get a feel for it.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="134" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ NDSolve[] bouncing ball example
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="854" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="398" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="360" height="236" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ With 2 lemmings
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="482" height="207" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="753" height="46" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Hack into the InterpolatingFunction to find its max domain:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="199" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="16" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="791" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="413" height="236" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ With <span><em>n</em></span> lemmings
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="131" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="461" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="456" height="228" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ If there are no lemmings on the plank, stop.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="441" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="491" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="153" height="39" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[1][0]==1</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="86" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="550" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[2][0]==2</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="86" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="550" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[3][0]==3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="86" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="550" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[4][0]==4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="86" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="550" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[5][0]==5</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="86" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="550" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[6][0]==6</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="95" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="550" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[7][0]==7</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="95" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="550" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[8][0]==8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="95" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="550" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[9][0]==9</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="95" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_42.gif" alt="index_42.gif" width="90" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="574" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>x[10][0]==10</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_44.gif" alt="index_44.gif" width="103" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="98" height="17" style="vertical-align:middle" /></span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>WhenEvent[(x[1][t]&lt;0||x[1][t]&gt;11)&amp;&amp;(x[2][t]&lt;0||x[2][t]&gt;11)&amp;&amp;(x[3][t]&lt;0||x[3][t]&gt;11)&amp;&amp;(x[4][t]&lt;0||x[4][t]&gt;11)&amp;&amp;(x[5][t]&lt;0||x[5][t]&gt;11)&amp;&amp;(x[6][t]&lt;0||x[6][t]&gt;11)&amp;&amp;(x[7][t]&lt;0||x[7][t]&gt;11)&amp;&amp;(x[8][t]&lt;0||x[8][t]&gt;11)&amp;&amp;(x[9][t]&lt;0||x[9][t]&gt;11)&amp;&amp;(x[10][t]&lt;0||x[10][t]&gt;11),StopIntegration]</span></td>
+ </tr>
+</table>
+
+<p class="Input">
+ <img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="385" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="1749" height="101" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="157" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="23" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="1434" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="675" height="388" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="251" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="359" height="228" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_54.gif" alt="index_54.gif" width="1902" height="318" style="vertical-align:middle;" usemap="#map_54" />
+<map name="map_54">
+<area shape="rect" coords="1886,21,1896,11" title="Bookmarks/Autorun" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ Spence pointed out that two lemmings bouncing off each other is actually the same as the lemmings just passing through each other. He pointed out that if the lemmings had nonzero width, the game would end sooner because they&rsquo;d essentially teleport through teach other as they passed through.
+</p>
+
+
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>

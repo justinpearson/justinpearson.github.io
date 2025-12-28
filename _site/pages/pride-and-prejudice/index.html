@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created with the Wolfram Language : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  train_markov_chain_pride_and_prejudice-WEB
+ </title>
+ <link href="mma.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Title">
+ Training a Markov Process on Pride and Prejudice
+</p>
+
+
+
+<p class="Text">
+ Justin Pearson<br />Oct 26, 2014
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="267" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ For simplicity, we&rsquo;ll just chop up the tokens by whitespace and keep all the punctuation. Consequently the word &ldquo;Elizabeth&rdquo; will be different from the word &ldquo;Elizabeth,&rdquo; (with a comma). Fine.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="419" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="1236" height="146" style="vertical-align:middle;" usemap="#map_3" />
+<map name="map_3">
+<area shape="rect" coords="13,136,72,126" title="Dynamic[FEPrivate`FrontEndResource[FEStrings, sizeExplanation]]" nohref="" />
+</map>
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="49" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Subsection">
+ Enumerate the unique words 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="204" height="60" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="1322" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="41" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Here&rsquo;s an association to convert from words to their index in the unique-word list:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="629" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="1557" height="20" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="1557" height="20" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="456" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="475" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="346" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="317" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The text of <span style='font-style: italic;'>Pride and Prejudice</span>, converted to word indices:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="85" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="1028" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="253" height="17" style="vertical-align:middle" />
+</p>
+
+<table class='Output' frame='box' rules='all'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>Chapter</span></td>
+  <td style='text-align: center;'><span>1</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>1</span></td>
+  <td style='text-align: center;'><span>2</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>It</span></td>
+  <td style='text-align: center;'><span>3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>is</span></td>
+  <td style='text-align: center;'><span>4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>5</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>truth</span></td>
+  <td style='text-align: center;'><span>6</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>universally</span></td>
+  <td style='text-align: center;'><span>7</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>acknowledged,</span></td>
+  <td style='text-align: center;'><span>8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>that</span></td>
+  <td style='text-align: center;'><span>9</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>5</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>single</span></td>
+  <td style='text-align: center;'><span>10</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>man</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>in</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>possession</span></td>
+  <td style='text-align: center;'><span>13</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>of</span></td>
+  <td style='text-align: center;'><span>14</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>5</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>good</span></td>
+  <td style='text-align: center;'><span>15</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>fortune,</span></td>
+  <td style='text-align: center;'><span>16</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>must</span></td>
+  <td style='text-align: center;'><span>17</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>be</span></td>
+  <td style='text-align: center;'><span>18</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>in</span></td>
+  <td style='text-align: center;'><span>12</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>want</span></td>
+  <td style='text-align: center;'><span>19</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>of</span></td>
+  <td style='text-align: center;'><span>14</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>5</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>wife.</span></td>
+  <td style='text-align: center;'><span>20</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>However</span></td>
+  <td style='text-align: center;'><span>21</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>little</span></td>
+  <td style='text-align: center;'><span>22</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>known</span></td>
+  <td style='text-align: center;'><span>23</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>the</span></td>
+  <td style='text-align: center;'><span>24</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>feelings</span></td>
+  <td style='text-align: center;'><span>25</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>or</span></td>
+  <td style='text-align: center;'><span>26</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>views</span></td>
+  <td style='text-align: center;'><span>27</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>of</span></td>
+  <td style='text-align: center;'><span>14</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>such</span></td>
+  <td style='text-align: center;'><span>28</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>a</span></td>
+  <td style='text-align: center;'><span>5</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>man</span></td>
+  <td style='text-align: center;'><span>11</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>may</span></td>
+  <td style='text-align: center;'><span>29</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>be</span></td>
+  <td style='text-align: center;'><span>18</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>on</span></td>
+  <td style='text-align: center;'><span>30</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: center;'><span>his</span></td>
+  <td style='text-align: center;'><span>31</span></td>
+ </tr>
+</table>
+
+<p class="Section">
+ Method 1: Build our own first-order Markov chain
+</p>
+
+
+
+<p class="Text">
+ Build the adjacency matrix for our discrete markov process:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="807" height="272" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="180" height="21" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="8" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="311" height="46" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="71" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="53" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="94" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="59" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="317" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="94" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="362" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="1559" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Method 2: Use Mathematica&rsquo;s build-in DiscreteMarkovProcess
+</p>
+
+
+
+<p class="Text">
+ We can use Mathematica&rsquo;s built-in functions to train a discrete Markov process from our text. <br />Unfortunately, it&rsquo;s quite slow for datasets of this size, so we use a subset of the text.
+</p>
+
+
+
+<p class="Text">
+ Here we use Mathematica&rsquo;s &ldquo;EstimatedProcess&rdquo; function to estimate the weights of an <span><em>n</em></span>-state discrete Markov chain:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="598" height="207" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="39" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Let&rsquo;s run the discrete markov process for 200 timesteps:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="528" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="1446" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Title">
+ Appendix: Word-frequency analysis
+</p>
+
+
+
+<p class="Text">
+ Wordcounts often follow a Zipf distribution: &ldquo;The top 10% most-frequent words account for 90% of all words.&rdquo; Let&rsquo;s see if <span style='font-style: italic;'>Pride and Prejudice </span>follows this trend.
+</p>
+
+
+
+<p class="Text">
+ Wikipedia:<br /><br />https://en.wikipedia.org/wiki/Zipf%27s_law<br /><br />Zipf&rsquo;s law states that given some corpus of natural language utterances, the frequency of any word is inversely proportional to its rank in the frequency table. Thus the most frequent word will occur approximately twice as often as the second most frequent word, three times as often as the third most frequent word, etc.: the rank-frequency distribution is an inverse relation. For example, in the Brown Corpus of American English text, the word &ldquo;the&rdquo; is the most frequently occurring word, and by itself accounts for nearly 7% of all word occurrences (69,971 out of slightly over 1 million). True to Zipf&rsquo;s Law, the second-place word &ldquo;of&rdquo; accounts for slightly over 3.5% of words (36,411 occurrences), followed by &ldquo;and&rdquo; (28,852). Only 135 vocabulary items are needed to account for half the Brown Corpus.[4]<br /><br />Zipf&rsquo;s law is most easily observed by plotting the data on a log-log graph, with the axes being log (rank order) and log (frequency). For example, the word &ldquo;the&rdquo; (as described above) would appear at x = log(1), y = log(69971). It is also possible to plot reciprocal rank against frequency or reciprocal frequency or interword interval against rank.[1] The data conform to Zipf&rsquo;s law to the extent that the plot is linear.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="244" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="1519" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Subsubsection">
+ What are the rarest words? What are the most common?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="329" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="421" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="1265" height="69" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ (The numbers on the left are chapter numbers.)
+</p>
+
+
+
+<p class="Subsubsection">
+ Plot log-log to assess eligibility for Zipf distribution
+</p>
+
+
+
+<p class="Text">
+ Let&rsquo;s plot log-rank and log-count as described above, so the word &ldquo;to&rdquo; would appear at x = log(1),&nbsp;&nbsp;y = log(4051), &ldquo;the&rdquo; would appear at x = log(2), y = log(4047), etc.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="1268" height="123" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="998" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_42.gif" alt="Graphics:The wordcount-vs-rank plot is somewhat linear." width="600" height="335" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Looks pretty linear in the middle, not so great at the ends. What&rsquo;s up with the long tail -- all the words that only appear once?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="1259" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_44.gif" alt="Graphics:Half of the 13065 unique words appear only once. (TOTAL # of words in P&amp;amp;P: 121553)" width="800" height="404" style="vertical-align:middle;" usemap="#map_44" />
+<map name="map_44">
+<area shape="rect" coords="596,387,624,352" title="2" nohref="" />
+<area shape="rect" coords="568,387,596,352" title="2" nohref="" />
+<area shape="rect" coords="540,387,568,320" title="5" nohref="" />
+<area shape="rect" coords="512,387,540,304" title="8" nohref="" />
+<area shape="rect" coords="484,387,512,300" title="9" nohref="" />
+<area shape="rect" coords="456,387,485,280" title="16" nohref="" />
+<area shape="rect" coords="428,387,457,265" title="25" nohref="" />
+<area shape="rect" coords="400,387,429,256" title="32" nohref="" />
+<area shape="rect" coords="372,387,401,249" title="39" nohref="" />
+<area shape="rect" coords="344,387,373,227" title="73" nohref="" />
+<area shape="rect" coords="316,387,345,210" title="119" nohref="" />
+<area shape="rect" coords="288,387,317,194" title="194" nohref="" />
+<area shape="rect" coords="260,387,289,176" title="325" nohref="" />
+<area shape="rect" coords="233,387,261,166" title="429" nohref="" />
+<area shape="rect" coords="205,387,233,158" title="545" nohref="" />
+<area shape="rect" coords="177,387,205,129" title="1251" nohref="" />
+<area shape="rect" coords="149,387,177,138" title="960" nohref="" />
+<area shape="rect" coords="121,387,149,114" title="1927" nohref="" />
+<area shape="rect" coords="93,387,121,69" title="7104" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ A lot of words occur only once:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="281" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="31" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ It is mainly due to us not erasing punctuation:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="281" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="1445" height="146" style="vertical-align:middle;" usemap="#map_48" />
+<map name="map_48">
+<area shape="rect" coords="13,136,72,126" title="Dynamic[FEPrivate`FrontEndResource[FEStrings, sizeExplanation]]" nohref="" />
+</map>
+</p>
+
+<p class="Subsubsection">
+ How many words account for half the text?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="403" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="16" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="193" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="41" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Wow, one could write half of Pride and Prejudice with only 84 words!
+</p>
+
+
+
+<p class="Subsubsection">
+ Fit a Zipf dist to it.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="444" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_54.gif" alt="index_54.gif" width="203" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The estimated distribution seems to line up well with the histogram of wordcounts:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_55.gif" alt="index_55.gif" width="1367" height="39" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_56.gif" alt="Graphics:Zipf distribution fits the word-count PDF-histogram." width="800" height="384" style="vertical-align:middle;" usemap="#map_56" />
+<map name="map_56">
+<area shape="rect" coords="576,367,624,363" title="0.00751817" nohref="" />
+<area shape="rect" coords="528,367,576,363" title="0.00785231" nohref="" />
+<area shape="rect" coords="480,367,529,361" title="0.0106925" nohref="" />
+<area shape="rect" coords="432,367,481,358" title="0.0161223" nohref="" />
+<area shape="rect" coords="384,367,433,357" title="0.0187119" nohref="" />
+<area shape="rect" coords="337,367,385,354" title="0.0235569" nohref="" />
+<area shape="rect" coords="289,367,337,350" title="0.0324952" nohref="" />
+<area shape="rect" coords="241,367,289,341" title="0.0484504" nohref="" />
+<area shape="rect" coords="193,367,241,324" title="0.0801938" nohref="" />
+<area shape="rect" coords="145,367,194,281" title="0.160972" nohref="" />
+<area shape="rect" coords="97,367,146,52" title="0.593434" nohref="" />
+</map>
+</p>
+
+<p class="Text">
+ With this, you can answer questions like: What&rsquo;s the probability that a word occurs more than 100 times in the text?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_57.gif" alt="index_57.gif" width="226" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_58.gif" alt="index_58.gif" width="70" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Hopefully this matches the fraction of the unique words that occur more than 200 times:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_59.gif" alt="index_59.gif" width="240" height="37" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_60.gif" alt="index_60.gif" width="70" height="17" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Not too bad.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_61.gif" alt="index_61.gif" width="165" height="17" style="vertical-align:middle" />
+</p>
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/language/" style="color:#000; text-decoration:none;">
+  <span style="color:#555555">Created with the Wolfram Language</span> 
+ </a>
+</div>
+</body>
+
+</html>
