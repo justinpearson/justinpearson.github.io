@@ -1,0 +1,126 @@
+# presentations.yaml
+
+- title: "A program to play the Set card game"
+  duration: "41:52"
+  date: January 11, 2017
+  links:
+      - url: https://youtu.be/W7b5tzeaftI
+        text: VIDEO
+      - url: /assets/talks/appfolio-tech-talk-play-set-v4-for-web.pdf
+        text: SLIDES
+      - url: /pages/set
+        text: CODE (HTML)
+      - url: /pages/set/set.pdf
+        text: CODE (PDF)
+  image: /assets/talks/set-tech-talk.jpg
+  summary: >
+    \"Set\" is a pattern-matching card game. In this project we describe 
+    a Mathematica program to play Set over a USB video camera. 
+    This requires some interesting image processing, including developing 
+    a shape classifier using a probabilistic machine learning algorithm 
+    called multinomial logistic regression.
+
+- title: "Tour of the Controls Lab at UC Santa Barbara"
+  duration: "22:43"
+  date: August 3, 2017
+  links:
+      - url: https://youtu.be/Jmreh7pxefo
+        text: VIDEO
+  image: /assets/talks/ece-tour-thumbnail.jpg
+  summary: >
+    A tour of the Controls Lab at the University of California at Santa Barbara,
+    for incoming first-year undergraduate students in Electrical and Computer Engineering. 
+
+- title: "Pendulum + Beaglebone + Control Theory = Profit"
+  duration: "52:26"
+  date: "Dec 2, 2016"
+  links:
+    - url: https://youtu.be/_IEzcxh3kvQ
+      text: VIDEO
+  image: /assets/talks/pendulum-beaglebone-control-theory-profit.jpg
+  summary: >
+    Can a Beaglebone Black balance a pendulum? The answer is a resounding yes...
+    thanks to our friend, Control Theory. In this talk, we present an overview
+    of the Quanser pendulum hardware, the Beaglebone Black, and state-feedback controllers.
+
+- title: "Wide World of Control Engineering"
+  duration: "24:00"
+  date: "May 22, 2015"
+  links:
+    - url: https://youtu.be/N_AFoKbbtLc
+      text: VIDEO
+  image: /assets/talks/wide-world-of-control-engineering.jpg
+  summary: >
+    What do an airplane, a pancreas, and a warehouse have in common?
+    It's no joke: the answer is that they are all systems whose behavior
+    we want to control. In Control Theory, we use math to describe how
+    systems behave, then design algorithms to control them.
+
+- title: "Introduction to the Kalman Filter (DYNS seminar)"
+  duration: "48:48"
+  date: "Jan 30, 2017"
+  links:
+    - url: https://youtu.be/oqrsdQ5NF4E
+      text: VIDEO
+  image: /assets/talks/kalman-filter-DYNS-seminar.jpg
+  summary: >
+    This talk introduces the Kalman Filter: an algorithm for efficiently
+    estimating the state of a system from noisy measurements.
+    Presented at the Dynamical Neuroscience Symposium,
+    University of California, Santa Barbara.
+
+- title: Intro to Mathematica
+  image: /assets/talks/intro-to-mma.jpg
+  id: intro-mma
+  date: Dec 2015
+  summary: >
+    *\"Why should I learn Mathematica when I already have to learn Matlab??\"*
+
+
+    This talk, geared toward college freshman engineering students,
+    answers this question by highlighting Mathematica's strengths in comparison to Matlab.
+    It's meant as a short introduction to whet the appetites of students eager
+    to expand their engineering toolboxes.
+  links:
+    - url: https://youtu.be/SIZkUzF7vOI
+      text: VIDEO
+
+- title: An Introduction to Mathematica and the Wolfram Language for Engineers
+  image: /assets/talks/mathematica-and-wolfram-lang-for-engineers.jpg
+  id: intro-mma2
+  date: Apr 27, 2016
+  summary: >
+    An electrical and computer engineering graduate student researcher
+    shares his insights from academics and industry about how he uses
+    Mathematica and the Wolfram Language, and how it compares to Matlab.
+  links:
+    - url: https://youtu.be/_sWY0FATWXw
+      text: VIDEO
+
+- title: "The Kalman Filter (SIAM seminar)"
+  duration: "47:16"
+  date: "Nov 24, 2014"
+  links:
+    - url: https://youtu.be/AACg26YEips
+      text: VIDEO
+  image: /assets/talks/kalman-filter-SIAM-seminar.jpg
+  summary: >
+    The Kalman Filter allows control engineers to employ celebrated
+    state-­feedback controllers even when the system's state was not
+    directly measurable, in a plug­-and-­play sort of way. This talk
+    explains the basics of control theory and linear systems, describes
+    the Kalman Filter, and shows some cool examples. Presented at SIAM
+    Seminar on Top Algorithms in Computational Science.
+
+- title: "MATLAB to Mathematica: An Engineering Student's Perspective"
+  image: /assets/talks/matlab-to-mma.jpg
+  id: mma-student
+  date: May 2016
+  summary: >
+    UCSB electrical and computer engineering graduate student
+    Justin Pearson shows how engineering equations can be both
+    simplified and physically insightful using the Wolfram Language
+    as compared to procedures in MATLAB.
+  links:
+    - url: https://youtu.be/LJ3HBdZ-7TI
+      text: VIDEO

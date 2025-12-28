@@ -1,0 +1,9 @@
+@PhdThesis{PearsonMar18,
+  author    =    {Justin Payne Pearson},
+  title     =    {Control under energy and time constraints},
+  school    =    {University of California},
+  year      =    2018,
+  address   =    {Santa Barbara, CA, USA},
+  month     =    "Mar.",
+  annote    =    "Available at \url{http://justinppearson.com/research.html}",
+}

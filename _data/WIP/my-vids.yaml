@@ -1,0 +1,629 @@
+  # My youtube videos 
+  # (all. fetched May 31, 2017)
+  # Go to page of my videos, inspect element, copy html ol tag of vids, massage with sublime text.
+  # Images: wget. see quick-soup-for-youtube-videos.py
+  # and assets/download-thumbs.sh
+
+
+- title: "Tour of the Controls Lab at UC Santa Barbara"
+  duration: "22:43"
+  date: August 3, 2017
+  links:
+      - url: "https://youtu.be/Jmreh7pxefo"
+        text: VIDEO
+  summary: >
+    A tour of the Controls Lab at the University of California at Santa Barbara, for incoming first-year undergraduate students in Electrical and Computer Engineering. 
+
+    0:35 - what is control theory? example: cruise controller
+    7:40 - inverted pendulum hardware
+    12:15 - humans try to balance 
+    15:48 - computer balances pendulum
+    18:00 - balancing with additional setpoints
+    19:03 - unmodeled vibrational modes
+
+
+    The lab is located in Harold Frank Hall room 3120A. It features five Quanser inverted pendulum stations used in the ECE 147A,B,C course series, as well as several LEGO MindStorms robots used in ECE 179D. 
+
+    Aug 3, 2017
+    Justin Pearson
+
+    See justinppearson.com for more.
+
+
+
+
+
+
+
+- title: "Paxos in Pictures: Lamport's Distributed Consensus Algorithm"
+  duration: "26:00"
+  date: "May 25, 2017"
+  links:
+    - url: "https://youtu.be/UUQ8xYWR4do"
+      text: VIDEO
+  image: "th/UUQ8xYWR4do-16-by-9.jpg"
+  summary: >
+    Paxos is a computer algorithm to help a network of computers agree on a
+    proposed value. It is hard to understand at first. This video attempts to
+    explain Paxos intuitively yet rigorously. The content comes from Lamport's
+    2001 paper "Paxos Made Simple".
+
+
+- title: "Fluid Mechanics for Fun and Profit"
+  duration: "3:09"
+  upload-date: "Feb 1, 2017"
+  date: "Nov 17, 2004"
+  links:
+    - url: "https://youtu.be/EEsdBR2A5eE"
+      text: VIDEO
+  image: "th/EEsdBR2A5eE-16-by-9.jpg"
+  summary: >
+    "There are lots of fun applications of Fluid Mechanics!
+    
+    Extra-credit video for Eric Matthys' Fluid Mechanics class.
+    
+    Department of Mechanical Engineering
+    University of California, Santa Barbara"
+
+
+- title: "Introduction to the Kalman Filter (Dynamical Neuroscience Symposium)"
+  duration: "48:48"
+  date: "Feb 1, 2017"
+  links:
+    - url: "https://youtu.be/oqrsdQ5NF4E"
+      text: VIDEO
+  image: "th/oqrsdQ5NF4E-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "How regenerative braking works"
+  duration: "20:53"
+  date: "Jan 13, 2017"
+  links:
+    - url: "https://youtu.be/QW3PmRp7EK8"
+      text: VIDEO
+  image: "th/QW3PmRp7EK8-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Elianscript and Mathematica"
+  duration: "9:36"
+  date: "Dec 19, 2016"
+  links:
+    - url: "https://youtu.be/kX5-uh93WtI"
+      text: VIDEO
+  image: "th/kX5-uh93WtI-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Pendulum + Beaglebone + Control Theory = Profit"
+  duration: "52:26"
+  date: "Dec 2, 2016"
+  links:
+    - url: "https://youtu.be/_IEzcxh3kvQ"
+      text: VIDEO
+  image: "th/jp_IEzcxh3kvQ-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Where's this signpost? A geodesy odyssey with Mathematica"
+  duration: "12:30"
+  date: "Nov 1, 2016"
+  links:
+    - url: "https://youtu.be/zuRLdICHHiU"
+      text: VIDEO
+  image: "th/zuRLdICHHiU-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "The Kalman Filter"
+  duration: "47:16"
+  date: "Oct 19, 2016"
+  links:
+    - url: "https://youtu.be/AACg26YEips"
+      text: VIDEO
+  image: "th/AACg26YEips-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "IR camera, frying pans, and Mathematica"
+  duration: "17:56"
+  date: "Aug 28, 2016"
+  links:
+    - url: "https://youtu.be/5gE6mls-Di8"
+      text: VIDEO
+  image: "th/5gE6mls-Di8-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "The UCSB Certificate in College and University Teaching"
+  duration: "7:43"
+  date: "Jun 4, 2016"
+  links:
+    - url: "https://youtu.be/6PiX3PFXGp4"
+      text: VIDEO
+  image: "th/6PiX3PFXGp4-16-by-9.jpg"
+  summary: The UCSB Certificate in College and University Teaching (CCUT) is designed for students who wish to demonstrate superior competence and experience in teaching at the university or college level.
+
+- title: "Example lecture: Java Programming: Exceptions"
+  duration: "22:53"
+  date: "May 25, 2016"
+  links:
+    - url: "https://youtu.be/VsIHoVAhSS4"
+      text: VIDEO
+  image: "th/VsIHoVAhSS4-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Mathematica: Sunset behind the UCSB Oil Rig"
+  duration: "8:48"
+  date: "Dec 10, 2015"
+  links:
+    - url: "https://youtu.be/R5ke1E8YKVY"
+      text: VIDEO
+  image: "th/R5ke1E8YKVY-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Intro to Mathematica"
+  duration: "46:06"
+  date: "Dec 3, 2015"
+  links:
+    - url: "https://youtu.be/SIZkUzF7vOI"
+      text: VIDEO
+  image: "th/SIZkUzF7vOI-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Wide World of Control Engineering"
+  duration: "24:00"
+  date: "Jun 20, 2015"
+  links:
+    - url: "https://youtu.be/N_AFoKbbtLc"
+      text: VIDEO
+  image: "th/N_AFoKbbtLc-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Probability Notation Explained"
+  duration: "42:03"
+  date: "Jun 20, 2015"
+  links:
+    - url: "https://youtu.be/t8KX9wDD4bI"
+      text: VIDEO
+  image: "th/t8KX9wDD4bI-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Math Notation -- The Equals Sign"
+  duration: "13:43"
+  date: "Jun 19, 2015"
+  links:
+    - url: "https://youtu.be/TFL6pyVGOy4"
+      text: VIDEO
+  image: "th/TFL6pyVGOy4-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Probability Notation Explained"
+  duration: "41:39"
+  date: "Jun 19, 2015"
+  links:
+    - url: "https://youtu.be/lC8DIZu3t0Y"
+      text: VIDEO
+  image: "th/lC8DIZu3t0Y-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "stemposium interlace test"
+  duration: "0:44"
+  date: "Jun 19, 2015"
+  links:
+    - url: "https://youtu.be/ZaGVYxB94Nc"
+      text: VIDEO
+  image: "th/ZaGVYxB94Nc-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Arlo runs around great-grandma's house"
+  duration: "1:32"
+  date: "Apr 5, 2015"
+  links:
+    - url: "https://youtu.be/0XRTHBMrcNY"
+      text: VIDEO
+  image: "th/0XRTHBMrcNY-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "GoPro: Hector the dog"
+  duration: "2:26"
+  date: "Apr 5, 2015"
+  links:
+    - url: "https://youtu.be/Y3hBPV-sJsk"
+      text: VIDEO
+  image: "th/Y3hBPV-sJsk-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "GoPro: Humming bird feeder"
+  duration: "1:06"
+  date: "Apr 5, 2015"
+  links:
+    - url: "https://youtu.be/ISfyEnsE3cQ"
+      text: VIDEO
+  image: "th/ISfyEnsE3cQ-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "GoPro: Hot tamales"
+  duration: "0:21"
+  date: "Apr 5, 2015"
+  links:
+    - url: "https://youtu.be/wiEnABDOgIQ"
+      text: VIDEO
+  image: "th/wiEnABDOgIQ-16-by-9.jpg"
+  summary: "summary here"
+
+
+
+- title: "GoPro: Thrown in air & dropped"
+  duration: "0:25"
+  date: "Apr 5, 2015"
+  links:
+    - url: "https://youtu.be/8UXTWsGYxFI"
+      text: VIDEO
+  image: "th/8UXTWsGYxFI-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "GoPro: Thrown off a cliff"
+  duration: "0:12"
+  date: "Apr 5, 2015"
+  links:
+    - url: "https://youtu.be/1Rx3vUzYc8g"
+      text: VIDEO
+  image: "th/1Rx3vUzYc8g-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Borescope Pumpkin"
+  duration: "1:12"
+  date: "Nov 6, 2011"
+  links:
+    - url: "https://youtu.be/6n1x9P4EmuM"
+      text: VIDEO
+  image: "th/6n1x9P4EmuM-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Orangeless (No FX Version)"
+  duration: "2:30"
+  date: "Apr 25, 2010"
+  links:
+    - url: "https://youtu.be/BDesdnUeSXo"
+      text: VIDEO
+  image: "th/BDesdnUeSXo-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Orangeless (Full Version)"
+  duration: "2:10"
+  date: "Apr 25, 2010"
+  links:
+    - url: "https://youtu.be/47yQjbJZ3b8"
+      text: VIDEO
+  image: "th/47yQjbJZ3b8-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Justin's Second Steps... in the Real World"
+  duration: "3:54"
+  date: "Feb 13, 2009"
+  links:
+    - url: "https://youtu.be/5PmADbNx_Mg"
+      text: VIDEO
+  image: "th/5PmADbNx_Mg-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "SCP Explanation"
+  duration: "5:49"
+  date: "Dec 21, 2008"
+  links:
+    - url: "https://youtu.be/L4UB9WQylic"
+      text: VIDEO
+  image: "th/L4UB9WQylic-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "SCP Mashup - Song Walkthrough"
+  duration: "3:57"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/XImK6XrzI3k"
+      text: VIDEO
+  image: "th/XImK6XrzI3k-16-by-9.jpg"
+  summary: "summary here"
+
+
+
+
+- title: "SCP Mashup - I Hope You Build a Mystery"
+  duration: "1:00"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/KljPZINcEoA"
+      text: VIDEO
+  image: "th/KljPZINcEoA-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "SCP Mashup - In Another Side"
+  duration: "0:39"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/xiD7z04LBSY"
+      text: VIDEO
+  image: "th/xiD7z04LBSY-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "SCP Mashup - Life's Lost Apologies"
+  duration: "1:39"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/ctqeQFXY_-o"
+      text: VIDEO
+  image: "th/ctqeQFXY_-o-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "SCP Mashup - Save Tonight Whenever"
+  duration: "1:03"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/lTacJDCLNzk"
+      text: VIDEO
+  image: "th/lTacJDCLNzk-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "SCP Mashup - Hammerhead Hell"
+  duration: "0:59"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/UCS1OglVM-4"
+      text: VIDEO
+  image: "th/UCS1OglVM-4-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "SCP Mashup - Main Menu"
+  duration: "0:21"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/fhqAXjEK0LM"
+      text: VIDEO
+  image: "th/fhqAXjEK0LM-16-by-9.jpg"
+  summary: "The [Em,C,G,D] chord progression spans musical genres in its popularity and use. After many years of collecting songs that use it (or a transposition of it, e.g. [Bm,D,G,A]), I decided to demonstrate these songs' similarity by mixing them together."
+
+
+- title: "Kostas"
+  duration: "2:52"
+  date: "Oct 10, 2008"
+  links:
+    - url: "https://youtu.be/VolNjZLfQNY"
+      text: VIDEO
+  image: "th/VolNjZLfQNY-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Amber Gump"
+  duration: "3:17"
+  date: "May 3, 2008"
+  links:
+    - url: "https://youtu.be/tXj8oboyB74"
+      text: VIDEO
+  image: "th/tXj8oboyB74-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Time Counter 2"
+  duration: "0:20"
+  date: "Feb 26, 2008"
+  links:
+    - url: "https://youtu.be/p7MJFToYmDM"
+      text: VIDEO
+  image: "th/p7MJFToYmDM-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Time Counter"
+  duration: "0:20"
+  date: "Feb 26, 2008"
+  links:
+    - url: "https://youtu.be/LZSZvaMNTqo"
+      text: VIDEO
+  image: "th/LZSZvaMNTqo-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Justin's First Steps... into the Real World"
+  duration: "3:14"
+  date: "Feb 21, 2008"
+  links:
+    - url: "https://youtu.be/HhiflrprWjs"
+      text: VIDEO
+  image: "th/HhiflrprWjs-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Save Tonight Whenever (mashup)"
+  duration: "1:02"
+  date: "Feb 21, 2008"
+  links:
+    - url: "https://youtu.be/3D-dj6GvHvw"
+      text: VIDEO
+  image: "th/3D-dj6GvHvw-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Gmail Video Contest: NASA Wind Tunnel"
+  duration: "0:11"
+  date: "Aug 4, 2007"
+  links:
+    - url: "https://youtu.be/PZ9PBHn6VeQ"
+      text: VIDEO
+  image: "th/PZ9PBHn6VeQ-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "CoronaFreeze"
+  duration: "0:30"
+  date: "Mar 29, 2007"
+  links:
+    - url: "https://youtu.be/4i11hVEVPdM"
+      text: VIDEO
+  image: "th/4i11hVEVPdM-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Nothing Bot Net"
+  duration: "2:17"
+  date: "Mar 14, 2007"
+  links:
+    - url: "https://youtu.be/2B6kXa-gLuw"
+      text: VIDEO
+  image: "th/2B6kXa-gLuw-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Amber Code"
+  duration: "2:10"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/Z--A7Oebiyw"
+      text: VIDEO
+  image: "th/Z--A7Oebiyw-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Backwards"
+  duration: "2:51"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/8WnuivQZWBY"
+      text: VIDEO
+  image: "th/8WnuivQZWBY-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Heat Transfer (for fun and profit)"
+  duration: "6:22"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/4UILX-q4P7A"
+      text: VIDEO
+  image: "th/4UILX-q4P7A-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "DoubleDoor"
+  duration: "1:57"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/88WFBjRBDj8"
+      text: VIDEO
+  image: "th/88WFBjRBDj8-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Eggs"
+  duration: "1:59"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/O5cpdghOx7s"
+      text: VIDEO
+  image: "th/O5cpdghOx7s-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Maria Thanks"
+  duration: "0:43"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/rl7DoPOv6xk"
+      text: VIDEO
+  image: "th/rl7DoPOv6xk-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Mindless Automatons"
+  duration: "3:20"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/vEkO8a9J9RI"
+      text: VIDEO
+  image: "th/vEkO8a9J9RI-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Steph20"
+  duration: "5:24"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/jLtTM4DdXAM"
+      text: VIDEO
+  image: "th/jLtTM4DdXAM-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Zeal 2"
+  duration: "1:40"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/dQPrZc8XIQ8"
+      text: VIDEO
+  image: "th/dQPrZc8XIQ8-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "Zeal 1"
+  duration: "4:15"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/Fgq9dGgKsuE"
+      text: VIDEO
+  image: "th/Fgq9dGgKsuE-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "TechnoGlass"
+  duration: "1:03"
+  date: "Feb 3, 2007"
+  links:
+    - url: "https://youtu.be/ggjjY-a-5Hg"
+      text: VIDEO
+  image: "th/ggjjY-a-5Hg-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "FunSkits Appendix -- PreEncoded"
+  duration: "0:03"
+  date: "Jan 23, 2007"
+  links:
+    - url: "https://youtu.be/ueUP9y_9KzY"
+      text: VIDEO
+  image: "th/ueUP9y_9KzY-16-by-9.jpg"
+  summary: "summary here"
+
+
+- title: "FunSkits Appendix"
+  duration: "0:03"
+  date: "Jan 23, 2007"
+  links:
+    - url: "https://youtu.be/W85hFB24Pt4"
+      text: VIDEO
+  image: "th/W85hFB24Pt4-16-by-9.jpg"
+  summary: "summary here"
+

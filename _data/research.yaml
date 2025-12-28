@@ -1,0 +1,113 @@
+# research.yaml
+
+- title: An architecture for preemption-resistant control (Ph.D. Defense, Part 2)
+  image: /assets/research/preemption-resistant-control-phd-defense.jpg
+  summary: >
+    We present a control architecture that allows a controller running on a non-real-time operating system
+    to run with a high degree of determinacy, even in the presence of OS preemption.
+    The main idea is to buffer the sensor measurements and actuator commands on an auxiliary
+    microprocessor called a Real-Time Unit (RTU). The RTU runs independently from the main CPU and so can
+    function even if the main control task is preempted. We implement this on a 1 GHz Beaglebone Black
+    single-board computer using its 200 MHz Programmable Real-time Unit (PRU) as an RTU. 
+    We observe that this architecture greatly improves the performance of a simple PID controller 
+    in the presence of OS preemption.
+
+    We presented these results at my Ph.D. defense in January 2018.
+  links:
+    - url: https://youtu.be/vWMsGxmyK_8
+      text: PHD DEFENSE VIDEO PT 2
+    - url: /assets/research/publications/Pearson_UCSB_thesis.pdf
+      text: PHD THESIS
+    - url: /assets/research/publications/preemption-resistant-control-on-non-rtos.pdf
+      text: PAPER
+
+- title: >
+    Control with minimum energy-per-symbol, and the optimality
+    of event-based control (Ph.D. Defense, Part 1)
+  video: /assets/research/mineng-animation.mp4
+  summary: >
+    The performance of a control system is often limited by constraints on timing, bandwidth, and energy. 
+    This work explores the trade-offs between constraints on these resources, the control system performance, 
+    and the system to be controlled. We begin by considering a networked control system in which the sensor
+    sends its measurements to the controller over a limited-bandwidth communications channel. 
+    We explore the observation that the absence of communication nevertheless conveys 
+    information --- i.e., nothing communication-worthy occurred. 
+    This suggests that energy (or other resources consumed by communication) could be saved using 
+    the *timing* of messages to transmit information, rather than the normal practice 
+    of transmitting data in the messages themselves. We develop a framework to explore this idea and 
+    derive a condition for the existence of a stabilizing controller that captures the trade-off 
+    between bandwidth, resource consumption, and the unstable eigenvalues of the linear system 
+    to be controlled. Next, we use the framework to analyze a family of event-based controllers. 
+    We show that these controllers can stabilize a system while consuming resources at a rate 
+    that is within 2.5 times the theoretically-minimum rate. 
+
+    We presented these results at the 2015 and 2016 IEEE Conference on Decision and Control,
+    in the May 2017 issue of the IEEE journal *Transactions on Automatic Control*, and at my Ph.D. defense in Jan 2018.
+  links:
+    - url: https://youtu.be/NvPtkL1JVlk
+      text: PHD DEFENSE VIDEO PT 1
+    - url: /assets/research/publications/Pearson_UCSB_thesis.pdf
+      text: PHD THESIS
+    - url: /assets/research/publications/min_energy.pdf
+      text: JOURNAL PAPER
+
+- title: "Minimum-Energy Encoding for Networked Control Systems"
+  duration: "26:49"
+  date: Oct 25, 2013
+  upload-date: June 16, 2017 12:41 PM
+  raw-file: "Justins_Talk_20131025_1.mp4"
+  summary: >
+    Some preliminary results from our work on limited-communication control theory, 
+    presented at the 25th Southern California Control Workshop at UC Irvine in Oct 2013. 
+  image: /assets/research/socal-workshop.jpg
+  links:
+    - url: https://youtu.be/PazXINGj01k
+      text: VIDEO
+    - url: /assets/research/talks/minenergy_socal_oct2013_v3.pdf
+      text: SLIDES
+
+
+- title: "Introduction to Control Theory & the Beaglebone"
+  duration: "52:26"
+  date: "Dec 2, 2016"
+  links:
+    - url: "https://youtu.be/_IEzcxh3kvQ"
+      text: VIDEO
+    - url: /assets/research/talks/bb-pendulum.pdf
+      text: SLIDES
+  image: "/assets/research/bb-pendulum.jpg"
+  summary: >
+    To explore the importance of timing in control systems, we implement a pendulum controller on a Beaglebone single-board computer.
+
+    This video is an overview of the hardware and an introduction to state-feedback controllers.
+
+    Presented to engineering undergraduates at the IEEE Club at the University of California, Santa Barbara.
+
+- title: "How regenerative braking works"
+  duration: "20:53"
+  date: "Jan 13, 2017"
+  links:
+    - url: "https://youtu.be/QW3PmRp7EK8"
+      text: VIDEO
+    - url: "https://github.com/justinpearson/How-regenerative-braking-works"
+      text: MATLAB CODE
+  image: "/assets/research/regen.jpg"
+  summary: >
+    Using a simple model for a DC motor, let's figure out how to use its momentum to recharge a battery.
+
+    This repo contains the code from the video "How regenerative braking works".
+
+- title: "Paxos in Pictures: Lamport's Distributed Consensus Algorithm"
+  duration: "26:00"
+  date: "May 25, 2017"
+  links:
+    - url: "https://youtu.be/UUQ8xYWR4do"
+      text: VIDEO
+    - url: /assets/research/talks/paxos-in-pictures-with-slidebuilds.pdf
+      text: SLIDES
+  image: "/assets/research/paxos.jpg"
+  summary: >
+    Paxos is a computer algorithm to help a network of computers agree on a
+    proposed value. It is hard to understand at first. This video attempts to
+    explain Paxos intuitively yet rigorously. The content comes from Lamport's
+    2001 paper "Paxos Made Simple".

@@ -1,0 +1,189 @@
+---
+---
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+{% for page in site.pages %}
+{% if page.layout %}
+
+<url>
+  <loc>http://justinppearson.com{{site.baseurl}}/{{page.url}}</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+
+{% endif %}
+{% endfor %}
+
+<!-- Static non-jekyll-indexed pages -->
+
+<url>
+  <loc>http://justinppearson.com/pages/ccut/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/assets/dospueblos/ece-newsletter-2015-spotlight.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/assets/research/minenergy_socal_oct2013_v3.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/assets/research/bb-pendulum.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/assets/paxos/paxos-in-pictures-with-slidebuilds.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/counting-crows/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/counting-crows/counting-crows.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/lcd-digits/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/lcd-digits/lcd-digits.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/puppy-or-bagel/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/puppy-or-bagel/puppy-or-bagel.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/analog-dial/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/analog-dial/analog-dial.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/art-of-science/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/art-of-science/art-of-science.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/coloring-book/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/coloring-book/coloring-book.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/pride-and-prejudice/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/pride-and-prejudice/pride-and-prejudice.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/lone-wolf/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/lone-wolf/lone-wolf.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/coins-in-the-dark/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/coins-in-the-dark/coins-in-the-dark.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/boarding-a-plane/boarding-a-plane.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/lemmings/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/lemmings/lemmings.pdf</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/signatures/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/philosophy-of-teaching/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/TA-twice/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/outreach/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/pedagogy/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/instructor-of-record/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/conclusion/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/appendix1/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/appendix2/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/appendix3/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/appendix4/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/appendix5/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/appendix6/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/appendix7/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+<url>
+  <loc>http://justinppearson.com/pages/ccut/appendix8/</loc>
+  <lastmod>2020-09-04T16:39:22+00:00</lastmod>
+</url>
+</urlset>

@@ -1,0 +1,9 @@
+@InProceedings{PearsonHespanhaLiberzonDec14,
+  author    =   {Justin Pearson and Jo{\~a}o Pedro Hespanha and Daniel Liberzon},
+  title     =   {Control with Minimum Communication Cost per Symbol},
+  booktitle =   "Proc. of the 53nd Conf. on Decision and Contr.",
+  month     =   "Dec.",
+  year      =   2014,
+  annote    =   "Available at \url{http://www.ece.ucsb.edu/~hespanha/published}",
+  doi       =   {},
+}

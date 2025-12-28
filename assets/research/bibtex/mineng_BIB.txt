@@ -1,0 +1,12 @@
+@Article{PearsonHespanhaLiberzonMay2017,
+  author  =   {Justin Pearson and Jo{\~a}o Pedro Hespanha and Daniel Liberzon},
+  title   =   {Control with minimal cost-per-symbol encoding and quasi-optimality of event-based encoders},
+  journal =   "IEEE Trans. on Automat. Contr.",
+  year    =   2017,
+  month   =   "May",
+  number  =   5,
+  volume  =   62,
+  pages   =   {2286--2301},
+  annote  =   "Available at \url{http://www.ece.ucsb.edu/~hespanha/published}",
+  doi     =   {https://doi.org/10.1109/TAC.2016.2604921},
+}

@@ -1,0 +1,34 @@
+# nav.yaml
+
+- href: index.html
+  nav_name: about-me 
+  button_text: About me
+
+- href: resume.html
+  nav_name: resume
+  button_text: Résumé        
+
+- href: teaching.html
+  nav_name: teaching
+  button_text: Teaching
+
+- href: research.html
+  nav_name: research 
+  button_text: Research
+
+- href: industry.html
+  nav_name: industry
+  button_text: Industry
+
+- href: projects.html
+  nav_name: projects 
+  button_text: Projects
+
+- href: talks.html
+  nav_name: talks
+  button_text: Talks
+
+- href: fun-videos.html
+  nav_name: fun-videos
+  button_text: Fun videos
+

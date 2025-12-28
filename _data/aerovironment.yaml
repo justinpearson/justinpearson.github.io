@@ -1,0 +1,43 @@
+- title: Historic Hydrogen-Powered Flight
+  summary: Global Observer successfully completed its historic first hydrogen-powered flight at Edwards Air Force Base (EAFB) in California.
+  image: /assets/industry/av/first-hydrogen-flight.jpg
+  date: Jan 2011
+  links:
+    - url: https://www.youtube.com/watch?v=ICkx_h-RRbQ
+      text: VIDEO
+    - url: http://newatlas.com/global-observer-uav-first-hydrogen-powered-flight/17602/
+      text: ARTICLE
+    - url: "/assets/industry/av/Global Observer unmanned aircraft makes first hydrogen-powered flight.pdf"
+      text: PDF
+
+- title: First Flight
+  summary: Global Observer successfully completes maiden flight. 
+  image: /assets/industry/av/first-battery-flight.jpg
+  date: Aug 2010
+  links:
+    - url: https://www.youtube.com/watch?v=Ad4-3YGp0ak
+      text: VIDEO
+    - url: http://newatlas.com/global-observer-first-flight/16049/
+      text: ARTICLE
+    - url: "/assets/industry/av/Global Observer successfully completes first flight.pdf"
+      text: PDF
+
+- title: Wing Load Test
+  summary: Global Observer successfully completes Wing Load Testing.
+  image: /assets/industry/av/wing-load-test.jpg
+  date: June 2010
+
+- title: Ground and Taxi Testing
+  summary: Global Observer aircraft successfully completes ground and taxi testing in preparation for first flight.
+  image: /assets/industry/av/taxi-test.jpg
+  date: Apr 2010
+              
+- title: Propulsion System
+  summary: Global Observer propulsion system achieves multi-day operation in atmospheric chamber to simulate flight conditions.
+  image: /assets/industry/av/hangar.jpg
+  date: Sep 2008
+              
+- title: Joint Capability Technology Program
+  summary: AV awarded Global Observer Joint Capability Technology Demonstration program, opens development and production facility.
+  image: /assets/industry/av/fuselage.jpg
+  date: Oct 2007

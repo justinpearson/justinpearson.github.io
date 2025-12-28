@@ -1,0 +1,134 @@
+# scp.yaml
+
+
+
+- title: "Introduction"
+  duration: "5:49"
+  date: "Dec 21, 2008"
+  links:
+    - url: "https://youtu.be/L4UB9WQylic"
+      text: VIDEO
+  image: /assets/projects/chord-progressions.jpg
+  summary: Many popular songs use the [Em,C,G,D] chord progression (or a transposition of it). In this video we plot these songs with tempo on the x-axis and pitch on the y-axis, and use this plot as a way to visualize song mashups.
+
+
+- title: "Examples of [Em,C,G,D] songs"
+  duration: "3:57"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/XImK6XrzI3k"
+      text: VIDEO
+  image: /assets/projects/chord-progressions/song-examples.jpg
+  summary: "A tour of several songs that use the same chord progression."
+
+- title: "Main Menu"
+  duration: "0:21"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/fhqAXjEK0LM"
+      text: VIDEO
+  image: /assets/projects/chord-progressions/scp-main-menu.jpg
+  summary: "An interactive tempo/pitch plot. Clicking on points on the tempo/pitch plot plays mashups of songs at that tempo and pitch."
+
+- title: "Mashup - \"I Hope You Build a Mystery\""
+  duration: "1:00"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/KljPZINcEoA"
+      text: VIDEO
+  image: /assets/projects/chord-progressions/hope-you-build-mystery.jpg
+  summary: >
+    
+    - [I hope you die](https://www.youtube.com/watch?v=yy5zyx_BOgI) (Bloodhound Gang)
+
+    - [Building a mystery](https://www.youtube.com/watch?v=_QUq72fla3o) (Sarah McLachlan)
+
+    - [Grid II](https://www.youtube.com/watch?v=gndAoPzSWvM) (The Cynic Project)
+
+
+- title: "Mashup - \"In Another Side\""
+  duration: "0:39"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/xiD7z04LBSY"
+      text: VIDEO
+  image: /assets/projects/chord-progressions/in-another-side.jpg
+  summary: >
+
+    - [In a little while](https://www.youtube.com/watch?v=hPKoiX-dMD4) (U2)
+    
+    - [Otherside](https://www.youtube.com/watch?v=rn_YodiJO6k) (Red Hot Chili Peppers)
+
+
+- title: "Mashup - \"Life's Lost Apologies\""
+  duration: "1:39"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/ctqeQFXY_-o"
+      text: VIDEO
+  image: /assets/projects/chord-progressions/lifes-lost-apologies.jpg
+  summary: >
+
+        - [Apologize](https://www.youtube.com/watch?v=DHH8kwauwM4) (One Republic)
+        
+        - [It's my life](https://www.youtube.com/watch?v=vx2u5uUu3DE) (Bon Jovi)
+        
+        - [Lost without you](https://www.youtube.com/watch?v=eyTTevNvtKM) (Josh Vietti)
+
+
+- title: "Mashup - \"Save Tonight Whenever\""
+  duration: "1:03"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/lTacJDCLNzk"
+      text: VIDEO
+  image: /assets/projects/chord-progressions/save-tonight-whenever.jpg
+  summary: >
+
+    - [Save tonight](https://www.youtube.com/watch?v=Nntd2fgMUYw) (Eagle Eye Cherry) 
+
+    - [Whenever Wherever](https://www.youtube.com/watch?v=weRHyjj34ZE) (Shakira)
+
+
+- title: "Mashup - \"Hammerhead Hell\""
+  duration: "0:59"
+  date: "Nov 9, 2008"
+  links:
+    - url: "https://youtu.be/UCS1OglVM-4"
+      text: VIDEO
+  image: /assets/projects/chord-progressions/hammerhead-hell.jpg
+  summary: >
+    
+    - [Hammerhead](https://www.youtube.com/watch?v=xA32ofgzBho) (Offspring)
+    
+    - [Grid II](https://www.youtube.com/watch?v=gndAoPzSWvM) (The Cynic Project)
+
+    - [The hell song](https://www.youtube.com/watch?v=7pE8ReA5cn4) (Sum 41)
+
+
+- title: "Mashup - \"Jack Sparrow Just Had Sex\""
+  date: Jan 3, 2013
+  links:
+    - url: /assets/projects/chord-progressions/Jack-Sparrow-Just-Had-Sex.mp3
+      text: AUDIO
+  image: /assets/projects/chord-progressions/just-had-sex.jpg
+  summary: >
+
+    - [Just had sex](https://youtu.be/lQlIhraqL7o) (Lonely Island)
+
+    - [Jack Sparrow](https://youtu.be/GI6CfKcMhjY) (Lonely Island)
+
+
+
+
+- title: "Mashup - \"Hero on the Bridge of Khazad Dum\""
+  date: Jan 3, 2013
+  links:
+    - url: /assets/projects/chord-progressions/Youre-my-hero-on-the-Brige-of-Khazad-Dum.mp3
+      text: AUDIO
+  image: /assets/projects/chord-progressions/lotr-wreck-it-ralph.jpg
+  summary: >
+
+    - [The Bridge of Khazad Dum](https://youtu.be/NUIZvAe3RBg?t=4m56s) (Lord of the Rings)
+
+    - [You're My Hero](https://youtu.be/VoPhViGKvEY?t=2m35s) (Wreck-It Ralph)    

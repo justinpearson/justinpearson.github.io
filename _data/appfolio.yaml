@@ -1,0 +1,60 @@
+# appfolio.yaml
+
+- title: Recruiting event at Northeastern University
+  summary: >
+    My intern Ciarra and I gave a job talk at NEU about AppFolio
+    and the career-growth opportunities it offers. Ciarra talked about
+    her experience on our "team of new-hires" --- an excellent "customer testamonial".
+    We had lines out the door of hopeful students!
+  date: Feb 12, 2020
+  image: /assets/industry/af/neu-recruiting.jpg
+  links:
+    - url: /assets/industry/af/Appfolio-Info-Session-at-Northeastern-Univ-NEU-Feb-12-2020.pdf
+      text: SLIDES
+
+- title: Project Sea Cucumber (Customer Visit)
+  summary: >
+    AppFolio's software engineers love writing useful software. Who doesn't like 
+    feeling appreciated? And what better way to feel appreciated for your 
+    useful software than by parachuting an engineering team into a customer's office
+    and delighting them by adding some new desired feature to our software, right before their eyes??
+  image: /assets/industry/af/sea-cucumber.jpg
+  date: Apr 8, 2019
+  links:
+    - url: https://www.appfolio.com/blog/project-sea-cucumber-strikes-again-atlanta/
+      text: ARTICLE
+    - url: "/assets/industry/af/Project Sea Cucumber Strikes Again - On The Road in Atlanta.pdf"
+      text: PDF
+
+- title: Leading a team of new-hires
+  summary: >
+    In 2019 I led a new team of new-hires: two new software engineering interns,
+    a new QA intern, a new Product Manager, and a 3-month-old UX Designer. We worked hard, 
+    delivered value to our customers, and had a ton of fun along the way. The interns 
+    did a great job and we hired them full-time. My intern Ciarra wrote up her
+    experience on AppFolio's Engineering blog.
+  image: /assets/industry/af/a-dell.jpg
+  date: June 9, 2019
+  links:
+    - url: https://engineering.appfolio.com/appfolio-engineering/2019/11/13/intern-experience-at-appfolio
+      text: ARTICLE
+    - url: "/assets/industry/af/Intern Experience at Appfolio - AppFolio Engineering.pdf"
+      text: PDF
+
+- title: The Smile Machine (Hack Day project)
+  summary: >
+    For Hack Day at AppFolio, John and I created the "Smile Machine" --- two helmets 
+    armed with Raspberry Pi-powered cameras that pop a water balloon on your head
+    when you smile. Since then, the Smile Machines have become a venerable tradition
+    at AppFolio, most recently to celebrate our interns with an intern-vs-mentor 
+    staredown extravaganza.
+  image: /assets/industry/af/justin-john-hack-day.jpg
+  date: July 27, 2017
+  upload-date: Feb 11, 2018
+  links:
+    - url: https://www.appfolio.com/blog/hack-day-2017-engineering-odyssey/
+      text: ARTICLE
+    - url: "/assets/industry/af/Hack Day 2017 - An Engineering Odyssey - The Official AppFolio Blog.pdf"
+      text: PDF      
+    - url: https://github.com/justinpearson/smile-machine
+      text: CODE

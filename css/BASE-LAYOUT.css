@@ -1,0 +1,10 @@
+---
+---
+
+/* Dump multiple css files into this one. */
+
+{% include_relative global.css %}
+{% include_relative header.css %}
+{% include_relative nav.css    %}
+{% include_relative footer.css %}
+

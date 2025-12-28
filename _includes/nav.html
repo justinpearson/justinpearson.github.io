@@ -1,0 +1,7 @@
+<nav id="nav">
+    {% for e in site.data.nav%}
+        <a class="nav-link" href="{{site.baseurl}}/{{e.href}}">
+        <span class="nav-button {% if page.nav_name == {{e.nav_name}} %}nav-hilited{% endif %}">{{e.button_text}}</span>
+        </a>
+    {% endfor %}
+</nav>

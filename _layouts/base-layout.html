@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% if page.nav_name %}
+        <title>
+            {{ page.nav_name | replace: "-", " " | capitalize }}
+            &middot;
+            Justin Pearson
+        </title>
+    {% else %}
+        <title>Justin Pearson</title>
+    {% endif %}
+
+
+    <!-- Otherwise quotes don't come out right when uploaded: -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Not sure why needed; saw on Lynda.com: -->
+    <meta charset="utf-8"> 
+    <!-- For mobile; don't let mobile devs lie about their width -->
+    <!-- src: https://www.thesitewizard.com/css/mobile-friendly-responsive-design.shtml -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Main css file. -->
+    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/BASE-LAYOUT.css">
+
+    <!-- Each page's yaml front-matter may declare addnl css, eg, code syntax-highlighting. -->
+    {% for css_file in page.extra_css_files %}
+        <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/{{css_file}}">
+    {% endfor %}
+</head>
+
+<body>
+    {% include header.html %}
+
+    {% include nav.html %}
+
+    <main>
+        {{content}}
+    </main>
+
+    {% include footer.html %}
+</body>
+</html>

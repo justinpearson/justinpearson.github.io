@@ -1,4 +1,19 @@
-theme: jekyll-theme-midnight
-# markdown: redcarpet  # NO: github / Jekyll 3.0.0 doesn't use redcarpet any more
-# baseurl: /planets-of-the-universe
-exclude: [README.md]
+markdown: kramdown
+  # parse_block_html: true # for TOC in .md file  # hm, not needed?
+
+# highlighter: rouge # I thought I needed this for syntax highlighting, but no.
+
+# baseurl: /
+
+exclude:
+  - 'how-to-start.txt'
+  - 'make.sh'
+  - 'todo.txt'
+  - '.gitignore'
+  - '_site_WARNING_DO_NOT_DELETE__site_DIRECTORY'
+  - 'DOC'
+  - 'MISC'
+  - 'image-resizer-tool.key'
+  - 'CLAUDE.md'
+
+keep_files: ['pages']

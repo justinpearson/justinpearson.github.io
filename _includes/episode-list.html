@@ -1,0 +1,5 @@
+<div class="episode-list"> 
+    {% for e in include.episodes %} 
+        {% include episode.html e=e show_dateQ=include.show_dateQ%}
+    {% endfor %}
+</div>

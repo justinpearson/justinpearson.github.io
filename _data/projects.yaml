@@ -1,0 +1,355 @@
+# projects.yaml
+
+- title: Grumpy Justin's Ruby Tutorial
+  summary: >
+    The Ruby programming language has some weird quirks.
+
+    This tutorial describes what an experienced programmer needs to know
+    to get up-to-speed.
+  image: /assets/projects/ruby-tutorial-mindblown.jpg
+  links:
+    - url: /projects/ruby-tutorial.html
+      text: TUTORIAL
+
+- title: Shortest-path grocery shopping
+  date: Apr 19, 2020
+  upload-date: Apr 19, 2020
+  links:
+    - url: "https://youtu.be/qil44ptNYUw"
+      text: VIDEO
+    - url: /pages/shortest-path-grocery-shopping
+      text: HTML
+    - url: /pages/shortest-path-grocery-shopping/shortest-path-grocery-shopping.pdf
+      text: PDF
+  image: /assets/projects/shoptimization-map.jpg
+  summary: >
+    What's the shortest path through my grocery store that gets
+    all the items on my shopping list? We apply Mathematica's powerful
+    image-processing and graph-search algorithms to a real map of my
+    local grocery store to figure it out.
+  notes: /Users/justin/Projects/Grocery-store-optimization/shoptimization-v5_WEB.nb
+
+- title: "Typesetting \"The Metropolitan Man\""
+  date: Apr 28, 2019
+  upload-date: Apr 28, 2019
+  links:
+    - url: "https://github.com/justinpearson/The-Metropolitan-Man-Book"
+      text: CODE
+    - url: /assets/projects/mm.pdf
+      text: PDF
+  image: "/assets/projects/MM_front.jpg"
+  summary: >
+    A shell script to download and typeset _The Metropolitan Man_,
+    the rationalist Superman fanfic by [Alexander Wales](https://alexanderwales.com/).
+    Armed with the PDF and the associated cover art,
+    you can print your own hard-copy of _The Metropolitan Man_
+    at online book-printing sites like [lulu.com](http://www.lulu.com).
+  notes: /Users/justin/Projects/The-metropolitan-man/The-Metropolitan-Man-Book/
+
+- title: "Envy-free object allocation"
+  date: Oct 27, 2018
+  upload-date: Oct 27, 2018
+  links:
+    - url: /pages/envy-free-allocation
+      text: HTML
+    - url: /pages/envy-free-allocation/envy-free-allocation.pdf
+      text: PDF
+  # image: "assets/envy-free-allocation-thumbnail.jpg"
+  image: "/assets/projects/envy-free.gif"
+  summary: >
+    This code illustrates an algorithm from an Dutch economics paper about object allocation.
+    Consider the problem of allocating *n* objects to *n* people.
+    Typically folks with crappy objects would envy the folks
+    with desirable objects. But what if winners of the nice objects
+    paid money to the folks who won the crappy objects?
+    The paper presents an algorithm for figuring out how much
+    money would need to be transferred so that no one
+    envies anyone else.
+  notes: /Users/justin/Projects/Envy-free-economic-allocation/resource-allocation-v6.nb
+
+
+- title: "The Smile Machine"
+  date: July 27, 2017
+  upload-date: Feb 11, 2018
+  links:
+    - url: https://www.appfolio.com/blog/hack-day-2017-engineering-odyssey/
+      text: ARTICLE
+    - url: "/assets/industry/af/Hack Day 2017 - An Engineering Odyssey - The Official AppFolio Blog.pdf"
+      text: PDF      
+    - url: https://github.com/justinpearson/smile-machine
+      text: CODE
+  image: /assets/projects/smile-machine.jpg
+  summary: >
+    Take "stare-down" to the 21st century.
+    Each player wears a helmet that watches the face of the wearer.
+    When the wearer smiles, it pops a water balloon on their head.
+    John and I developed this for Appfolio Hack Day in 2017.
+  notes: /Users/justin/Projects/Appfolio-hack-day/Smile-machine/
+
+
+- title: "Load-testing a Rails app on AWS Elastic Beanstalk"
+  duration: "15:53"
+  date: Dec 11, 2017
+  upload-date: Dec 11, 2017
+  links:
+    - url: "https://youtu.be/g-N3s4sBlvs"
+      text: VIDEO
+    - url: "https://safe-peak-44452.herokuapp.com/"
+      text: APP
+    - url: "https://github.com/justinpearson/Luber"
+      text: CODE
+    - url: /assets/projects/cs291-project-luber-aws-tsung.pdf
+      text: REPORT (PDF)
+    - url: /assets/projects/Luber-Presentation.pdf
+      text: PRESENTATION (PDF)
+  image: /assets/projects/tsung-aws-rails-logo.jpg
+  summary: >
+    We deploy a Ruby-on-Rails app to Amazon Web Services "Elastic Beanstalk" and load-test it with Tsung.
+    The report and presentation each describe how we used concepts from our university course --
+    *Scalable Internet Services* -- to scale up our web app to accommodate lots of concurrent users.
+    The video tutorial shows how to configure Elastic Beanstalk and Tsung.
+  notes: "/Users/justin/Classes/CS291A_ScalableInternetServices_Boe_Fall2017/Project/"
+
+
+- title: "MapReduce / Paxos class project"
+  duration: "38:33"
+  date: May 25, 2017
+  upload-date: Jun 28, 2017
+  links:
+    - url: "https://youtu.be/4J92zbRWlzk"
+      text: VIDEO
+    - url: "https://github.com/justinpearson/MapReduce-Paxos-Project"
+      text: PYTHON CODE
+  image: /assets/projects/mapreduce-paxos-project.jpg
+  summary: >
+    This project implements the MapReduce parallel computing algorithm and the Multi-Paxos distributed consensus algorithm.
+    The code uses MapReduce to parallelize the computation of a word tally of several large text files;
+    then it uses Multi-Paxos to distribute those tallies among two other computers in the form of a replicated log.
+    The code runs on the Eucalyptus Cloud Computing infrastructure (similar to AWS).
+  notes: "/Users/justin/Classes/CS171_DistributedSystems_ElAbbadi_Spr2017/Project/Github/MapReduce-Paxos-Project/"
+
+
+- title: Musical chord progression analysis
+  id: scp-proj
+  date: Dec 2008
+  image: /assets/projects/chord-progressions.jpg
+  summary: >
+    The [Em,C,G,D] chord progression spans musical genres in its popularity and use.
+    In this project, we analyze the songs on a tempo/pitch plot and explore several song mash-ups.
+  links:
+    - url: "https://youtu.be/L4UB9WQylic"
+      text: VIDEO
+    - url: /projects/chord-progressions.html
+      text: SITE
+
+- title: "IR camera, frying pans, and Mathematica"
+  id: ir-cam
+  date: "Aug 2016"
+  # image: "/assets/th/5gE6mls-Di8-16-by-9.jpg"
+  image: /assets/projects/frying-pans.jpg
+  summary: Comparing frying pans with an infrared camera and Mathematica.
+  links:
+    - url: "https://youtu.be/5gE6mls-Di8"
+      text: VIDEO
+
+
+- title: "Where's this signpost? A geodesy odyssey with Mathematica"
+  date: "Nov 2016"
+  links:
+    - url: "https://youtu.be/zuRLdICHHiU"
+      text: VIDEO
+  # image: "/assets/th/zuRLdICHHiU-16-by-9.jpg"
+  image: /assets/projects/signposts.JPG
+  summary: "You've probably seen those signposts with arrows like \"200 miles to LA\", \" 1200 miles to NY\", etc. Given such a sign, can you find your position on Earth?"
+
+
+
+- title: Counting crows in a video
+  date: Oct 25, 2014
+  image: /assets/projects/crows.gif
+  links:
+    - url: /pages/counting-crows/
+      text: HTML
+    - url: /pages/counting-crows/counting-crows.pdf
+      text: PDF
+  summary: We explore computational techniques for enumerating birds in a video file. The video was filmed in November 2011 in Simi Valley, California, and features thousands of crows on their daily evening commute from the city to a large green open space. We determine about 1200 crows fly by in 8 minutes.
+
+
+- title: "Mathematica: Sunset behind the UCSB Oil Rig"
+  date: "Dec 2015"
+  links:
+    - url: "https://youtu.be/R5ke1E8YKVY"
+      text: VIDEO
+    - url: /assets/projects/oil-rig-sunset-JustinPearson.pdf
+      text: PDF
+    - url: /assets/projects/oil-rig-sunset-JustinPearson.nb
+      text: MMA CODE
+  image: /assets/projects/oil-rig.jpg
+  summary: >
+    We use Mathematica to dynamically map out where you'd have to stand to see the sun set behind
+    the offshore oil rig near the UCSB campus, as a function of the time of year.
+
+- title: Classifying pictures of LCD digits
+  date: Oct 26, 2014
+  summary: "[Joulies](https://www.joulies.com/) are metal spheroids that supposedly keep your coffee at a comfortable temperature for longer. We tested this claim with two digital-readout thermometers and used Mathematica's image classification to read the thermometers' LCD displays."
+  links:
+    - url: /pages/lcd-digits
+      text: HTML
+    - url: /pages/lcd-digits/lcd-digits.pdf
+      text: PDF
+  image: /assets/projects/lcd-digs.gif
+
+- title: Puppy or Bagel?
+  date: Mar 12, 2016
+  summary: Can Mathematica's image classifier tell the difference between a puppy and a bagel?
+  links:
+    - url: /pages/puppy-or-bagel
+      text: HTML
+    - url: /pages/puppy-or-bagel/puppy-or-bagel.pdf
+      text: PDF
+  image: /assets/projects/puppy-or-bagel.jpg
+
+- title: Reading an analog dial
+  date: Oct 19, 2014
+  image: /assets/projects/dial.gif
+  links:
+    - url: /pages/analog-dial
+      text: HTML
+    - url: /pages/analog-dial/analog-dial.pdf
+      text: PDF
+  summary: Could a computer read an analog dial by processing a picture of it? We compare Mathematica's built-in machine learning algorithms to old-fashioned image processing techniques  to read the analog dial on my gas meter.
+
+- title: Art of Science
+  date: Feb 19, 2015
+  image: /assets/projects/art-of-science.jpg
+  links:
+    - url: /pages/art-of-science
+      text: HTML
+    - url: /pages/art-of-science/art-of-science.pdf
+      text: PDF
+  summary: My information-theory-based entry into the 2015 [Art of Science](http://art-csep.cnsi.ucsb.edu/) competition run by UCSB's Center for Science and Engineering Partnerships.
+  content: >
+    We stream movies, send pictures to friends, and video-chat with distant loved ones,
+    all digitally, and all without a second thought. Empowering this revolution behind
+    the scenes is Information Theory, which provides a mathematical framework to quantify,
+    compress, and transmit information.
+
+    This picture illustrates an important theorem in Information Theory:
+    the Asymptotic Equipartition Property. It formalizes and generalizes the
+    intuitive notion that if you flip a fair coin many times, you would expect
+    about 50% heads. In the image, each square represents a string of coinflips
+    (with 0=tails and 1=heads), with smaller squares representing longer strings
+    of flips. Like a family tree, each square recursively generates 4 squares
+    below it by appending one of 4 suffixes: 00, 01, 10, or 11. Each square is black,
+    but is made transparent depending on how close to "50% heads" its corresponding
+    string of coinflips is. We see that the vast majority of the tiny squares at
+    the bottom are nearly 50% heads and hence transparent, allowing the underlying
+    Swiss pasture scene to show through.
+
+
+
+- title: Auto-Coloring book
+  date: Nov 22, 2015
+  image: /assets/projects/coloring-book-fish.jpg
+  summary: "Using Mathematica's morphological image processing, one can color a page coloring book in about 10 seconds. If only I had this in preschool!"
+  links:
+    - url: /pages/coloring-book
+      text: HTML
+    - url: /pages/coloring-book/coloring-book.pdf
+      text: PDF
+
+- title: Pride and Prejudice Markov chain
+  date: Oct 26, 2014
+  image: /assets/projects/pride-and-prejudice-random-text.jpg
+  summary: We train a discrete markov process from text from the Jane Austen novel *Pride and Prejudice*, with hilarious consequences.
+  links:
+    - url: /pages/pride-and-prejudice
+      text: HTML
+    - url: /pages/pride-and-prejudice/pride-and-prejudice.pdf
+      text: PDF
+      
+- title: Graph analysis of a Choose-Your-Own-Adventure book
+  date: Nov 8, 2007
+  image: /assets/projects/lone-wolf.jpg
+  summary: "We analyze Joe Denver's classic \"Lone Wolf\" role-playing Choose-Your-Own-Adventure book. We find the shortest path to win and lose, and analyze the graph for cycles."
+  links:
+    - url: /pages/lone-wolf
+      text: HTML
+    - url: /pages/lone-wolf/lone-wolf.pdf
+      text: PDF
+
+- title: "Elianscript and Mathematica"
+  date: "Dec 2016"
+  links:
+    - url: "https://youtu.be/kX5-uh93WtI"
+      text: VIDEO
+  image: /assets/projects/elianscript.jpg
+  summary: "Here we make a quick Mathematica program to convert strings of text to Elianscript. Then we deploy it to the Wolfram Cloud so that other folks can use our program to practice reading Elianscript."
+
+- title: "StubHub Ticket Search GUI"
+  date: Jun 30, 3017
+  links:
+    - url: https://github.com/justinpearson/StubHub-Ticket-Search-GUI
+      text: PYTHON CODE
+  image: /assets/projects/browsergui-ticket-search.jpg
+  summary: The search capability of the StubHub online ticket marketplace sucks. So I used the [browsergui](https://github.com/speezepearson/browsergui) browser-based GUI framework and [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) to download, parse, and display a search interface that allows users to search across multiple events for specific sections, rows, and seats.
+
+
+- title: Counting coins in the dark
+  id: coins
+  date: May 2017
+  image: /assets/projects/pennies.jpg
+  summary: >
+    A bunch of coins are in a dark room. Someone tells you how many coins there are, and how many of them are Heads.
+    You're allowed to flip coins over. How can you make 2 piles of coins, each with the same number of Heads?
+  links:
+    - url: /pages/coins-in-the-dark
+      text: HTML
+    - url: /pages/coins-in-the-dark/coins-in-the-dark.pdf
+      text: PDF
+
+- title: Boarding a plane
+  id: plane
+  date: July 2010
+  image: /assets/projects/airplane-seats.jpg
+  summary: >
+    100 passengers board a 100-seat airplane. They all have assigned seats,
+    but the first passenger on board instead selects a seat at random.
+    Each subsequent passenger tries to sit in their assigned seat,
+    but if it's occupied they'll pick a seat at random.
+    What's the probability the last passenger sits in his assigned seat?
+  links:
+    - url: /pages/boarding-a-plane/boarding-a-plane.pdf
+      text: PDF
+
+
+- title: Lemmings
+  date: June 12, 2017
+  image: /assets/projects/lemmings.jpg
+  summary: >
+    One hundred lemmings are spaced 1-meter apart on a 101-meter plank in the water.
+    You pick the initial direction of each lemming; each moves at 1m/s
+    until it hits another lemming, at which point they each reverse direction.
+    When all the lemmings are in the water, the game is over.
+    Choose the initial directions of the lemmings to make the game last as long as possible
+    (at least one lemming still on the plank).
+  links:
+    - url: /pages/lemmings
+      text: HTML
+    - url: /pages/lemmings/lemmings.pdf
+      text: PDF
+
+- title: Borwein Integrals
+  id: borwein
+  date: Sep 2018
+  image: /assets/projects/borwein-integrals2.png
+  summary: >
+    Integrating `sin(x)/x` from 0 to Inf yields &#960;/2. Same with
+    `sin(x)/x * sin(x/3)/(x/3)` and `sin(x)/x * sin(x/3)/(x/3) * sin(x/5)/(x/5)`.
+    Continuing the pattern, the first 7 terms in this sequence all have the value &#960;/2.
+    However, `sin(x)/x * ... * sin(x/15)/(x/15)` breaks the pattern. Why?
+  links:
+    - url: /pages/borwein
+      text: HTML
+    - url: /pages/borwein/borwein.pdf
+      text: PDF

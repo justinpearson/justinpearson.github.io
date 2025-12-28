@@ -1,0 +1,60 @@
+<div class="episode" id="{{include.e.title | slugify}}"> 
+
+    <!-- Everything but pic  -->
+    <div class="ent-text-container">
+
+        <p class="ent-title">
+            {{include.e.title}} 
+            <a class="headerlink ent-title-link" href="{{page.url}}#{{include.e.title | slugify}}" title="Permalink to this episode">¶</a>
+        </p>
+
+        <div class="ent-summary">
+        {{include.e.summary | markdownify}}
+        </div>
+
+        {% if include.e.content %}
+            <details class="ent-details"><summary>more...</summary>{{include.e.content | markdownify}}</details>
+        {% endif %}
+
+        {% if include.show_dateQ %}
+            <span class="ent-date">{{include.e.date | date: "%b %Y"}}</span>
+        {% endif %}
+
+        <ul class="ent-badge-list">
+            {% for l in include.e.links %}
+                <li>
+                <a style="text-decoration: none;"
+                    href="{{l.url}}">
+                <span class="ent-badge">&#x25ba; {{l.text}}</span>
+                </a>    
+                </li>
+            {% endfor %}
+        </ul>    
+    </div>
+
+    <!-- Pic -->
+    <div class="ent-img-container">
+        {% if include.e.video %}
+            <video 
+                src="{{include.e.video}}" 
+                type="video/mp4" 
+                autoplay controls loop>
+                vid no work!!
+            </video>
+        {% else %}
+            {% if include.e.links %}
+                {% assign firstlink = (include.e.links | first) %}
+                <a href="{{firstlink.url}}">
+            {% endif %}
+                {% if include.e.image %}
+                    {% assign imgsrc = include.e.image %}
+                {% else %}
+                    {% assign imgsrc = "{{site.baseurl}}/assets/misc/wtf-no-img.jpg" %}
+                {% endif %}
+                <img src="{{imgsrc}}">
+            {% if include.e.links %}
+                </a>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>

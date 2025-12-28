@@ -1,0 +1,161 @@
+# teaching.yaml
+
+- title: Certificate in College and University Teaching
+  id: ccut
+  date: June 2016
+  image: /assets/teaching/ccut.jpg
+  summary: >
+    Earning the CCUT required studying pedagogy, designing and running educational outreach programs, 
+    and planning and teaching a course as Instructor of Record. Follow the link to view my CCUT Portfolio.
+  content: >
+    From the [UCSB Graduate Division site on the CCUT](http://www.graddiv.ucsb.edu/academic/interdisciplinary-emphases-certificate-programs/ccut): 
+    The UCSB Certificate in College and University Teaching (CCUT) is designed for students 
+    who wish to demonstrate superior competence and experience in teaching at the university or college level. 
+    Certificate requirements include completion or attainment of a number of teaching-related skills and experiences culminating 
+    in independent instruction of an entire course with the support of a UCSB faculty mentor. 
+    Students interested in getting the certificate thus need to obtain a position as an
+    independent instructor either as a Teaching Associate in the regular or summer session
+    on campus or at an off-campus junior college, college, or university location.
+    Certificates are awarded in conjunction with a Ph.D. or MFA degree upon completion.
+  links:
+    - url: https://youtu.be/6PiX3PFXGp4
+      text: VIDEO
+    - url: /pages/ccut
+      text: PORTFOLIO (SITE)
+    - url: /pages/ccut/ccut-pearson.pdf
+      text: PORTFOLIO (PDF)
+
+- title: "Teaching University Discussion Sections"
+  image: /assets/teaching/ta-orientation-2017.jpg
+  id: ta-orientation
+  date: Sep 26, 2017
+  summary: >
+    This workshop helps teachers plan their lessons, engage their students,
+    and assess their teaching. I presented this to new Teaching Assistants
+    (1st-year graduate students) at UC Santa Barbara's 2017 Teaching Assistant Orientation.
+  content: >
+    **Workshop synopsis:**  *TAing Engineering Sections*: Engineering and its practitioners
+    have the reputation for being boring and impenetrable. In this workshop we will
+    discuss ways to structure your lessons and promote student interaction so that
+    your students find you and your discipline lively, accessible, and most importantly,
+    valuable to their future careers.
+  links:
+    - url: https://youtu.be/tA1Pm-2TMF4
+      text: VIDEO
+    - url: /assets/teaching/ta_orientation_2017.pdf
+      text: SLIDES
+    - url: /teaching/ta-orientation-feedback.html
+      text: FEEDBACK 
+
+- title: Teaching reviews
+  date: May 2016
+  image: /assets/teaching/rate-my-professor.jpg
+  summary: >
+    Here are my teaching reviews hosted at RateMyProfessor.com for classes
+    I've taught at the University of California Santa Barbara and
+    California State Univeristy at Channel Islands.
+  links: 
+    - url: /teaching/teaching-reviews.html
+      text: REVIEWS
+
+- title: "Dustin the Bad TA makes classic teaching mistakes"
+  image: /assets/teaching/dustin-bad-ta.jpg
+  id: dustin-teaches-badly
+  date: Sep 2015
+  summary: >
+    Dustin the "bad teaching assistant" unwittingly demonstrates classic teaching mistakes
+    during my TA workshop "TAing Engineering Sections".
+    See also
+    ["Teaching Discussion Sections in Engineering"](teaching.html#teaching-university-discussion-sections)
+    for the entire lecture.
+  links:
+    - url: https://youtu.be/GmxVI4ot0rM
+      text: VIDEO
+
+# /Users/justin/Video/Educational/2015-09-22_UCSB-TA-Orientation-How-to-TA-engineers/bad-ta-dustin-deint.mp4
+
+- title: School for Scientific Thought
+  id: sst
+  date: Feb 2015
+  image: /assets/teaching/sst-group-pic.jpg
+  summary: >
+    A diverse group of high-school students from Santa Barbara and Bakersfield
+    learn the basics of programming and mobile robotics over 5 Saturdays in this hands-on workshop.
+  content: >
+    The School of Scientific Thought (SST) is an outreach program offered
+    twice a year by the Center for Science and Engineering Partnerships at UCSB.
+    Over the course of 5 Saturdays, roughly 70 high-school students come to UCSB
+    to participate in hands-on courses prepared by UCSB graduate students.
+    Each high-school student is assigned to a course based on his or her preferences.
+    The courses vary from year to year, depending on the available graduate students.
+    After each 2-hour course session, the students and mentors from all the courses meet for lunch.
+    This gives the students a chance to talk to the mentors in an informal setting,
+    and ask them questions about college. At the end of the five week program,
+    the students get certificates. The main goal of the SST program is to give
+    high-school students a glimpse into what college is all about, and to get them
+    excited about continuing their education after high-school.
+  links:
+    - url: /assets/teaching/sst-course-synopsis.png
+      text: COURSE
+    - url: http://sst-csep.cnsi.ucsb.edu/
+      text: SITE
+
+- title: Dos Pueblos Robotics Internship
+  id: dprobotics
+  date: July 2015
+  image: /assets/teaching/dos-pueblos.JPG
+  summary: >
+    High-school students learn and practice control theory by programming Roomba robots.
+    This internship was featured in the 2015 issue of the "ECE Current"
+    departmental magazine; see the "Story" link for the article.
+    The "Feedback" link features survey results from our students.
+  links:
+    - url: http://www.youtube.com/watch?v=N912j4-FvD4
+      text: VIDEO
+    - url: /assets/teaching/dos-pueblos-ece-newsletter-2015-spotlight.pdf
+      text: ARTICLE
+    - url: /teaching/roomba-internship-exit-survey.html
+      text: FEEDBACK
+
+# /Users/justin/Dropbox/ICBRoboticsStarter/ExitSurvey/roomba-internship-exit-survey.txt
+
+
+
+- title: Probability Notation - Explained
+  id: probability
+  date: June 2015
+  image: /assets/teaching/learning-glass.jpg
+  summary: >
+    Probability theory often confuses students. This is because the notation is
+    often highly abbreviated and mathematically sloppy. In this video we discuss
+    a few mathematical concepts underlying this notation,
+    scrutinizing a common equation found in an introductory probability course.
+  links:
+    - url: "https://youtu.be/t8KX9wDD4bI" 
+      text: VIDEO
+
+# - title: "Example lecture: Java Programming: Exceptions"
+#   duration: "22:53"
+#   date: "May 25, 2016"
+#   links:
+#     - url: "https://youtu.be/VsIHoVAhSS4"
+#       text: VIDEO
+#   image: /assets/teaching/java-exceptions.jpg
+#   summary: "Example lecture from my Java course (COMP 150) course taught at California State University at Channel Islands in Winter 2016."
+
+- title: "Math Notation - The Equals Sign"
+  duration: "13:43"
+  date: "Jun 4, 2014"
+  links:
+    - url: "https://youtu.be/TFL6pyVGOy4"
+      text: VIDEO
+  image: /assets/teaching/math-notation.jpg
+  summary: >
+    Today we use the equals sign (=) as shorthand for "is equal to,"
+    but also as shorthand for "is denoted by" or "is defined as".
+    This ambiguity causes much confusion in students. In this video,
+    we explore the history of the notation and some hilarious consequences of the ambiguity.
+
+
+
+

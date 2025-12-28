@@ -1,0 +1,123 @@
+# funvideos.yaml
+
+- title: Orangeless
+  duration: "2:10"
+  date: Apr 25, 2010
+  links:
+    - url: https://youtu.be/47yQjbJZ3b8
+      text: VIDEO
+  image: /assets/fun-videos/orangeless.jpg
+  summary: >
+    A whimsical video about the bright orange California poppies
+    in the Antelope Valley Poppy Reserve near Lancaster, CA. Filmed Apr 2010.
+
+# - title: "Orangeless (No FX Version)"
+#   duration: "2:30"
+#   date: "Apr 25, 2010"
+#   links:
+#     - url: https://youtu.be/BDesdnUeSXo
+#       text: VIDEO
+#   image: /assets/fun-videos/BDesdnUeSXo-16-by-9.jpg
+#   summary: "A version of the video \"Orangeless\" without the color-removal effect. Look at those orange poppies!"
+
+- title: TechnoGlass
+  duration: "1:03"
+  date: June 2005
+  upload-date: "Feb 3, 2007"
+  links:
+    - url: https://youtu.be/ggjjY-a-5Hg
+      text: VIDEO
+  image: /assets/fun-videos/technoglass.jpg
+  summary: >
+    I'm "playing" one of my favorite Cynic Project songs on this sliding glass door. 
+    I used the Adobe After Effects editor; each "key" is an adjustment layer with 
+    time-varying keyframes that automatically repeat with a period determined by the song's tempo.
+
+- title: Magic toilet seat
+  duration: "5:24"
+  date: August 19, 2005
+  upload-date: "Feb 3, 2007"
+  links:
+    - url: https://youtu.be/jLtTM4DdXAM
+      text: VIDEO
+  image: /assets/fun-videos/magic-toilet-seat.jpg
+  summary: >
+    My sister Steph had her 20th birthday around the time I was learning Adobe After Effects. 
+    My brother and I whipped this up for her. I don't think you can buy toilet seats that do this any more.
+    The effects use adjustment layers that translate by tracking the hearts on the seat.
+
+- title: "Zeal (Chase Scene)"
+  duration: "4:15"
+  date: Jan 2, 2003
+  upload-date: "Feb 3, 2007"
+  links:
+    - url: https://youtu.be/Fgq9dGgKsuE
+      text: VIDEO
+  image: /assets/fun-videos/zeal-16-by-9.jpg
+  summary: "A chase scene with a silly premise."
+
+
+- title: "Zeal 2 (Chase Scene) (Storyboard)"
+  duration: "1:40"
+  date: May 16, 2004
+  upload-date: "Feb 3, 2007"
+  links:
+    - url: https://youtu.be/2V9rMpX2GKQ
+      text: VIDEO
+  image: /assets/fun-videos/zeal2-16-by-9.jpg
+  summary: A storyboard for a sequel to a chase scene with a silly premise.
+
+- title: Heat Transfer for Fun and Profit
+  duration: "6:22"
+  date: "Mar 8, 2005"
+  upload-date: "Feb 3, 2007"
+  links:
+    - url: https://youtu.be/4UILX-q4P7A
+      text: VIDEO
+  image: /assets/fun-videos/heat-transfer-video.jpg
+  summary: >
+    Extra-credit video for Eric Matthys' Heat Transfer class,
+    filmed Mar 2005 on the UC Santa Barbara campus.
+
+- title: Fluid Mechanics for Fun and Profit
+  duration: "3:09"
+  upload-date: "Feb 1, 2017"
+  date: "Nov 17, 2004"
+  links:
+    - url: https://youtu.be/EEsdBR2A5eE
+      text: VIDEO
+  image: /assets/fun-videos/fluid-mechanics-video.jpg
+  summary: >
+    Extra-credit video for Eric Matthys' Fluid Mechanics class,
+    filmed Nov 2004 on the UC Santa Barbara campus.
+
+- title: Nothing Bot Net
+  duration: "2:17"
+  date: "Mar 14, 2007"
+  links:
+    - url: https://youtu.be/2B6kXa-gLuw
+      text: VIDEO
+  image: /assets/fun-videos/nothing-bot-net.jpg
+  summary: >
+    Promotional video for Stanford's mechatronics class (ME 210),
+    featuring a robot-basketball competition. Filmed Spring 2007.
+
+- title: CoronaFreeze
+  duration: "0:30"
+  date: "Mar 29, 2007"
+  links:
+    - url: https://youtu.be/4i11hVEVPdM
+      text: VIDEO
+  image: /assets/fun-videos/corona-freeze.jpg
+  summary: >
+    If you chill a beer in the freezer for half an hour, striking it
+    causes ice crystals to nucleate on the bubbles that form.
+
+- title: Borescope Pumpkin
+  duration: "1:12"
+  date: "Nov 6, 2011"
+  links:
+    - url: https://youtu.be/6n1x9P4EmuM
+      text: VIDEO
+  image: /assets/fun-videos/borescope-pumpkin.jpg
+  summary: Exploring the inside of a pumpkin with a borescope.
